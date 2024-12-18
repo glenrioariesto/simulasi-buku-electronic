@@ -1,0 +1,873 @@
+/* Global Styles */
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.logo {
+  width: 6vw;
+  height: 6vh;
+  position: fixed;
+  top: 1vw;
+  left: 1vw;
+  z-index: 9999;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+.scene {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+#scene1 {
+  position: relative;
+  background-image: url("assets/cover3D.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.button-mulai {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url("assets/mulai.png");
+  width: 15vw;
+  height: 10vh;
+  position: absolute;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-mulai.scene1 {
+  width: 15vw;
+  height: 10vh;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button-mulai.scene1:hover {
+  transform: translateX(-50%) scale(1.1); /* Scale saat hover */
+}
+
+.button-mulai.scene1:active,
+.button-mulai.scene1:focus {
+  transform: translateX(-50%) scale(0.9);
+}
+
+.text-cover {
+  width: 60vw;
+  height: 10vh;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.text-scene1 {
+  font-size: 1vw;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#scene3,
+#scene4,
+#scene7 {
+  position: relative;
+  background-image: url("assets/background.jpeg");
+}
+#scene3::before,
+#scene4::before,
+#scene7::before {
+  content: ""; /* Membuat elemen pseudo */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Overlay gelap dengan transparansi 70% */
+  z-index: 1; /* Pastikan overlay di atas latar belakang */
+}
+#scene2 > *,
+#scene3 > *,
+#scene4 > *,
+#scene7 > * {
+  position: relative;
+  z-index: 2; /* Pastikan konten tetap terlihat di atas overlay */
+}
+
+.container-scene3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  gap: 2vw;
+}
+
+.frame-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 90%;
+  gap: 1vw;
+}
+#soalImage {
+  width: 100%;
+  height: 100%;
+}
+
+.container-dropbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("assets/wadah.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50%;
+}
+
+.dropbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 70%;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#depan {
+  background-image: url("assets/depan.png");
+}
+
+#kanan {
+  background-image: url("assets/kanan.png");
+}
+
+#atas {
+  background-image: url("assets/atas.png");
+}
+
+.frame-right {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 90%;
+  gap: 0.5vw;
+}
+
+.bidang {
+  cursor: pointer;
+  display: flex;
+  width: 24.5%;
+  height: 23.5%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bidang:hover {
+  transform: scale(1.1);
+}
+
+.bidang:active {
+  transform: scale(0.9);
+}
+
+#bidang1 {
+  background-image: url("assets/1a.png");
+}
+#bidang2 {
+  background-image: url("assets/1b.png");
+}
+#bidang3 {
+  background-image: url("assets/1c.png");
+}
+#bidang4 {
+  background-image: url("assets/2a.png");
+}
+#bidang5 {
+  background-image: url("assets/2b.png");
+}
+#bidang6 {
+  background-image: url("assets/2c.png");
+}
+#bidang7 {
+  background-image: url("assets/3a.png");
+}
+#bidang8 {
+  background-image: url("assets/3b.png");
+}
+#bidang9 {
+  background-image: url("assets/3c.png");
+}
+#bidang10 {
+  background-image: url("assets/4a.png");
+}
+#bidang11 {
+  background-image: url("assets/4b.png");
+}
+#bidang12 {
+  background-image: url("assets/4c.png");
+}
+#bidang13 {
+  background-image: url("assets/5a.png");
+}
+#bidang14 {
+  background-image: url("assets/5b.png");
+}
+#bidang15 {
+  background-image: url("assets/5c.png");
+}
+#bidang16 {
+  background-image: url("assets/6a.png");
+}
+/* level 2 */
+#bidang17 {
+  background-image: url("assets/level2/11a.png");
+}
+#bidang18 {
+  background-image: url("assets/level2/11b-and-15b.png");
+}
+#bidang19 {
+  background-image: url("assets/level2/11c.png");
+}
+#bidang20 {
+  background-image: url("assets/level2/12a.png");
+}
+#bidang21 {
+  background-image: url("assets/level2/12b.png");
+}
+#bidang22 {
+  background-image: url("assets/level2/12c.png"); /* kembar sama dengan bidang28*/
+}
+#bidang23 {
+  background-image: url("assets/level2/13a.png");
+}
+#bidang24 {
+  background-image: url("assets/level2/13b.png");
+}
+#bidang25 {
+  background-image: url("assets/level2/13c.png");
+}
+#bidang26 {
+  background-image: url("assets/level2/14a.png");
+}
+#bidang27 {
+  background-image: url("assets/level2/14b.png");
+}
+#bidang28 {
+  background-image: url("assets/level2/14c.png"); /* kembar sama dengan bidang22*/
+}
+#bidang29 {
+  background-image: url("assets/level2/15a.png");
+}
+#bidang30 {
+  background-image: url("assets/level2/15c.png");
+}
+#bidang31 {
+  background-image: url("assets/level2/16a.png");
+}
+
+#bidang32 {
+  background-image: url("assets/level2/17a.png");
+}
+
+#scene2 {
+  background-image: url("assets/background caramain.jpg");
+}
+
+.container-scene2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 60%;
+  background-image: url("assets/frame.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.panduan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.6s ease;
+  visibility: hidden;
+}
+
+.panduan-1 {
+  gap: 4vw;
+}
+.panduan-1 img {
+  width: 20vw;
+  height: auto;
+}
+
+.panduan-3 {
+  gap: 3vw;
+  top: 40%;
+}
+.panduan-3 img {
+  width: 100%;
+  height: 7vw;
+}
+
+.panduan-4 {
+  gap: 3vw;
+  top: 40%;
+}
+.panduan-4 img {
+  width: 20vw;
+  height: auto;
+}
+/* .panduan-4 img {
+  width: 14vw;
+  height: 6vw;
+} */
+.panduan-5 {
+  gap: 3vw;
+  top: 40%;
+}
+.panduan-5 img {
+  width: 10vw;
+  height: auto;
+  margin-bottom: 1vw;
+}
+
+.panduan-6 {
+  gap: 3vw;
+  top: 40%;
+}
+
+.panduan-6 img {
+  width: 15vw;
+  height: auto;
+}
+
+.panduan-7 {
+  gap: 3vw;
+  top: 40%;
+}
+
+.panduan-7 img {
+  width: 25vw;
+  height: auto;
+}
+
+.panduan.active {
+  transform: translate(-50%, -50%) translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+.panduan.exit-left {
+  transform: translate(-50%, -50%) translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+}
+.panduan.exit-right {
+  transform: translate(-50%, -50%) translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.container-btn {
+  margin-top: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+.btn {
+  cursor: pointer;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#prevBtn {
+  background-image: url("assets/guide-back.png");
+  width: 5vw;
+  height: 5vw;
+}
+
+#prevBtn:hover {
+  transform: scale(1.2);
+}
+
+#prevBtn:active {
+  transform: scale(0.9);
+}
+
+#nextBtn {
+  background-image: url("assets/guide-next.png");
+  width: 5vw;
+  height: 5vw;
+}
+
+#nextBtn:hover {
+  transform: scale(1.2);
+}
+
+#nextBtn:active {
+  transform: scale(0.9);
+}
+
+.text-scene2 {
+  font-size: 1vw;
+  color: white;
+  text-align: center;
+}
+
+.frame-left-scene3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 90%;
+  gap: 1vw;
+}
+
+.frame-right-scene3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 90%;
+  gap: 1vw;
+}
+
+.frame-left-scene3 span,
+.frame-right-scene3 span {
+  font-size: 1.5vw;
+  color: white;
+}
+#previewObject {
+  width: 60%;
+  height: 7%;
+}
+
+.controls-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 20%;
+  gap: 0.5vw;
+}
+
+.controls-preview img {
+  cursor: pointer;
+  width: 30%;
+  height: 100%;
+}
+
+.controls-preview img:hover {
+  transform: scale(1.1);
+}
+
+.controls-preview img:active {
+  transform: scale(0.9);
+}
+
+.button-mulai.scene3 {
+  width: 10vw;
+  height: 8vh;
+  bottom: 5%;
+  right: 1%;
+}
+
+.button-mulai.scene3:hover {
+  transform: scale(1.1); /* Scale saat hover */
+}
+
+.button-mulai.scene3:active,
+.button-mulai.scene3:focus {
+  transform: scale(0.9);
+}
+/* Canvas Container */
+.canvas {
+  display: flex;
+  width: 80vw;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.canvas-scene3 {
+  width: 30vw;
+  height: 50vh;
+}
+
+/* Controls Container */
+#controls {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 2vw;
+}
+
+#object-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 70%;
+  width: 10%;
+  position: absolute;
+  top: 1vw;
+  right: 2vw;
+}
+
+.object {
+  width: 9vw;
+  height: 9vw;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border-radius: 25%;
+}
+.object.object-1 {
+  background-image: url("assets/objek1.png");
+}
+.object.object-2 {
+  background-image: url("assets/objek2.png");
+}
+.object.object-3 {
+  background-image: url("assets/objek3.png");
+}
+
+.object:hover {
+  transform: scale(1.1);
+}
+
+.object:active,
+.object:focus {
+  transform: scale(0.9);
+}
+
+.object.success {
+  pointer-events: none;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  position: relative; /* Membuat elemen menjadi referensi posisi untuk pseudo-element */
+}
+
+.object.success::after {
+  content: ""; /* Membuat pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Warna hijau transparan untuk overlay */
+  border-radius: inherit; /* Mengikuti radius border elemen utama */
+  z-index: 1; /* Pastikan overlay berada di atas elemen */
+}
+.object.success:hover,
+.object.success:focus {
+  transform: none; /* Menonaktifkan efek transform */
+}
+.controls-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.controls-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+}
+
+.controls-left,
+.controls-right {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls-left {
+  left: 2vw;
+}
+
+.controls-right {
+  right: 2vw;
+}
+
+/* Button Styles */
+.button {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.05); /* Optional hover effect */
+}
+
+/* Specific Button Sizes */
+.button.left {
+  width: 3.5vw;
+  height: 3.5vw;
+}
+
+.button.right {
+  width: 5vw;
+  height: 5vw;
+}
+
+.button.large {
+  width: 10vw;
+  height: 5vw;
+}
+
+/* Individual Button Backgrounds */
+#rotateLeftBtn {
+  background-image: url("assets/putar-kiri.png");
+}
+
+#rotateRightBtn {
+  background-image: url("assets/putar-kanan.png");
+}
+
+#checkBtn {
+  background-image: url("assets/periksa.png");
+}
+
+#leftBtn {
+  background-image: url("assets/arah-kiri.png");
+}
+
+#topBtn {
+  background-image: url("assets/arah-atas.png");
+}
+
+#downBtn {
+  background-image: url("assets/arah-bawah.png");
+}
+
+#rightBtn {
+  background-image: url("assets/arah-kanan.png");
+}
+
+#rightBtn:hover,
+#downBtn:hover,
+#topBtn:hover,
+#leftBtn:hover,
+#checkBtn:hover,
+#rotateLeftBtn:hover,
+#rotateRightBtn:hover {
+  transform: scale(1.1);
+}
+
+#rightBtn:active,
+#downBtn:active,
+#topBtn:active,
+#leftBtn:active,
+#checkBtn:active,
+#rotateLeftBtn:active,
+#rotateRightBtn:active {
+  transform: scale(0.9);
+}
+
+/* Accessibility: Focus Effect */
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.button-modal {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0.5vw;
+  right: 50%;
+  width: 8vw;
+  height: 10vh;
+  transform: translateX(50%);
+}
+
+.modal-image {
+  width: 20vw;
+  border-radius: 10px;
+}
+
+#scene5 {
+  background-image: url("assets/background caramain.jpg");
+}
+
+#scene5::before {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.text-scene5 {
+  font-size: 1vw;
+  color: white;
+  text-align: center;
+}
+
+.img-winner {
+  width: 20vw;
+  margin-bottom: 2vw;
+}
+
+.container-btn-scene5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+#exitBtn {
+  background-image: url("assets/keluar.png");
+  width: 10vw;
+  height: 10vw;
+}
+
+#exitBtn:hover {
+  transform: scale(1.1);
+}
+#exitBtn:active {
+  transform: scale(0.9);
+}
+#restartBtn {
+  background-image: url("assets/ulangi.png");
+  width: 10vw;
+  height: 10vw;
+}
+#restartBtn:hover {
+  transform: scale(1.1);
+}
+#restartBtn:active {
+  transform: scale(0.9);
+}
+
+.landscape-message {
+  color: #333;
+  display: none; /* Sembunyikan pesan saat potrait */
+}
+
+@media only screen and (orientation: portrait) {
+  s.landscape-message {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  #scene1 {
+    display: flex;
+  }
+  .landscape-message {
+    display: none; /* Sembunyikan pesan saat lanskap */
+  }
+}

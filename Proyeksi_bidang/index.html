@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simulasi Membaca Gambar Proyeksi</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Logo" onclick="hackButton()" />
+    </div>
+    <div id="scene1" class="scene">
+      <img class="text-cover" src="assets/judul.png" alt="Judul" />
+      <div class="button-mulai scene1" onmouseover="soundHover()"></div>
+
+      <span class="text-scene1"
+        >SETELAH MENGGUNAKAN SIMULASI, KALIAN<br />
+        DAPAT MEMBACA GAMBAR KERJA</span
+      >
+    </div>
+
+    <div id="scene2" class="scene">
+      <div class="container-scene2">
+        <div class="frame">
+          <div id="panduan-1" class="panduan panduan-1">
+            <img src="assets/panduan1.png" alt="panduan-1" />
+            <span class="text-scene2"
+              >Sebelum mulai, mari kita mengenal <br />perbedaan antara proyeksi
+              eropa<br />
+              dengan proyeksi amerika</span
+            >
+          </div>
+          <div id="panduan-2" class="panduan panduan-2">
+            <span class="text-scene2"
+              >Letak kuadran: <br />Proyeksi Eropa berada di kuadran 1,<br />
+              sedangkan proyeksi Amerika berada<br />
+              di kuadran 3.<br /><br />
+              Arah pandangan: <br />Proyeksi Amerika memiliki bidang dan arah<br />
+              yang sama, sedangkan proyeksi <br />Eropa memiliki posisi bidang
+              yang berlawanan <br />dengan arah tampilan.<br /><br />
+              Prinsip dasar:<br />
+              Proyeksi Eropa menggambarkan benda<br />
+              pada bidang proyeksi<br />
+              yang berada di belakang benda.</span
+            >
+          </div>
+          <div id="panduan-3" class="panduan panduan-3">
+            <img src="assets/panduan6.png" alt="panduan-3" />
+            <span class="text-scene2"
+              >Drag and drop benda yang ada<br />
+              disebelah kanan, dan letakan<br />
+              benda ke kotak kosong sebelah kiri<br />
+              sesuai dengan arah Benda tersebut</span
+            >
+          </div>
+          <div id="panduan-4" class="panduan panduan-4">
+            <img src="assets/panduan4-1.png" alt="panduan-4" />
+            <span class="text-scene2"
+              >Selamat! Kamu telah menyelesaikan simulasi<br />
+              proyeksi tahap awal, silahkan lanjut ke level berikutnya
+            </span>
+          </div>
+          <div id="panduan-5" class="panduan panduan-5">
+            <img src="assets/panduan3.png" alt="panduan-5" />
+            <span class="text-scene2"
+              >TOMBOL UNTUK MENGGERAKAN <br />OBJEK KE ARAH YANG
+              DITENTUKAN</span
+            >
+          </div>
+          <div id="panduan-6" class="panduan panduan-6">
+            <img src="assets/panduan4.png" alt="panduan-6" />
+            <span class="text-scene2"
+              >TOMBOL UNTUK MEROTASI OBJEK<br />
+              KE ARAH YANG KANAN ATAU KIRI</span
+            >
+          </div>
+          <div id="panduan-7" class="panduan panduan-7">
+            <img src="assets/panduan5.png" alt="panduan-7" />
+            <span class="text-scene2"
+              >DAN INI ADALAH OBJEK <br />YANG AKAN DIGERAKAN</span
+            >
+          </div>
+        </div>
+        <div class="container-btn">
+          <div id="prevBtn" class="btn" onmouseover="soundHover()"></div>
+          <div id="nextBtn" class="btn" onmouseover="soundHover()"></div>
+        </div>
+      </div>
+    </div>
+    <div id="scene3" class="scene">
+      <div class="container-scene3">
+        <div class="frame-left-scene3">
+          <img
+            id="previewObject"
+            src="assets/b2.png"
+            alt="Preview"
+            class="soal-image"
+          />
+          <canvas id="myCanvas-scene3-1" class="canvas-scene3"></canvas>
+
+          <div class="controls-preview">
+            <img
+              id="btn-depan-eropa"
+              src="assets/b4.png"
+              onmouseover="soundHover()"
+            />
+            <img
+              id="btn-kiri-eropa"
+              src="assets/b5.png"
+              onmouseover="soundHover()"
+            />
+            <img
+              id="btn-bawah-eropa"
+              src="assets/b6.png"
+              onmouseover="soundHover()"
+            />
+          </div>
+          <span>Benda diputar, sudut pandang tetap</span>
+        </div>
+        <div class="frame-right-scene3">
+          <img
+            id="previewObject"
+            src="assets/b3.png"
+            alt="Preview"
+            class="soal-image"
+          />
+          <canvas id="myCanvas-scene3-2" class="canvas-scene3"></canvas>
+          <div class="controls-preview">
+            <img
+              id="btn-depan-amerika"
+              src="assets/b7.png"
+              onmouseover="soundHover()"
+            />
+            <img
+              id="btn-kanan-amerika"
+              src="assets/b8.png"
+              onmouseover="soundHover()"
+            />
+            <img
+              id="btn-atas-amerika"
+              src="assets/b9.png"
+              onmouseover="soundHover()"
+            />
+          </div>
+          <span>Benda tetap, sudut pandang berpindah</span>
+        </div>
+        <div
+          class="button-mulai scene3"
+          onclick="showScene4()"
+          onmouseover="soundHover()"
+        ></div>
+      </div>
+    </div>
+
+    <div id="scene4" class="scene">
+      <div class="container-scene3">
+        <div class="frame-left">
+          <img
+            id="soalImage"
+            src="assets/1.png"
+            alt="Preview"
+            class="soal-image"
+          />
+          <div class="container-dropbox">
+            <div
+              class="dropbox"
+              id="depan"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="dropbox"
+              id="kanan"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="dropbox"
+              id="atas"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+          </div>
+        </div>
+        <div class="frame-right">
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang1"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang2"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang3"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang4"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang5"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang6"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang7"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang8"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang9"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang10"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang11"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang12"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang13"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang14"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang15"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+          <div
+            class="bidang"
+            draggable="true"
+            id="bidang16"
+            ondragstart="drag(event)"
+            onmouseover="soundHover()"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scene5" class="scene">
+      <img class="img-winner" src="assets/menang.png" alt="Winner" />
+      <span class="text-scene5"
+        >SELAMAT KAMU TELAH BERHASIL <br />MENYELESAIKAN SIMULASI</span
+      >
+
+      <div class="container-btn-scene5">
+        <div id="exitBtn" class="btn" onclick="backShowScene1()"></div>
+        <div id="restartBtn" class="btn" onclick="showScene9()"></div>
+      </div>
+    </div>
+    <div id="scene7" class="scene">
+      <!-- Canvas (3D scene) -->
+      <canvas id="myCanvas" class="canvas"></canvas>
+      <!-- Controls below the canvas -->
+      <div id="controls">
+        <div class="controls-container">
+          <div class="controls-left">
+            <div
+              id="leftBtn"
+              class="button left"
+              onclick="viewObject('kiri')"
+            ></div>
+            <div class="controls-middle">
+              <div
+                id="topBtn"
+                class="button left"
+                onclick="viewObject('atas')"
+              ></div>
+              <div
+                id="downBtn"
+                class="button left"
+                onclick="viewObject('bawah')"
+              ></div>
+            </div>
+            <div
+              id="rightBtn"
+              class="button left"
+              onclick="viewObject('kanan')"
+            ></div>
+          </div>
+          <div
+            id="checkBtn"
+            class="button large"
+            onclick="checkRotation()"
+          ></div>
+          <div class="controls-right">
+            <div
+              id="rotateLeftBtn"
+              class="button right"
+              onclick="viewObject('putarKiri')"
+            ></div>
+
+            <div
+              id="rotateRightBtn"
+              class="button right"
+              onclick="viewObject('putarKanan')"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="object-container">
+        <div
+          id="loadAlat1"
+          class="object object-1"
+          onmouseover="soundHover()"
+        ></div>
+        <div
+          id="loadAlat2"
+          class="object object-2"
+          onmouseover="soundHover()"
+        ></div>
+        <div
+          id="loadAlat3"
+          class="object object-3"
+          onmouseover="soundHover()"
+        ></div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="Preview" class="modal-image" />
+        <div id="modalButton" class="button-modal"></div>
+      </div>
+    </div>
+    <div class="landscape-message">
+      <h2>Silakan ubah ke mode lanskap</h2>
+      <p>Untuk pengalaman terbaik, silakan putar perangkat Anda.</p>
+    </div>
+    <audio
+      id="clickOptionSound"
+      src="assets/sounds/zapsplat_multimedia_game_menu_tone_057_25472.mp3"
+    ></audio>
+    <audio
+      id="playSoundGame"
+      src="assets/sounds/pixabay_evening_sky-backsound.mp3"
+      autoplay
+      loop
+    ></audio>
+    <audio
+      id="dropItemsSound"
+      src="assets/sounds/zapsplat_multimedia_beep_bright_plop_clink_87459.mp3"
+    ></audio>
+
+    <audio
+      id="correctSound"
+      src="assets/sounds/zapsplat_multimedia_game_sound_win_success_level_up_bright_warm_93275.mp3"
+    ></audio>
+    <audio
+      id="failSound"
+      src="assets/sounds/multimedia_game_sound_synth_tone_bold_fail_52993.mp3"
+    ></audio>
+
+    <script src="js/helper.js" defer></script>
+    <script src="js/drag-and-drop.js" defer></script>
+    <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/script-preview.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  </body>
+</html>
