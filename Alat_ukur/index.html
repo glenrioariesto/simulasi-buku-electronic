@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Alat Ukur Sistem Mekanik</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="logo" class="logo">
+      <img src="assets/logo.svg" alt="Logo" />
+    </div>
+    <div id="scene1" class="scene">
+      <img
+        src="assets/judul-cover.png"
+        class="title-cover"
+        alt="text-Cover"
+        class="cover"
+      />
+
+      <span class="text cover"
+        >Alat ukur yang menggunakan sistem mekanik sesuai<br />
+        kebutuhan dan tempatnya</span
+      >
+      <div class="button-scene1 button-play" onclick="showScene2()"></div>
+    </div>
+    <div id="scene2" class="scene">
+      <div class="button-scene2 play" onclick="showScene3()"></div>
+    </div>
+    <div id="scene3" class="scene">
+      <div class="game">
+        <div id="question-container">
+          <h1 id="question" class="question">
+            Berapakah ukuran baut tersebut&#44; jika diukur menggunakan
+            <br />jangka sorong dengan
+            <span id="UK-bolt" class="highlight">0,02 mm</span>?
+          </h1>
+
+          <div class="container-answer">
+            <div class="answer">
+              <input
+                type="text"
+                id="answer"
+                placeholder="Masukkan jawaban"
+                onclick="soundClick()"
+              />
+            </div>
+            <button class="answerCheck" onclick="checkAnswer()"></button>
+          </div>
+        </div>
+
+        <div class="container-success"></div>
+
+        <div class="container">
+          <div id="layer1" class="layer layer1"></div>
+          <div id="layer2" class="layer layer2"></div>
+          <div id="layer3" class="layer layer3-U02"></div>
+        </div>
+
+        <div class="container-bolt">
+          <!-- level1 -->
+          <div
+            id="bolt1-UK02"
+            class="bolt bolt1-controls-U02"
+            onclick="choosedBolt(1)"
+          ></div>
+          <div
+            id="bolt2-UK02"
+            class="bolt bolt2-controls-U02"
+            onclick="choosedBolt(2)"
+          ></div>
+          <div
+            id="bolt3-UK02"
+            class="bolt bolt3-controls-U02"
+            onclick="choosedBolt(3)"
+          ></div>
+          <!-- level2 -->
+
+          <div
+            id="bolt1-UK05"
+            class="bolt bolt1-controls-U05"
+            onclick="choosedBolt(4)"
+          ></div>
+          <div
+            id="bolt2-UK05"
+            class="bolt bolt2-controls-U05"
+            onclick="choosedBolt(5)"
+          ></div>
+          <div
+            id="bolt3-UK05"
+            class="bolt bolt3-controls-U05"
+            onclick="choosedBolt(6)"
+          ></div>
+
+          <!-- level3 -->
+          <div
+            id="bolt1-UKMikro"
+            class="bolt bolt1-controls-UkMikro"
+            onclick="choosedBolt(7)"
+          ></div>
+          <div
+            id="bolt2-UKMikro"
+            class="bolt bolt2-controls-UkMikro"
+            onclick="choosedBolt(8)"
+          ></div>
+
+          <!-- level4 -->
+          <div
+            id="kayu-1"
+            class="bolt kayu1-controls"
+            onclick="choosedBolt(9)"
+          ></div>
+          <div
+            id="kayu-2"
+            class="bolt kayu2-controls"
+            onclick="choosedBolt(10)"
+          ></div>
+        </div>
+
+        <div class="container-controls">
+          <button id="leftButton" class="arrow left"></button>
+          <div class="zoom-container">
+            <button class="zoom-btn in" onclick="zoomIn()"></button>
+            <button class="zoom-btn out" onclick="zoomOut()"></button>
+          </div>
+          <button id="rightButton" class="arrow right"></button>
+        </div>
+      </div>
+    </div>
+    <div id="scene4" class="scene">
+      <div class="message-end"></div>
+      <div class="button-scene4 button-end" onclick="showScene1()"></div>
+      <div class="bu-sri"></div>
+    </div>
+
+    <div id="information" class="information"></div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-container">
+          <img id="modalImage" alt="baut" src="assets/baut1-UK02.png" />
+          <p id="message"></p>
+
+          <button class="btn close" onclick="closeModal()"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="landscape-message">
+      <h2>Silakan ubah ke mode lanskap</h2>
+      <p>Untuk pengalaman terbaik, silakan putar perangkat Anda.</p>
+    </div>
+
+    <audio
+      id="clickOptionSound"
+      src="assets/sounds/zapsplat_multimedia_game_sound_click_selection_menu_001.mp3"
+    ></audio>
+    <audio
+      id="playSoundGame"
+      src="assets/sounds/pixabaygame-music-loop-19.mp3"
+      autoplay
+      loop
+    ></audio>
+    <audio
+      id="dropItemsSound"
+      src="assets/sounds/zapsplat_industrial_tool_metal_small_drop_into_toolbox_002_111176.mp3"
+    ></audio>
+
+    <audio
+      id="dropItemsSound2"
+      src="assets/sounds/zapsplat_foley_wood_plank_1x4_drop_or_set_down_002_100246.mp3"
+    ></audio>
+
+    <audio
+      id="toolsSound"
+      src="assets/sounds/zapsplat_multimedia_game_sound_tone_toggle_menu_selection_metallic_002_40744.mp3"
+    ></audio>
+
+    <audio
+      id="correctSound"
+      src="assets/sounds/mixkit-winning-notification-2018.wav"
+    ></audio>
+    <audio
+      id="celebrateSound"
+      src="assets/sounds/mixkit-male-voice-cheer-2010.wav"
+    ></audio>
+
+    <audio
+      id="failSound"
+      src="assets/sounds/app_alert_tone_remove_delete_001.mp3"
+    ></audio>
+
+    <audio
+      id="failSound2"
+      src="assets/sounds/cartoon_fail_trumpet_002.mp3"
+    ></audio>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
