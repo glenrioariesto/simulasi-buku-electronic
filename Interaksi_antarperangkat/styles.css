@@ -1,0 +1,976 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  overflow: hidden;
+}
+
+audio {
+  display: none;
+}
+
+.logo {
+  width: 6vw;
+  height: 6vh;
+  position: fixed;
+  top: 1vw;
+  left: 1vw;
+  z-index: 9999;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+}
+.scene {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+#scene1 {
+  gap: 6vw;
+  background-image: url("assets/background-1.png");
+  background-color: #e4dbcb;
+}
+
+.title-cover {
+  padding-top: 8vw;
+  width: 80vw;
+  height: 40vh;
+}
+
+.button-scene {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.5s ease;
+  outline: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.button-play {
+  width: 20vw;
+  height: 10vw;
+  background-image: url("assets/button-play.png");
+}
+
+.button-scene:hover {
+  transform: scale(1.1);
+}
+
+.button-scene:active,
+.button-scene:focus {
+  transform: scale(0.9);
+}
+
+#scene2 {
+  background-image: url("assets/background-2.png");
+}
+
+.announcement-container {
+  position: fixed; /* Gunakan fixed untuk selalu berada di tengah layar */
+  top: 45%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Pusatkan secara horizontal dan vertikal */
+  background-image: url("assets/background-pop-up-announcement.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0vw;
+  width: 70%; /* Sesuaikan jika ingin agar kontainer melebar penuh */
+  height: 80%; /* Sesuaikan jika ingin agar kontainer memenuhi tinggi layar */
+  overflow: hidden; /* Pastikan tidak ada konten yang keluar dari kontainer */
+  box-sizing: border-box;
+}
+
+.announcement-container.announcement-1 {
+  background-image: url("assets/selamat.png");
+}
+
+.announcement {
+  width: 50%;
+  height: 80%;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.button-next {
+  width: 20vw;
+  height: 10vw;
+  background-image: url("assets/button-next.png");
+}
+
+.button-container {
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container.position {
+  position: absolute;
+  bottom: 3vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tab {
+  width: 20vw;
+  height: 20vw;
+  max-width: 100px;
+  max-height: 50px;
+  font-weight: bold;
+  background-image: url("assets/background-pop-up.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0vw;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  clip-path: polygon(0% 0%, 100% 0%, 94% 100%, 3% 100%);
+  z-index: 1;
+}
+
+.button {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 2vw 1vw;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  border: none;
+  background-color: transparent;
+}
+
+#previousBtn {
+  background-image: url("assets/prev-btn.svg");
+  height: 5vw;
+  width: 5vw;
+}
+
+#nextBtn {
+  background-image: url("assets/next-btn.svg");
+  height: 5vw;
+  width: 5vw;
+}
+
+#previousBtn:hover,
+#nextBtn:hover {
+  transform: scale(1.1);
+}
+
+#previousBtn:active,
+#nextBtn:active {
+  transform: scale(0.9);
+}
+
+#scene3 {
+  background-image: url("assets/background-2.png");
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+}
+
+#gameArea {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: 350px;
+  width: 100%;
+  gap: 10px;
+}
+
+#container-dropbox {
+  width: 800px;
+  height: 350px;
+  border-radius: 5px;
+  border: 2px solid #a1664d;
+  background-image: url("assets/background-3.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.dropbox {
+  background-image: url("assets/bg-dropbox.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60px;
+  height: 70px;
+  display: inline-block;
+  position: absolute;
+  z-index: 10; /* Nilai tinggi */
+}
+/* level1 */
+#drop-cctv-analog {
+  top: 10%;
+  right: 6.33%;
+}
+
+#drop-cctv-analog2 {
+  top: 10%;
+  right: 36%;
+}
+#drop-dvr {
+  top: 50%;
+  left: 13.5%;
+  transform: translateY(-50%);
+}
+#drop-router {
+  bottom: -1%;
+  right: 25.33%;
+  transform: translateY(-50%);
+}
+#drop-sinyal {
+  background-image: url("assets/sinyal.png");
+  display: none;
+  bottom: 18%;
+  right: 25.33%;
+  transform: translateY(-50%);
+  animation: blink 1s infinite;
+}
+
+/* level2 */
+#drop-cctv-analog-level2 {
+  top: 5%;
+  left: 5%;
+}
+#drop-cctv-analog2-level2 {
+  top: 5%;
+  left: 29%;
+}
+
+#drop-cctv-wireless-level2 {
+  top: 5%;
+  right: 5%;
+}
+
+#drop-cctv-wireless2-level2 {
+  top: 5%;
+  right: 25%;
+}
+
+#drop-dvr-level2 {
+  bottom: 25%;
+  left: 17%;
+  transform: translateY(-50%);
+}
+#drop-router-level2 {
+  bottom: 25%;
+  right: 40.33%;
+  transform: translateY(-50%);
+}
+
+#drop-modem-level2 {
+  bottom: 3%;
+  right: 40.33%;
+}
+
+#drop-internet-level2 {
+  bottom: 3%;
+  right: 10.33%;
+}
+
+#drop-sinyal-level2 {
+  background-image: url("assets/sinyal.png");
+  display: none;
+  bottom: 13%;
+  right: 10.33%;
+  transform: translateY(-50%);
+  animation: blink 1s infinite;
+}
+
+.container-controls {
+  display: flex;
+  flex-direction: column;
+  background-image: url("assets/background-3.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px;
+  border: 2px solid #a1664d;
+  align-items: center;
+  justify-content: center;
+  padding: 1vw;
+  gap: 1vw;
+}
+
+.controls-device {
+  display: flex; /* Menggunakan Flexbox */
+  flex-wrap: wrap; /* Membungkus elemen ke baris berikutnya */
+  justify-content: space-between; /* Distribusi elemen merata */
+  gap: 0.5vw; /* Jarak antar elemen */
+  width: 90%; /* Lebar penuh mentok kiri-kanan */
+  margin: 0; /* Tengah secara horizontal */
+}
+.device {
+  height: 90px;
+  flex: 0 1 calc(33.333% - 0.5vw); /* Membuat 3 kolom */
+  box-sizing: border-box;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  text-align: center;
+  z-index: 1000;
+}
+
+#dvr {
+  background-image: url("assets/dvr.png");
+}
+
+#router {
+  background-image: url("assets/router.png");
+}
+
+#cctv-wireless {
+  background-image: url("assets/cctv-wireless.png");
+}
+
+#cctv-analog {
+  background-image: url("assets/cctv-analog.png");
+}
+
+#internet {
+  background-image: url("assets/Internet.png");
+}
+
+#laptop {
+  background-image: url("assets/laptop.png");
+}
+#hp {
+  background-image: url("assets/hp.png");
+}
+
+#monitor {
+  background-image: url("assets/monitor.png");
+}
+
+#modem {
+  background-image: url("assets/modem.png");
+}
+
+.cable-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #333;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.cable-container.dashed {
+  background-image: repeating-linear-gradient(
+    35deg,
+    #e6d0ab,
+    #e6d0ab 10px,
+    #333 1px,
+    #333 15px
+  );
+}
+
+.cable-container.correct {
+  background-color: #1b7b06;
+}
+
+.cable-line {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.flow {
+  position: absolute;
+}
+.flow.right {
+  background: linear-gradient(to right, #00ff00, #00aa00, #00ff00);
+  top: 0;
+  right: -20%;
+  width: 20%;
+  height: 100%;
+}
+
+.flow.left {
+  background: linear-gradient(to left, #00ff00, #00aa00, #00ff00);
+  top: 0;
+  left: -20%;
+  width: 20%;
+  height: 100%;
+}
+
+.flow.down {
+  background: linear-gradient(to bottom, #00ff00, #00aa00, #00ff00);
+  top: -20%;
+  left: 0;
+  height: 20%;
+  width: 100%;
+}
+
+.flow.up {
+  background: linear-gradient(to top, #00ff00, #00aa00, #00ff00);
+  bottom: -20%;
+  left: 0;
+  height: 20%;
+  width: 100%;
+}
+
+.flow.right.animate {
+  animation: flow-animation-right 1.5s linear 1;
+}
+
+.flow.left.animate {
+  animation: flow-animation-left 1.5s linear 1;
+}
+
+.flow.down.animate {
+  animation: flow-animation-down 1.5s linear 1;
+}
+
+.flow.up.animate {
+  animation: flow-animation-up 1.5s linear 1;
+}
+
+/* level 1 */
+#cable-1 {
+  position: absolute;
+  width: 15%;
+  height: 4px;
+  top: 20%;
+  right: 13.5%;
+}
+
+#cable-2 {
+  position: absolute;
+  width: 15%;
+  height: 4px;
+  top: 20%;
+  right: 27%;
+}
+
+#cable-3 {
+  position: absolute;
+  width: 4px;
+  height: 29%;
+  top: 20%;
+  right: 27%;
+}
+
+#cable-4 {
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  bottom: 50%;
+  left: 23%;
+  transform: translateY(-50%);
+}
+
+#cable-5 {
+  position: absolute;
+  width: 4px;
+  height: 24%;
+  bottom: 18%;
+  left: 20%;
+}
+
+#cable-6 {
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  bottom: 18%;
+  left: 20%;
+}
+
+/* level 2 */
+
+#cable-1-level2 {
+  position: absolute;
+  width: 11%;
+  height: 4px;
+  top: 15%;
+  left: 12%;
+}
+
+#cable-2-level2 {
+  position: absolute;
+  width: 11%;
+  height: 4px;
+  top: 15%;
+  left: 23%;
+}
+
+#cable-3-level2 {
+  position: absolute;
+  width: 4px;
+  height: 30%;
+  top: 15%;
+  left: 22.5%;
+}
+
+#cable-4-level2 {
+  position: absolute;
+  width: 4px;
+  height: 26%;
+  bottom: -3%;
+  left: 22.5%;
+  transform: translateY(-50%);
+}
+
+#cable-5-level2 {
+  position: absolute;
+  width: 26%;
+  height: 4px;
+  bottom: 10%;
+  left: 22.5%;
+}
+
+#cable-6-level2 {
+  position: absolute;
+  width: 4px;
+  height: 15%;
+  bottom: 21%;
+  left: 54%;
+  transform: translateX(-50%);
+}
+
+#cable-7-level2 {
+  position: absolute;
+  width: 20%;
+  height: 4px;
+  bottom: 10%;
+  right: 21%;
+}
+
+#cable-8-level2 {
+  position: absolute;
+  width: 4px;
+  height: 35%;
+  top: 18%;
+  right: 30%;
+}
+
+#cable-9-level2 {
+  position: absolute;
+  width: 4px;
+  height: 37%;
+  top: 23%;
+  right: 9.5%;
+}
+
+#cable-10-level2 {
+  position: absolute;
+  width: 15%;
+  height: 4px;
+  right: 22.5%;
+  bottom: 46%;
+  transform: translate(-50%, -50%);
+}
+
+#cable-11-level2 {
+  position: absolute;
+  width: 37%;
+  height: 4px;
+  bottom: 39%;
+  transform: translateY(-50%);
+  right: 10%;
+}
+
+.controls-more {
+  display: flex;
+  height: 100px;
+  width: 90%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-instruction {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  background-position: center;
+  cursor: pointer;
+}
+
+#startBtn {
+  width: 18vw;
+  height: 100%;
+  background-image: url("assets/tombol-mulai.png");
+}
+
+#startBtn:hover {
+  transform: scale(1.1);
+}
+
+#startBtn:active {
+  transform: scale(0.9);
+}
+
+#resetBtn {
+  width: 12vw;
+  height: 100%;
+  background-image: url("assets/tombol-ulangi.png");
+}
+
+#resetBtn:hover {
+  transform: scale(1.1);
+}
+
+#resetBtn:active {
+  transform: scale(0.9);
+}
+
+#cable-1,
+#cable-2,
+#cable-3,
+#cable-4 {
+  z-index: 1; /* Nilai rendah */
+}
+@keyframes flow-animation-left {
+  0% {
+    left: -20%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes flow-animation-right {
+  0% {
+    right: -20%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes flow-animation-down {
+  0% {
+    top: -20%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes flow-animation-up {
+  0% {
+    bottom: -20%;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0; /* Hilang */
+  }
+  50% {
+    opacity: 1; /* Muncul */
+  }
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(10px); /* Mulai dari bawah */
+  }
+  100% {
+    transform: translateY(-10px); /* Bergerak ke atas */
+  }
+}
+
+#scene4 {
+  background-image: url("assets/background-2.png");
+}
+
+.button-selesai {
+  width: 20vw;
+  height: 10vw;
+  background-image: url("assets/button-selesai.png");
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  height: 100%;
+  width: 100%;
+  margin: 15% auto; /* 15% from the top and centered */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 1vw;
+}
+
+.modal-content.correct {
+  background-image: url("assets/pop-up-benar.png");
+}
+
+.modal-content.incorrect {
+  background-image: url("assets/pop-up-salah.png");
+}
+
+.modal-button {
+  cursor: pointer;
+  position: absolute;
+  bottom: 20%;
+  left: 29%;
+  transform: translate(-50%, -50%);
+  width: 12%;
+  height: 12%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("assets/button-baik.png");
+}
+
+.modal-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.modal-button:active {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+/* Landscape Message */
+
+.landscape-message {
+  color: #333;
+  display: none; /* Sembunyikan pesan saat potrait */
+}
+
+/* Desktop Landscape */
+@media (min-width: 1240px) and (orientation: landscape) {
+  .container {
+    max-width: 1600px;
+    height: 100%;
+    max-height: 750px;
+  }
+
+  #gameArea {
+    max-height: 100%;
+  }
+
+  #container-dropbox {
+    width: 100%;
+    height: 100%;
+  }
+
+  .dropbox {
+    width: 120px;
+    height: 120px;
+  }
+
+  .device {
+    width: 145px;
+    height: 145px;
+    height: 190px;
+  }
+
+  #drop-cctv-wireless-level2 {
+    right: 3.7%;
+  }
+  #drop-cctv-wireless2-level2 {
+    right: 24.2%;
+  }
+  #drop-dvr-level2 {
+    left: 16.5%;
+  }
+
+  #drop-router-level2 {
+    bottom: 25%;
+    right: 39.5%;
+  }
+  #drop-modem-level2 {
+    bottom: 6%;
+    right: 39.5%;
+  }
+
+  #drop-internet-level2 {
+    bottom: 6%;
+    right: 10.33%;
+  }
+
+  #drop-sinyal-level2 {
+    bottom: 16%;
+  }
+
+  /* level 1 */
+  #cable-1 {
+    height: 6px;
+  }
+
+  #cable-2 {
+    height: 6px;
+  }
+
+  #cable-3 {
+    width: 6px;
+    height: 29%;
+  }
+
+  #cable-4 {
+    height: 6px;
+  }
+
+  #cable-5 {
+    width: 6px;
+    height: 28%;
+    bottom: 14%;
+  }
+
+  #cable-6 {
+    height: 6px;
+    bottom: 14%;
+  }
+
+  /* level 2 */
+
+  #cable-1-level2 {
+    height: 6px;
+  }
+
+  #cable-2-level2 {
+    height: 6px;
+  }
+
+  #cable-3-level2 {
+    width: 6px;
+    height: 36%;
+  }
+
+  #cable-4-level2 {
+    width: 6px;
+    height: 20%;
+    bottom: 4%;
+  }
+
+  #cable-5-level2 {
+    height: 6px;
+    width: 28%;
+    bottom: 13.5%;
+    left: 22.5%;
+  }
+
+  #cable-6-level2 {
+    width: 6px;
+    height: 16%;
+    bottom: 18%;
+    left: 53.5%;
+  }
+
+  #cable-7-level2 {
+    width: 22%;
+    height: 6px;
+    bottom: 13.5%;
+  }
+
+  #cable-8-level2 {
+    width: 6px;
+  }
+
+  #cable-9-level2 {
+    width: 6px;
+    height: 41.5%;
+    top: 20%;
+  }
+
+  #cable-10-level2 {
+    width: 16%;
+    height: 6px;
+  }
+  #cable-11-level2 {
+    width: 38%;
+    height: 6px;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .landscape-message {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  #scene1 {
+    display: flex;
+  }
+  .landscape-message {
+    display: none; /* Sembunyikan pesan saat lanskap */
+  }
+}

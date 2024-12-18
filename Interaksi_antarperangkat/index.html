@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Interaksi Antarperangkat</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Logo" />
+    </div>
+
+    <div id="scene1" class="scene">
+      <img
+        src="assets/judul-cover.png"
+        class="title-cover"
+        alt="text-Cover"
+        class="cover"
+      />
+      <div class="button-scene button-play" onclick="showScene2()"></div>
+    </div>
+
+    <div id="scene2" class="scene">
+      <div id="announcement-container" class="announcement-container">
+        <div class="announcement">
+          <div class="button-scene button-next" onclick="showScene3()"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scene3" class="scene">
+      <div class="container">
+        <div id="gameArea">
+          <div id="container-dropbox">
+            <div class="dropbox" id="drop-cctv-analog"></div>
+            <div class="dropbox" id="drop-cctv-analog2"></div>
+            <div class="dropbox" id="drop-dvr"></div>
+            <div class="dropbox" id="drop-router"></div>
+            <div class="dropbox" id="drop-sinyal"></div>
+
+            <div id="cable-1">
+              <div class="cable-container">
+                <div class="cable-line">
+                  <div class="flow right"></div>
+                </div>
+              </div>
+            </div>
+            <div id="cable-2">
+              <div class="cable-container">
+                <div class="cable-line">
+                  <div class="flow left"></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="cable-3">
+              <div class="cable-container">
+                <div class="cable-line">
+                  <div class="flow down"></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="cable-4">
+              <div class="cable-container">
+                <div class="cable-line">
+                  <div class="flow right"></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="cable-5">
+              <div class="cable-container">
+                <div class="cable-line">
+                  <div class="flow down"></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="cable-6">
+              <div class="cable-container">
+                <div class="cable-line">
+                  <div class="flow left"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-controls">
+            <div id="controls-device" class="controls-device">
+              <div
+                class="device"
+                draggable="true"
+                id="internet"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="device"
+                draggable="true"
+                id="laptop"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="device"
+                draggable="true"
+                id="hp"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="device"
+                draggable="true"
+                id="monitor"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="device"
+                draggable="true"
+                id="modem"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="device"
+                draggable="true"
+                id="dvr"
+                ondragstart="drag(event)"
+              ></div>
+
+              <div
+                class="device"
+                draggable="true"
+                id="router"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="device"
+                draggable="true"
+                id="cctv-analog"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="device"
+                draggable="true"
+                id="cctv-wireless"
+                ondragstart="drag(event)"
+              ></div>
+            </div>
+            <div class="controls-more">
+              <div
+                id="resetBtn"
+                class="btn-instruction"
+                onclick="resetSimulation()"
+              ></div>
+              <div
+                id="startBtn"
+                class="btn-instruction"
+                onclick="runSimulation()"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scene4" class="scene"></div>
+    <div id="myModal" class="modal">
+      <div id="modalContent" class="modal-content">
+        <div class="modal-button" onclick="closeModal()"></div>
+      </div>
+    </div>
+
+    <div class="landscape-message">
+      <h2>Silakan ubah ke mode lanskap</h2>
+      <p>Untuk pengalaman terbaik, silakan putar perangkat Anda.</p>
+    </div>
+    <audio
+      id="clickOptionSound"
+      src="assets/sounds/mixkit-interface-option-select.mp3"
+    ></audio>
+    <audio
+      id="playSoundGame"
+      src="assets/sounds/backsound-game.mp3"
+      autoplay
+      loop
+    ></audio>
+    <audio id="dropItemsSound" src="assets/sounds/mixkit-drop-item.wav"></audio>
+    <audio id="playGame" src="assets/sounds/mixkit-game-play.wav"></audio>
+
+    <audio
+      id="correctSound"
+      src="assets/sounds/zapsplat_multimedia_game_sound_bell_keys_win_success_tone.mp3"
+    ></audio>
+    <audio
+      id="failSound"
+      src="assets/sounds/Game-level-fail-sound-effect.mp3"
+    ></audio>
+
+    <script src="js/helper.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
