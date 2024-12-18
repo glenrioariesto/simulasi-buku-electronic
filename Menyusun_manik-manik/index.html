@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Menyusun Manik-Manik</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      canvas {
+        display: block;
+      }
+      .btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Logo" />
+    </div>
+    <div id="scene1" class="scene">
+      <img class="text-cover" src="assets/text.svg" alt="Text" />
+      <div class="button-scene1 button-play" onclick="showScene2()">
+        <div class="play"></div>
+      </div>
+    </div>
+
+    <div id="scene2" class="scene">
+      <div class="announcement-container">
+        <div class="announcement">
+          <div class="slides">
+            <div class="slide active" data-slide="1">
+              <span class="text-slide-1">
+                Kamu akan diberikan beberapa manik-manik dengan <br />
+                warna yang berbeda. Tugasmu adalah menyusun <br />
+                manik-manik tersebut dengan urutan yang sesuai. <br />
+                Berikut adalah urutannya manik-maniknya.
+              </span>
+              <br />
+              <img src="assets/allManik2.png" alt="Announcement" />
+              <!-- <div class="beads-announcement">
+                <div id="bead-blue" class="bead-announcement red"></div>
+                <div id="bead-blue" class="bead-announcement green"></div>
+                <div id="bead-blue" class="bead-announcement yellow"></div>
+                <div id="bead-blue" class="bead-announcement blue"></div>
+              </div> -->
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" data-slide="2">
+              <div></div>
+              <span class="text-slide-2">
+                Klik pada manik-manik yang sudah terangkai <br />
+                lalu klik pada manik-manik yang belum dirangkai <br />
+                sesuai urutan.
+              </span>
+            </div>
+          </div>
+          <div class="next-scene">
+            <button class="button prev" onclick="changeSlide(-1)">
+              Sebelumnya
+            </button>
+            <button class="button next" onclick="changeSlide(1)">
+              Selanjutnya
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scene3" class="scene">
+      <!-- The canvas will be added here -->
+      <div class="button-container-right">
+        <button class="button-game check" onclick="checkBallOrder()"></button>
+        <button class="button-game reset" onclick="resetGame()"></button>
+        <button class="button-game info" onclick="showBackScene2()"></button>
+      </div>
+    </div>
+
+    <div class="landscape-message">
+      <h2>Silakan ubah ke mode lanskap</h2>
+      <p>Untuk pengalaman terbaik, silakan putar perangkat Anda.</p>
+    </div>
+
+    <div id="myModal2" class="modal">
+      <div class="modal-content">
+        <div class="question">
+          <p>
+            Manik-manik yang kamu rangkai sudah benar,<br />
+            Berapa banyak manik-manik yang sudah terpakai?
+          </p>
+        </div>
+
+        <div class="options">
+          <div class="option-btn" onclick="storeAnswer('A')" data-option="A">
+            A. 8
+          </div>
+          <div class="option-btn" onclick="storeAnswer('B')" data-option="B">
+            B. 17
+          </div>
+          <div class="option-btn" onclick="storeAnswer('C')" data-option="C">
+            C. 15
+          </div>
+          <div class="option-btn" onclick="storeAnswer('D')" data-option="D">
+            D. 5
+          </div>
+        </div>
+        <button class="btn check" onclick="checkAnswer()">
+          Periksa Jawaban
+        </button>
+        <button class="btn close" onclick="closeModal2()">&#x2718;</button>
+      </div>
+    </div>
+
+    <div id="myModal3" class="modal">
+      <div class="modal-content">
+        <div class="question">
+          <p>
+            Manik-manik yang kamu rangkai sudah benar,<br />
+            Berapa banyak manik-manik yang sudah terpakai?
+          </p>
+        </div>
+
+        <div class="options">
+          <div class="option-btn" onclick="storeAnswer('A2')" data-option="A2">
+            A. 25
+          </div>
+          <div class="option-btn" onclick="storeAnswer('B2')" data-option="B2">
+            B. 31
+          </div>
+          <div class="option-btn" onclick="storeAnswer('C2')" data-option="C2">
+            C. 28
+          </div>
+          <div class="option-btn" onclick="storeAnswer('D2')" data-option="D2">
+            D. 27
+          </div>
+        </div>
+        <button class="btn check" onclick="checkAnswer()">
+          Periksa Jawaban
+        </button>
+        <button class="btn close" onclick="closeModal3()">&#x2718;</button>
+      </div>
+    </div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <img id="imageInfo" src="" class="modal-image-info" alt="Modal Image" />
+        <p id="message"></p>
+        <img id="modalImage" src="" class="modal-image" alt="Modal Image" />
+
+        <button class="btn close" onclick="closeModal()">&#x2718;</button>
+      </div>
+    </div>
+
+    <audio id="backgroundSound" autoplay loop>
+      <source src="assets/sounds/backsound.mp3" loop type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio
+      id="clickSound"
+      src="assets/sounds/click-sound.mp3"
+      volume="0.2"
+    ></audio>
+
+    <div id="celebrate" class="celebrate"></div>
+    <audio id="dropSound" src="assets/sounds/drop-pop.mp3"></audio>
+
+    <audio
+      id="correctSound"
+      src="assets/sounds/zapsplat_multimedia_game_sound_bell_keys_win_success_tone.mp3"
+    ></audio>
+    <audio
+      id="celebrateSound"
+      src="assets/sounds/zapsplat_cartoon_anime_hit_burst_mini_explosion_71425.mp3"
+    ></audio>
+    <audio
+      id="celebrate2Sound"
+      src="assets/sounds/zapsplat_fantasy_fairy_dust_twinkle_sparkle_bell_tree_high_pitched_65693.mp3"
+    ></audio>
+
+    <audio
+      id="failSound"
+      src="assets/sounds/Game-level-fail-sound-effect.mp3"
+    ></audio>
+    <script src="js/helpers.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

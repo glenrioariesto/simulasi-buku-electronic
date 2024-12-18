@@ -1,0 +1,617 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 16px;
+  color: #333;
+}
+
+.logo {
+  width: 6vw;
+  height: 6vh;
+  position: fixed;
+  top: 1vw;
+  left: 1vw;
+  z-index: 9999;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.scene {
+  display: none;
+}
+
+#scene1 {
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("assets/background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.text-cover {
+  width: 60%;
+  height: 60%;
+  user-select: none;
+  pointer-events: none;
+}
+
+.button-scene1 {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.5s ease;
+  outline: none;
+}
+.button-play {
+  background-color: transparent;
+  background-image: url("assets/button-play.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.button-scene1:hover {
+  transform: scale(1.1);
+}
+
+.button-scene1:active,
+.button-scene1:focus {
+  transform: scale(0.9);
+}
+
+#scene2 {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("assets/background-wooden-board.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.announcement-container {
+  position: fixed; /* Gunakan fixed untuk selalu berada di tengah layar */
+  top: 50%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Pusatkan secara horizontal dan vertikal */
+  background-image: url("assets/background-pop-up-aturan.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6vw;
+  width: auto; /* Sesuaikan jika ingin agar kontainer melebar penuh */
+  height: auto; /* Sesuaikan jika ingin agar kontainer memenuhi tinggi layar */
+  max-height: 300px;
+  overflow: hidden; /* Pastikan tidak ada konten yang keluar dari kontainer */
+  box-sizing: border-box;
+  z-index: 1000; /* Atur z-index jika perlu berada di atas elemen lain */
+}
+
+.announcement {
+  margin: 10vw auto;
+  padding: 2vw 2vw 0vw 2vw;
+  font-size: 1em;
+}
+
+.text-slide-1 {
+  font-size: 1.2vw;
+  margin-bottom: 1vw;
+  text-align: center;
+}
+
+.text-slide-2 {
+  font-size: 1.2vw;
+  margin-bottom: 1vw;
+  text-align: center;
+}
+
+.text-slide-3 {
+  font-size: 1.2vw;
+  margin-bottom: 1vw;
+  text-align: center;
+}
+
+.tab {
+  width: 20vw;
+  height: 20vw;
+  max-width: 100px;
+  max-height: 50px;
+  font-weight: bold;
+  background-image: url("assets/background-pop-up.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0vw;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  clip-path: polygon(0% 0%, 100% 0%, 94% 100%, 3% 100%);
+  z-index: 1;
+}
+
+.next-scene {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slides {
+  padding-top: 2vw;
+  position: relative;
+  width: 100%;
+  height: 70%;
+  margin-bottom: 1vw;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide img {
+  margin-top: 1vw;
+  width: 40%;
+  height: auto;
+}
+
+.slide.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
+
+#scene3 {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.question p {
+  font-size: 1.5vw;
+}
+
+.beads-announcement {
+  display: flex;
+  padding: 1vw 10vw 0vw 10vw;
+  /* padding-left: 10vw;
+  padding-right: 10vw; */
+  justify-content: center;
+}
+
+.bead-announcement {
+  width: 3vw;
+  height: 3vw;
+  cursor: pointer;
+  line-height: 60px;
+}
+
+.bead.red,
+.bead-announcement.red {
+  background-image: url("assets/marble-merah-kotak.svg");
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+}
+.bead.green,
+.bead-announcement.green {
+  background-image: url("assets/marble-hijau-polygon.svg");
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+}
+.bead.yellow,
+.bead-announcement.yellow {
+  background-image: url("assets/marble-hijau-bulat.svg");
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+}
+.bead.blue,
+.bead-announcement.blue {
+  background-image: url("assets/marble-biru-bintang.svg");
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+}
+
+.button-container-right {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 2%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button {
+  background-image: url("assets/button-orange.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 2vw 2vw;
+  color: white;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  clip-path: polygon(0% 0%, 100% 0%, 94% 100%, 3% 100%);
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  border: none;
+  background-color: transparent;
+}
+
+.button-game {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  border: none;
+  background-color: transparent;
+}
+
+.button.next:hover,
+.button.prev:hover {
+  transform: scale(1.1);
+  background-image: url("assets/button-orange-hover.svg");
+}
+.button.next:active,
+.button.prev:active {
+  transform: scale(0.9);
+}
+
+.button-game.check {
+  width: 10vw;
+  height: 5vw;
+  background-image: url("assets/periksa.png");
+}
+.button-game.check:hover {
+  transform: scale(1.1);
+}
+.button-game.check:active {
+  transform: scale(0.9);
+}
+/* Mobile devices (360px to 600px) */
+
+.button-game.reset {
+  width: 6vw;
+  height: 5vw;
+  background-image: url("assets/button-red.png");
+}
+.button-game.reset:hover {
+  transform: scale(1.1);
+}
+.button-game.reset:active {
+  transform: scale(0.9);
+}
+
+.button-game.info {
+  width: 5vw;
+  height: 5vw;
+  background-image: url("assets/info.png");
+}
+.button-game.info:hover {
+  /* background-image: url(assets/button-game-red-hover.svg); */
+  transform: scale(1.1);
+}
+.button-game.info:active {
+  transform: scale(0.9);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  justify-content: space-around;
+  align-items: center;
+  /* margin: 10px 40px 0px 40px; */
+}
+.option-btn {
+  width: calc(50% - 20px);
+  height: 5vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(assets/button-green.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  color: white;
+  font-size: 1vw;
+  font-weight: bold;
+  padding: 1vw 2vw;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+}
+
+.option-btn:hover {
+  background-image: url("assets/button-green-hover.svg");
+  transform: scale(1.1);
+}
+
+.option-btn:active,
+.option-btn:focus,
+.option-btn.active {
+  background-image: url("assets/button-green-hover.svg");
+  transform: scale(0.9);
+  outline: none;
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) and (orientation: landscape) {
+  .button {
+    font-size: 1.5vw;
+  }
+
+  .announcement {
+    max-width: 50vw;
+    height: 300px;
+
+    max-height: 50vh;
+    font-size: 2vw;
+  }
+  .announcement-container {
+    padding-top: 0vw;
+    max-height: 500px;
+    width: 100%;
+  }
+  .tab {
+    max-width: 15vw;
+    max-height: 10vh;
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1440px) and (orientation: landscape) {
+  .button {
+    font-size: 1.5vw;
+  }
+
+  .announcement {
+    max-width: 40vw;
+    height: 300px;
+    max-height: 45vh;
+  }
+  .announcement-container {
+    padding-top: 0vw;
+    max-height: 40vw;
+    width: 50vw;
+  }
+  .tab {
+    max-width: 15vw;
+    max-height: 15vh;
+    font-size: 1.5vw;
+    top: 3vw;
+  }
+}
+
+.information {
+  display: none;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  width: 20vw;
+  height: 10vw;
+}
+.information.instruction-1 {
+  background-image: url("assets/intruksi-1.png");
+  bottom: 5vw;
+  left: 1vw;
+  display: flex;
+  animation-name: slideIn;
+}
+
+.information.instruction-2 {
+  background-image: url("assets/intruksi-2.png");
+  bottom: 8vw;
+  right: 7vw;
+  display: flex;
+  animation-name: slideIn;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.celebrate {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-image: url("assets/celebrate.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1010;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  height: 30vw;
+  width: 50%;
+  margin: 15% auto; /* 15% from the top and centered */
+  background-image: url("assets/background-pop-up.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2vw;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 1vw;
+}
+
+.modal-content p {
+  font-size: 1.5vw;
+}
+
+.modal-content .btn {
+  background-image: url("assets/button-orange.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  background-position: center;
+  color: white;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 15px;
+  border: none;
+}
+
+.modal-content .btn.check {
+  font-size: 2vw;
+  position: absolute;
+  bottom: -5vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15vw;
+  height: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.modal-content .btn.close {
+  font-size: 2vw;
+  position: absolute;
+  top: -2vh;
+  right: 0;
+  color: #1f701f;
+  background-color: transparent;
+  width: 6vw;
+  height: 6vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content .btn.check:hover {
+  transform: scale(1.1) translateX(-50%);
+}
+
+.modal-content .btn.check:active,
+.modal-content .btn.check:focus {
+  transform: scale(0.9) translateX(-50%);
+}
+
+.modal-content .btn.close:hover {
+  transform: scale(1.1);
+}
+
+.modal-content .btn.close:active,
+.modal-content .btn.close:focus {
+  transform: scale(0.9);
+}
+
+.modal-image {
+  max-width: 40%;
+  max-height: 200px;
+}
+
+.modal-image-info {
+  width: auto;
+  height: auto;
+  max-width: 20%;
+  max-height: 30%;
+}
+
+.landscape-message {
+  color: #333;
+  display: none; /* Sembunyikan pesan saat potrait */
+}
+
+@media only screen and (orientation: portrait) {
+  .landscape-message {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  #scene1 {
+    display: flex;
+  }
+  .landscape-message {
+    display: none; /* Sembunyikan pesan saat lanskap */
+  }
+}
