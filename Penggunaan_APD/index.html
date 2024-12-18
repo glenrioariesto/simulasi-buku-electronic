@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simualasi Penggunaan APD</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Logo" />
+    </div>
+
+    <!-- Scene1 -->
+    <div id="scene1" class="scene">
+      <div class="button-sound" onclick="backsound()">
+        <img id="sound-image" src="assets/logo.svg" alt="Logo" />
+      </div>
+      <div class="cover-container">
+        <div class="title-cover"></div>
+        <div class="cover-left"></div>
+        <div class="cover-right"></div>
+        <div class="start-button" onclick="showMenuScene3()"></div>
+      </div>
+    </div>
+
+    <!-- Scene 3 -->
+    <div id="scene3" class="scene">
+      <div class="button-sound" onclick="backsound()">
+        <img id="sound-image" src="assets/logo.svg" alt="Logo" />
+      </div>
+      <div class="title">Pilih simulasi yang akan kamu mainkan</div>
+      <div class="menu-container">
+        <div class="menu-item" onclick="showScene4()">
+          <img src="assets/menu1.png" alt="Helm Keselamatan" />
+        </div>
+        <div class="menu-item" onclick="showScene5()">
+          <img src="assets/menu2.png" alt="Ruang Gambar" />
+        </div>
+        <div class="menu-item" onclick="showScene6()">
+          <img src="assets/menu3.png" alt="Ruang Mesin Bubut" />
+        </div>
+        <div class="menu-item" onclick="showScene7()">
+          <img src="assets/menu4.png" alt="Ruang Pengecoran Logam" />
+        </div>
+        <div class="menu-item" onclick="showScene8()">
+          <img src="assets/menu5.png" alt="Ruang Konstruksi" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 4 -->
+    <div id="scene4" class="scene">
+      <div class="button-back" onclick="backScene4()">
+        <img src="assets/menu.png" alt="Logo" />
+      </div>
+      <div class="container-content-scene4">
+        <div class="title">Simulasi Helm Keselamatan</div>
+
+        <div class="content-scene4">
+          <!-- 7 tools apd -->
+          <div class="helms">
+            <div
+              id="helm-green"
+              class="helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm-green"
+            ></div>
+            <div
+              id="helm-white"
+              class="helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm-white"
+            ></div>
+            <div
+              id="helm-blue"
+              class="helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm-blue"
+            ></div>
+            <div
+              id="helm-orange"
+              class="helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm-orange"
+            ></div>
+            <div
+              id="helm-yellow"
+              class="helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm-yellow"
+            ></div>
+            <div
+              id="helm-red"
+              class="helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm-red"
+            ></div>
+          </div>
+        </div>
+
+        <div class="characters-scene4">
+          <div class="character4">
+            <div class="character-container-4">
+              <img src="assets/orang 1.png" alt="Character-1" />
+              <div class="dropzone-scene4-container">
+                <div
+                  class="dropzone-scene4"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="character4">
+            <div class="character-container-4">
+              <img src="assets/orang 2.png" alt="Character-2" />
+              <div class="dropzone-scene4-container">
+                <div
+                  class="dropzone-scene4"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="character4">
+            <div class="character-container-4">
+              <img src="assets/orang 3.png" alt="Character-3" />
+              <div class="dropzone-scene4-container">
+                <div
+                  class="dropzone-scene4"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="character4">
+            <div class="character-container-4">
+              <img src="assets/orang 4.png" alt="Character-4" />
+              <div class="dropzone-scene4-container">
+                <div
+                  class="dropzone-scene4"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="character4">
+            <div class="character-container-4">
+              <img src="assets/orang 5.png" alt="Character-5" />
+              <div class="dropzone-scene4-container">
+                <div
+                  class="dropzone-scene4"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="character4">
+            <div class="character-container-4">
+              <img src="assets/orang 6.png" alt="Character-6" />
+              <div class="dropzone-scene4-container">
+                <div
+                  class="dropzone-scene4"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tombol untuk Simulasi -->
+      </div>
+    </div>
+
+    <!-- Scene 5 -->
+    <div id="scene5" class="scene">
+      <div class="button-back" onclick="backScene5()">
+        <img src="assets/menu.png" alt="Logo" />
+      </div>
+      <div class="title">Simulasi Ruang Gambar</div>
+      <div class="description">
+        Drag dan drop APD yang harus digunakan Lestari dengan tepat
+      </div>
+
+      <div class="container-content-scene5">
+        <div class="characters-container-scene5">
+          <div class="character5">
+            <div class="character-container">
+              <img src="assets/orang ruang gambar.png" alt="Character-1" />
+              <div class="dropzone-container">
+                <div
+                  class="dropzone scene-5"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-scene5">
+          <!-- 6 tools apd -->
+          <div id="tools-ruang-gambar" class="tools tools-scene5-background">
+            <div
+              id="helm"
+              class="tool helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm"
+            ></div>
+            <div
+              id="mask"
+              class="tool mask"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="mask"
+            ></div>
+            <div
+              id="gloves"
+              class="tool gloves"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="gloves"
+            ></div>
+            <div
+              id="spectacles"
+              class="tool spectacles"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="spectacles"
+            ></div>
+            <div
+              id="earplug"
+              class="tool earplug"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="earplug"
+            ></div>
+            <div
+              id="boots"
+              class="tool boots"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="boots"
+            ></div>
+          </div>
+          <div
+            class="button-scene5 check-gambar"
+            onclick="checkRuangGambar()"
+          ></div>
+        </div>
+        <!-- Tombol untuk Simulasi -->
+      </div>
+    </div>
+
+    <!-- Scene 6 -->
+    <div id="scene6" class="scene">
+      <div class="button-back" onclick="backScene6()">
+        <img src="assets/menu.png" alt="Logo" />
+      </div>
+      <div class="title">Simulasi Ruang Mesin Bubut</div>
+      <div class="description">
+        Drag dan drop APD yang harus digunakan Lestari dengan tepat
+      </div>
+
+      <div class="container-content-scene5">
+        <div class="characters-container-scene5">
+          <div class="character5">
+            <div class="character-container">
+              <img src="assets/orang mesin bubut.png" alt="Character-1" />
+              <div class="dropzone-container">
+                <div
+                  class="dropzone scene-6"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-scene5">
+          <!-- 6 tools apd -->
+          <div id="tools-ruang-bubut" class="tools tools-scene5-background">
+            <div
+              id="helm"
+              class="tool helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm"
+            ></div>
+            <div
+              id="mask"
+              class="tool mask"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="mask"
+            ></div>
+            <div
+              id="gloves"
+              class="tool gloves"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="gloves"
+            ></div>
+            <div
+              id="spectacles"
+              class="tool spectacles"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="spectacles"
+            ></div>
+            <div
+              id="earplug"
+              class="tool earplug"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="earplug"
+            ></div>
+            <div
+              id="boots"
+              class="tool boots"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="boots"
+            ></div>
+          </div>
+          <div
+            class="button-scene5 check-gambar"
+            onclick="checkRuangBubut()"
+          ></div>
+        </div>
+        <!-- Tombol untuk Simulasi -->
+      </div>
+    </div>
+
+    <!-- Scene 7 -->
+    <div id="scene7" class="scene">
+      <div class="button-back" onclick="backScene7()">
+        <img src="assets/menu.png" alt="Logo" />
+      </div>
+      <div class="title">Simulasi Ruang Pengecoran Logam</div>
+      <div class="description">
+        Drag dan drop APD yang harus digunakan Lestari dengan tepat
+      </div>
+
+      <div class="container-content-scene5">
+        <div class="characters-container-scene5">
+          <div class="character5">
+            <div class="character-container">
+              <img src="assets/orang pengecoran logam.png" alt="Character-1" />
+              <div class="dropzone-container">
+                <div
+                  class="dropzone scene-7"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-scene5">
+          <!-- 6 tools apd -->
+          <div
+            id="tools-ruang-pengecoran-logam"
+            class="tools tools-scene5-background"
+          >
+            <div
+              id="helm"
+              class="tool helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm"
+            ></div>
+            <div
+              id="mask"
+              class="tool mask"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="mask"
+            ></div>
+            <div
+              id="gloves"
+              class="tool gloves"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="gloves"
+            ></div>
+            <div
+              id="spectacles"
+              class="tool spectacles"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="spectacles"
+            ></div>
+            <div
+              id="earplug"
+              class="tool earplug"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="earplug"
+            ></div>
+            <div
+              id="boots"
+              class="tool boots"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="boots"
+            ></div>
+          </div>
+          <div
+            class="button-scene5 check-gambar"
+            onclick="checkRuangPengecoranLogam()"
+          ></div>
+        </div>
+        <!-- Tombol untuk Simulasi -->
+      </div>
+    </div>
+
+    <!-- Scene 8 -->
+    <div id="scene8" class="scene">
+      <div class="button-back" onclick="backScene8()">
+        <img src="assets/menu.png" alt="Logo" />
+      </div>
+      <div class="title">Simulasi Ruang Konstruksi Rangka Pesawat</div>
+      <div class="description">
+        Drag dan drop APD yang harus digunakan Lestari dengan tepat
+      </div>
+
+      <div class="container-content-scene5">
+        <div class="characters-container-scene5">
+          <div class="character5">
+            <div class="character-container">
+              <img src="assets/orang rangka pesawat.png" alt="Character-1" />
+              <div class="dropzone-container">
+                <div
+                  class="dropzone scene-8"
+                  ondrop="drop(event)"
+                  ondragover="allowDrop(event)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-scene5">
+          <!-- 6 tools apd -->
+          <div
+            id="tools-ruang-konstruksi"
+            class="tools tools-scene5-background"
+          >
+            <div
+              id="helm"
+              class="tool helm"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="helm"
+            ></div>
+            <div
+              id="mask"
+              class="tool mask"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="mask"
+            ></div>
+            <div
+              id="gloves"
+              class="tool gloves"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="gloves"
+            ></div>
+            <div
+              id="spectacles"
+              class="tool spectacles"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="spectacles"
+            ></div>
+            <div
+              id="earplug"
+              class="tool earplug"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="earplug"
+            ></div>
+            <div
+              id="boots"
+              class="tool boots"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-tool="boots"
+            ></div>
+          </div>
+          <div
+            class="button-scene5 check-gambar"
+            onclick="checkRuangKonstruksi()"
+          ></div>
+        </div>
+        <!-- Tombol untuk Simulasi -->
+      </div>
+    </div>
+
+    <div id="information" class="information">
+      <div class="instruction-1">
+        <div id="instruction-1" class="modal-button""></div>
+      </div>
+    </div>
+
+
+  
+    <div class="landscape-message">
+      <h2>Silakan ubah ke mode lanskap</h2>
+      <p>Untuk pengalaman terbaik, silakan putar perangkat Anda.</p>
+    </div>
+    <div id="myModal" class="modal">
+      <div id="modal-content" class="modal-content">
+        <div class="modal-button" onclick="closeModal()"></div>
+      </div>
+    </div>
+
+      <div class="overlay-danger"></div>
+
+    <audio
+    id="clickOptionSound"
+    src="assets/sounds/mixkit-interface-option-select.mp3"
+    ></audio>
+    <audio id="playSoundGame" src="assets/sounds/backsound-game.mp3" loop></audio>
+    
+    <audio id="correctSound" src="assets/sounds/mixkit-game-win.wav"></audio>
+    <audio id="wrongSound" src="assets/sounds/mixkit-wrong-answer.wav"></audio>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

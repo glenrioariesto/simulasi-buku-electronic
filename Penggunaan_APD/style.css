@@ -1,0 +1,796 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  width: 6vw;
+  height: 6vh;
+  position: fixed;
+  top: 1vw;
+  left: 1vw;
+  z-index: 9999;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+.scene {
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.button-sound {
+  width: 8vw;
+  height: 8vh;
+  position: fixed;
+  top: 1vw;
+  right: 1vw;
+  z-index: 9999;
+  cursor: pointer;
+}
+.button-sound img {
+  width: 100%;
+  height: auto;
+}
+
+.button-sound:hover {
+  transform: scale(1.1);
+}
+
+.button-sound:active {
+  transform: scale(0.9);
+}
+
+.button-back {
+  width: 8vw;
+  height: 8vh;
+  position: fixed;
+  top: 1vw;
+  right: 1vw;
+  z-index: 9999;
+  cursor: pointer;
+}
+.button-back img {
+  width: 100%;
+  height: auto;
+}
+
+.button-back:hover {
+  transform: scale(1.1);
+}
+
+.button-back:active {
+  transform: scale(0.9);
+}
+
+#scene1 {
+  background-image: url("assets/cover.png");
+  position: relative;
+}
+
+.cover-container {
+  height: 50%;
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for Start Screen */
+.title-cover {
+  background-image: url("assets/judul.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 35vh;
+}
+
+.title {
+  font-size: 1.7vw;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.description {
+  margin-top: 3vh;
+  font-size: 1.2vw;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.cover-left {
+  position: absolute;
+  background-image: url("assets/kiri.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 55vh;
+  height: 75%;
+  bottom: 0;
+  left: 0;
+}
+.cover-right {
+  position: absolute;
+  background-image: url("assets/kanan.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 55vh;
+  height: 75%;
+  bottom: 0;
+  right: 0;
+}
+
+.start-button {
+  background-image: url("assets/mulai.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50%;
+  height: 50%;
+  cursor: pointer;
+  border-radius: 0.5vw;
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+}
+
+.start-button:active,
+.start-button:focus {
+  transform: scale(0.9);
+}
+
+#scene2 {
+  background-image: url("assets/bg menu.png");
+}
+
+.speech-bubble {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1em;
+  margin-bottom: 15px;
+  display: inline-block;
+  max-width: 80%;
+}
+
+.purpose-text,
+.instruction-text {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.button {
+  display: none;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 1vw 2vw;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.button.next {
+  display: inline-flex;
+  background-color: #ff7a00;
+}
+
+#scene3 {
+  background-image: url("assets/bg menu.png");
+}
+
+/* Menu Item Container */
+.menu-container {
+  display: flex;
+  width: 90%;
+
+  padding: 1vw 1vw;
+  margin-top: 2vw;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Menu Item Styling */
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  transform: scale(1.1);
+}
+
+.menu-item:active,
+.menu-item:focus {
+  transform: scale(0.9);
+}
+
+.menu-item img {
+  border: 2px solid #fff;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 99%;
+  border-radius: 0.5vw;
+}
+
+#scene4 {
+  background-image: url("assets/bg.png");
+  position: relative;
+}
+.container-content-scene4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  gap: 1vh;
+}
+
+.content-scene4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18vh;
+  width: 80vw;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.helms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  background-color: #567799;
+  padding: 0.5vw;
+  border-radius: 0.5vw;
+}
+.helm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.1vw;
+  height: 5.1vw;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* default position */
+#helm-red {
+  background-image: url("assets/1.png");
+}
+
+#helm-white {
+  background-image: url("assets/2.png");
+}
+#helm-green {
+  background-image: url("assets/3.png");
+}
+
+#helm-blue {
+  background-image: url("assets/4.png");
+}
+
+#helm-orange {
+  background-image: url("assets/5.png");
+}
+
+#helm-yellow {
+  background-image: url("assets/6.png");
+}
+
+/* helm used */
+#helm-red-use {
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/helm-1-use.png");
+}
+
+#helm-white-use {
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/helm-2-use.png");
+}
+#helm-green-use {
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/helm-3-use.png");
+}
+
+#helm-blue-use {
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/helm-4-use.png");
+}
+
+#helm-orange-use {
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/helm-5-use.png");
+}
+
+#helm-yellow-use {
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/helm-6-use.png");
+}
+
+.characters-scene4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 70%;
+  position: relative;
+}
+
+.character-container {
+  position: relative;
+  display: flex;
+  height: 100%;
+}
+
+.character-container-4 {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.character-container-4 img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.dropzone-container {
+  width: 100%;
+  height: 100%;
+  display: flex; /* Gunakan inline-flex untuk memastikan bead pas di tengah */
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.dropzone-scene4-container {
+  width: 100%;
+  height: 100%;
+  display: flex; /* Gunakan inline-flex untuk memastikan bead pas di tengah */
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.dropzone-scene4 {
+  width: 100%;
+  height: 100%;
+  display: flex; /* Gunakan inline-flex untuk memastikan bead pas di tengah */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#scene5 {
+  background-image: url("assets/ruang gambar.png");
+  position: relative;
+}
+.container-content-scene5 {
+  padding-top: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 70%;
+}
+.content-scene5 {
+  margin-top: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  width: 40%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.characters-container-scene5 {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  /* margin-right: 5vw; */
+  width: 30%;
+}
+
+.character4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.character5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.dropzone.scene-5 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.tools-scene5-background {
+  padding-top: 1vw;
+  width: 100%;
+  height: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.5vw;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.tool {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 8vw;
+  height: 8vw;
+}
+
+.tool.helm {
+  background-image: url("assets/helm.png");
+  z-index: 6;
+}
+
+.tool.mask {
+  background-image: url("assets/maskah.png");
+  z-index: 5;
+}
+
+.tool.gloves {
+  background-image: url("assets/sarungtangan.png");
+  z-index: 4;
+}
+
+.tool.spectacles {
+  background-image: url("assets/spectacles.png");
+  z-index: 3;
+}
+
+.tool.boots {
+  background-image: url("assets/sepatu.png");
+  z-index: 2;
+}
+
+.tool.earplug {
+  background-image: url("assets/Earplug.png");
+  z-index: 1;
+}
+/* tool use */
+.tool.helm-use {
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/set helm.png");
+  z-index: 10;
+  position: absolute;
+}
+
+.tool.mask-use {
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/set masker.png");
+  position: absolute;
+  z-index: 5;
+}
+
+.tool.gloves-use {
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/set sarungtangan.png");
+  position: absolute;
+  z-index: 4;
+}
+
+.tool.spectacles-use {
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/set spectacles.png");
+  position: absolute;
+  z-index: 3;
+}
+
+.tool.boots-use {
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/setsepatu.png");
+  position: absolute;
+  z-index: 2;
+}
+
+.tool.earplug-use {
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/set earplug.png");
+  position: absolute;
+  z-index: 1;
+}
+
+.button-scene5 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.button-scene5.check-gambar {
+  cursor: pointer;
+  width: 20vw;
+  height: 5vw;
+  background-image: url("assets/tombol periksa.png");
+}
+
+.button-scene5.check-gambar:hover {
+  transform: scale(1.1); /* Optional hover effect */
+}
+
+.button-scene5.check-gambar:active {
+  transform: scale(0.9); /* Optional active effect */
+}
+
+#scene6 {
+  background-image: url("assets/ruang mesin bubut.png");
+  position: relative;
+}
+
+.dropzone.scene-6 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#scene7 {
+  background-image: url("assets/ruang pengecoran logam.png");
+  position: relative;
+}
+
+.dropzone.scene-7 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#scene8 {
+  background-image: url("assets/ruang rangka pesawat.jpeg");
+  position: relative;
+}
+
+.dropzone.scene-8 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.information {
+  display: none; /* Mulai dengan display: none agar tidak muncul di awal */
+  position: fixed; /* Pastikan elemen tetap berada di layar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0; /* Mulai dengan opacity 0 */
+  animation-duration: 2s;
+  animation-fill-mode: forwards; /* Menyimpan gaya setelah animasi */
+}
+
+.information.show {
+  display: flex; /* Menampilkan informasi setelah animasi dimulai */
+  animation-name: fadeIn; /* Menambahkan animasi untuk fade in */
+}
+
+.information .instruction-1 {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+  width: 35%; /* Atur lebar sesuai kebutuhan */
+  height: 50%; /* Atur tinggi sesuai kebutuhan */
+  background-image: url("assets/petunjuk.png"); /* Gambar petunjuk */
+  top: 25%;
+  left: 32.5%;
+  transform: translate(-50%, -50%); /* Posisikan di tengah */
+  display: flex;
+  opacity: 0; /* Mulai dengan opacity 0 */
+  animation: slideIn 2s forwards; /* Menambahkan animasi slide in */
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1; /* Pada tengah animasi, elemen akan sepenuhnya terlihat */
+  }
+  100% {
+    opacity: 0; /* Di akhir animasi, elemen akan kembali transparan */
+  }
+}
+
+/* Overlay Danger */
+.overlay-danger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.2); /* Merah transparan */
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Tidak menghalangi klik di elemen lain */
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  height: 30vw;
+  width: 50%;
+  margin: 15% auto; /* 15% from the top and centered */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2vw;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 1vw;
+  animation: slideIn 0.5s ease-out, fadeIn 0.5s ease-in;
+}
+
+.modal-content.correct {
+  background-image: url("assets/benar.png");
+}
+
+.modal-content.wrong {
+  background-image: url("assets/salah.png");
+}
+.modal-button {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: 20%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("assets/baik.png");
+  cursor: pointer;
+}
+
+.modal-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.modal-button:active {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.landscape-message {
+  color: #333;
+  display: none; /* Sembunyikan pesan saat potrait */
+}
+
+audio {
+  display: none;
+}
+
+@media only screen and (orientation: portrait) {
+  .landscape-message {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  #scene1 {
+    display: flex;
+  }
+  .landscape-message {
+    display: none; /* Sembunyikan pesan saat lanskap */
+  }
+}
