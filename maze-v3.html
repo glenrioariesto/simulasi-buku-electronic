@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Susun Algoritma untuk Menggerakkan Mobil</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Logo" />
+    </div>
+    <div id="scene1" class="scene">
+      <img
+        src="assets/judul-cover.svg"
+        class="title-cover"
+        alt="text-Cover"
+        class="cover"
+      />
+      <div class="button-scene1 button-play" onclick="showScene2()"></div>
+    </div>
+    <div id="scene2" class="scene">
+      <div class="announcement-container">
+        <div class="tab">Aturan</div>
+        <div class="announcement">
+          <span class="text">
+            Kamu akan belajar algoritma pemrograman<br />
+            blok sederhana, menggunakan simulasi<br />
+            pergerakkan mobil balap.<br />
+            Dengan beberapa level kesulitan
+          </span>
+        </div>
+      </div>
+      <div class="button-container position">
+        <button id="previousBtn" class="button" onclick="showScene1()"></button>
+
+        <button id="nextBtn" class="button" onclick="showScene3()"></button>
+      </div>
+    </div>
+    <div id="scene3" class="scene">
+      <div class="title-scene3">Pilih mobil yang kamu sukai !!!</div>
+      <div class="level-list">
+        <div class="container-level">
+          <div class="level" onclick="chooseCar(1)">
+            <img
+              src="assets/mobilan_kuning.png"
+              alt="Mobil Level 1"
+              class="car-img"
+            />
+          </div>
+          <div class="level" onclick="chooseCar(2)">
+            <img
+              src="assets/mobilan_putih.png"
+              alt="Mobil Level 2"
+              class="car-img"
+            />
+          </div>
+          <div class="level" onclick="chooseCar(3)">
+            <img
+              src="assets/mobilan_merah.png"
+              alt="Mobil Level 3"
+              class="car-img"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="container-loading">
+        <div id="car-loading" class="car-loading car-1"></div>
+      </div>
+      <div class="container-level">
+        <button class="button-scene3" onclick="showScene4()">Mulai</button>
+      </div>
+    </div>
+
+    <div id="scene4" class="scene">
+      <div class="container">
+        <div id="gameArea">
+          <div id="map" class="map-level-1">
+            <div id="car" class="car-1"></div>
+            <!-- Tembok -->
+            <div id="wall1" class="wall"></div>
+            <div id="wall2" class="wall"></div>
+            <div id="wall3" class="wall"></div>
+            <div id="finish"></div>
+          </div>
+
+          <div id="instructionArea-container">
+            <div
+              id="instructionArea"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            >
+              <!-- Instructions or actions for the car -->
+            </div>
+            <div class="controls">
+              <dvi>
+                <div
+                  id="forwardBtn"
+                  class="btn-instruction"
+                  onclick="addInstruction('forwardBtn')"
+                ></div>
+                <div
+                  id="leftBtn"
+                  class="btn-instruction"
+                  onclick="addInstruction('leftBtn')"
+                ></div>
+                <div
+                  id="rightBtn"
+                  class="btn-instruction"
+                  onclick="addInstruction('rightBtn')"
+                ></div>
+              </dvi>
+              <div>
+                <div id="resetBtn" class="btn-instruction"></div>
+                <div id="startBtn" class="btn-instruction"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scene5" class="scene">
+      <div class="container-text-congrats">
+        <span class="text-congrats-title">SELAMAT!!</span>
+        <span class="sub">
+          Kamu akan belajar algoritma pemrograman<br />
+          blok sederhana, menggunakan simulasi<br />
+          pergerakkan mobil balap.<br
+        /></span>
+      </div>
+      <img class="piala-image" src="assets/PIALA 1.svg" alt="PIALA" class="" />
+    </div>
+
+    <div class="landscape-message">
+      <h2>Silakan ubah ke mode lanskap</h2>
+      <p>Untuk pengalaman terbaik, silakan putar perangkat Anda.</p>
+    </div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <p id="message">ss</p>
+
+        <button class="btn close" onclick="closeModal()">&#x2718;</button>
+      </div>
+    </div>
+
+    <audio id="backgroundSound" autoplay loop>
+      <source src="assets/sounds/backsound.mp3" loop type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <div id="celebrate" class="celebrate"></div>
+
+    <audio
+      id="clickSound"
+      src="assets/sounds/click-sound.mp3"
+      volume="0.2"
+    ></audio>
+    <audio id="carLoadingSound" src="assets/sounds/car-loading.mp3"></audio>
+    <audio id="carPlaySound" src="assets/sounds/car-loading.mp3" loop></audio>
+    <audio
+      id="correctSound"
+      src="assets/sounds/zapsplat_multimedia_game_sound_bell_keys_win_success_tone.mp3"
+    ></audio>
+    <audio
+      id="celebrateSound"
+      src="assets/sounds/zapsplat_cartoon_anime_hit_burst_mini_explosion_71425.mp3"
+      loop
+    ></audio>
+    <audio
+      id="celebrate2Sound"
+      src="assets/sounds/zapsplat_fantasy_fairy_dust_twinkle_sparkle_bell_tree_high_pitched_65693.mp3"
+      loop
+    ></audio>
+
+    <audio
+      id="failSound"
+      src="assets/sounds/Game-level-fail-sound-effect.mp3"
+    ></audio>
+    <script src="js/script.js"></script>
+    <script src="js/helpers.js"></script>
+  </body>
+</html>
