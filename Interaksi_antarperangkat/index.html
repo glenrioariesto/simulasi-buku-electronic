@@ -10,7 +10,7 @@
     <title>Simulasi Interaksi Antarperangkat</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="assets/logo-96x96.png" type="image/x-icon" />
+    <link rel="icon" href="assets/logo-96x96.png?v=2" type="image/x-icon" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -23,6 +23,9 @@
     </div>
 
     <div id="scene1" class="scene">
+      <div class="button-muted" onclick="backgroundSoundGame()">
+        <img id="sound-image" src="assets/unmute.png" alt="Logo" />
+      </div>
       <img
         src="assets/judul-cover.png"
         class="title-cover"
@@ -179,7 +182,15 @@
         <div class="modal-button" onclick="closeModal()"></div>
       </div>
     </div>
-
+    <div id="customAlert" class="alert">
+      <span class="alert-text"
+        >Apakah Anda ingin masuk ke mode layar penuh?</span
+      >
+      <div class="button-group">
+        <button class="btn-alert" onclick="handleYes()">Yes</button>
+        <button class="btn-alert no" onclick="handleNo()">No</button>
+      </div>
+    </div>
     <div class="landscape-message">
       <h2>Silakan ubah ke mode lanskap</h2>
       <p>Untuk pengalaman terbaik, silakan putar perangkat Anda.</p>
@@ -191,7 +202,6 @@
     <audio
       id="playSoundGame"
       src="assets/sounds/backsound-game.mp3"
-      autoplay
       loop
     ></audio>
     <audio id="dropItemsSound" src="assets/sounds/mixkit-drop-item.wav"></audio>

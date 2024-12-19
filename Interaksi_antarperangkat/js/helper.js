@@ -5,6 +5,22 @@ const playGame = document.getElementById("playGame");
 const correctSound = document.getElementById("correctSound");
 const failSound = document.getElementById("failSound");
 let stopHandler = null;
+let isPlaying = true;
+const soundImage = document.getElementById("sound-image");
+function backgroundSoundGame() {
+  soundClick();
+  if (!isPlaying) {
+    isPlaying = true;
+    backgroundSound.pause();
+    soundImage.src = "assets/unmute.png";
+  } else {
+    backgroundSound.currentTime = 10;
+    backgroundSound.volume = 0.2;
+    backgroundSound.play();
+    soundImage.src = "assets/mute.png";
+    isPlaying = false;
+  }
+}
 
 function soundWin() {
   correctSound.currentTime = 0;
@@ -64,9 +80,6 @@ function stopSoundPlayGame() {
 }
 
 function showScene2() {
-  backgroundSound.currentTime = 0;
-  backgroundSound.volume = 0.2;
-  backgroundSound.play();
   soundClick();
   document.getElementById("scene1").style.display = "none";
   document.getElementById("scene2").style.display = "block";
@@ -148,4 +161,58 @@ function closeModal() {
   soundClick();
   resetCables();
   document.getElementById("myModal").style.display = "none";
+}
+function showCustomAlert(message) {
+  const alertBox = document.getElementById("customAlert");
+  const alertText = alertBox.querySelector(".alert-text");
+  alertText.textContent = message;
+  alertBox.style.display = "block"; // Menampilkan alert
+}
+
+// Fungsi untuk menangani pilihan Yes
+function handleYes() {
+  // Masukkan logika untuk aksi ketika pengguna memilih "Yes"
+  console.log("Pengguna memilih Yes");
+  enterFullScreen();
+  closeAlert();
+}
+
+// Fungsi untuk menangani pilihan No
+function handleNo() {
+  // Masukkan logika untuk aksi ketika pengguna memilih "No"
+  console.log("Pengguna memilih No");
+  closeAlert();
+}
+
+// Fungsi untuk menutup alert
+function closeAlert() {
+  const alertBox = document.getElementById("customAlert");
+  alertBox.style.display = "none"; // Menyembunyikan alert
+}
+
+// Memanggil showCustomAlert setelah halaman dimuat
+window.onload = function () {
+  showCustomAlert("Apakah Anda ingin masuk ke mode layar penuh?");
+};
+
+function enterFullScreen() {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.webkitRequestFullscreen) {
+    document.documentElement.webkitRequestFullscreen();
+  } else if (document.documentElement.msRequestFullscreen) {
+    document.documentElement.msRequestFullscreen();
+  } else {
+    alert("Browser ini tidak mendukung full screen.");
+  }
+}
+
+function exitFullScreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
 }
