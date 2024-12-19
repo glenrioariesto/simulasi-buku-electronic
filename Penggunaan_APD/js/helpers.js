@@ -22,18 +22,26 @@ dropSound.currentTime = 0;
 const level = 1;
 let delay = 3500;
 let correctLevel = 0;
-let isPlaying = false;
-function backsound() {
-  if (isPlaying) {
-    backgroundSound.pause();
-    isPlaying = false;
-  } else {
-    backgroundSound.volume = 0.1; // Atur volume
-    backgroundSound.play();
+let isPlaying = true;
+
+const soundImage = document.getElementById("sound-image");
+const soundImage2 = document.getElementById("sound-image2");
+function backgroundSoundGame() {
+  soundClick();
+  if (!isPlaying) {
     isPlaying = true;
+    backgroundSound.pause();
+    soundImage.src = "assets/unmute.png";
+    soundImage2.src = "assets/unmute.png";
+  } else {
+    backgroundSound.currentTime = 10;
+    backgroundSound.volume = 0.2;
+    backgroundSound.play();
+    soundImage.src = "assets/mute.png";
+    soundImage2.src = "assets/mute.png";
+    isPlaying = false;
   }
 }
-
 function soundDrop() {
   dropSound.currentTime = 0;
   dropSound.play();

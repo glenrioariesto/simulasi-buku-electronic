@@ -32,7 +32,7 @@ body {
   background-position: center;
 }
 
-.button-sound {
+.button-muted {
   width: 8vw;
   height: 8vh;
   position: fixed;
@@ -41,16 +41,16 @@ body {
   z-index: 9999;
   cursor: pointer;
 }
-.button-sound img {
-  width: 100%;
+.button-muted img {
+  width: 70%;
   height: auto;
 }
 
-.button-sound:hover {
+.button-muted:hover {
   transform: scale(1.1);
 }
 
-.button-sound:active {
+.button-muted:active {
   transform: scale(0.9);
 }
 
