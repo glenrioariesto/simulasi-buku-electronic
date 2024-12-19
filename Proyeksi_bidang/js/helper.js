@@ -7,11 +7,21 @@ const backgroundSound = document.getElementById("playSoundGame");
 const dropItemsSound = document.getElementById("dropItemsSound");
 const correctSound = document.getElementById("correctSound");
 const failSound = document.getElementById("failSound");
-
+let isPlaying = true;
+const soundImage = document.getElementById("sound-image");
 function backgroundSoundGame() {
-  backgroundSound.currentTime = 15;
-  backgroundSound.volume = 0.5;
-  backgroundSound.play();
+  soundClick();
+  if (!isPlaying) {
+    isPlaying = true;
+    backgroundSound.pause();
+    soundImage.src = "assets/unmute.png";
+  } else {
+    backgroundSound.currentTime = 10;
+    backgroundSound.volume = 0.5;
+    backgroundSound.play();
+    soundImage.src = "assets/mute.png";
+    isPlaying = false;
+  }
 }
 function soundClick() {
   clickSound.currentTime = 0;
@@ -44,7 +54,6 @@ function showScene1() {
 }
 
 const showScene2 = () => {
-  backgroundSoundGame();
   soundClick();
   document.getElementById("scene1").style.display = "none";
   document.getElementById("scene2").style.display = "flex";
@@ -97,6 +106,7 @@ const showScene8 = () => {
 };
 
 const showScene9 = () => {
+  soundClick();
   document.getElementById("scene5").style.display = "none";
   document.getElementById("scene2").style.display = "flex";
 };
@@ -107,6 +117,7 @@ const showScene10 = () => {
 };
 
 const backShowScene1 = () => {
+  soundClick();
   currentSlide = 0;
   currentScene = 0;
   document.getElementById("scene5").style.display = "none";
@@ -115,6 +126,7 @@ const backShowScene1 = () => {
 };
 
 const backShowScene1fromScene7 = () => {
+  soundClick();
   currentSlide = 0;
   currentScene = 0;
   document.getElementById("scene7").style.display = "none";

@@ -38,6 +38,29 @@ body {
   background-position: center;
   overflow: hidden;
 }
+
+.button-muted {
+  width: 8vw;
+  height: 8vh;
+  position: fixed;
+  top: 1vw;
+  right: 1vw;
+  z-index: 9999;
+  cursor: pointer;
+}
+.button-muted img {
+  width: 70%;
+  height: auto;
+}
+
+.button-muted:hover {
+  transform: scale(1.1);
+}
+
+.button-muted:active {
+  transform: scale(0.9);
+}
+
 #scene1 {
   position: relative;
   background-image: url("assets/cover3D.jpg");
@@ -835,15 +858,15 @@ body {
 #exitBtn:active {
   transform: scale(0.9);
 }
-#restartBtn {
-  background-image: url("assets/ulangi.png");
+#extraGameBtn {
+  background-image: url("assets/extra game.png");
   width: 10vw;
   height: 10vw;
 }
-#restartBtn:hover {
+#extraGameBtn:hover {
   transform: scale(1.1);
 }
-#restartBtn:active {
+#extraGameBtn:active {
   transform: scale(0.9);
 }
 

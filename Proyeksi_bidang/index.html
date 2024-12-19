@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>Simulasi Membaca Gambar Proyeksi</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/logo-96x96.png?v=2" type="image/x-icon" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -14,6 +16,9 @@
       <img src="assets/logo.svg" alt="Logo" onclick="hackButton()" />
     </div>
     <div id="scene1" class="scene">
+      <div class="button-muted" onclick="backgroundSoundGame()">
+        <img id="sound-image" src="assets/unmute.png" alt="Logo" />
+      </div>
       <img class="text-cover" src="assets/judul.png" alt="Judul" />
       <div class="button-mulai scene1" onmouseover="soundHover()"></div>
 
@@ -311,7 +316,7 @@
 
       <div class="container-btn-scene5">
         <div id="exitBtn" class="btn" onclick="backShowScene1()"></div>
-        <div id="restartBtn" class="btn" onclick="showScene9()"></div>
+        <div id="extraGameBtn" class="btn" onclick="showScene9()"></div>
       </div>
     </div>
     <div id="scene7" class="scene">
@@ -401,7 +406,6 @@
     <audio
       id="playSoundGame"
       src="assets/sounds/pixabay_evening_sky-backsound.mp3"
-      autoplay
       loop
     ></audio>
     <audio
