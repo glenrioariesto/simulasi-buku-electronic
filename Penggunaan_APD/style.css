@@ -274,6 +274,7 @@ body {
   border-radius: 0.5vw;
 }
 .helm {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -470,9 +471,11 @@ body {
   align-items: center;
   justify-items: center;
   align-items: center;
+  position: relative;
 }
 
 .tool {
+  cursor: pointer;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

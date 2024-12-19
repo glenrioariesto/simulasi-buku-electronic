@@ -15,6 +15,9 @@ const backgroundSound = document.getElementById("playSoundGame");
 const backgroundSimlation = document.getElementById("playSoundInSimulation");
 const correctSound = document.getElementById("correctSound");
 const wrongSound = document.getElementById("wrongSound");
+const dropSound = document.getElementById("dropSound");
+
+dropSound.currentTime = 0;
 
 const level = 1;
 let delay = 3500;
@@ -29,6 +32,11 @@ function backsound() {
     backgroundSound.play();
     isPlaying = true;
   }
+}
+
+function soundDrop() {
+  dropSound.currentTime = 0;
+  dropSound.play();
 }
 function soundClick() {
   clickSound.currentTime = 0;
@@ -56,7 +64,6 @@ function showMenuScene3() {
 }
 function showScene4() {
   soundClick();
-
   // Menyembunyikan scene 3 dan menampilkan scene 4
   document.getElementById("scene3").style.display = "none";
   document.getElementById("scene4").style.display = "flex";
@@ -79,36 +86,48 @@ function showScene4() {
 document.addEventListener("click", (event) => {
   if (event.target === instruction || event.target === checkInstruction) {
     info.classList.remove("show");
+    soundClick();
   }
 });
 
 function showScene5() {
   soundClick();
-
+  resetRuangGambar();
   document.getElementById("scene3").style.display = "none";
   document.getElementById("scene5").style.display = "flex";
-  resetRuangGambar();
+  document.querySelectorAll("#scene5 .tools .tool").forEach((tool) => {
+    addDragListeners(tool);
+  });
 }
 
 function showScene6() {
   soundClick();
-
+  resetRuangBubut();
   document.getElementById("scene3").style.display = "none";
   document.getElementById("scene6").style.display = "flex";
+  document.querySelectorAll("#scene6 .tools .tool").forEach((tool) => {
+    addDragListeners(tool);
+  });
 }
 
 function showScene7() {
   soundClick();
-
+  resetRuangPengecoranLogam();
   document.getElementById("scene3").style.display = "none";
   document.getElementById("scene7").style.display = "flex";
+  document.querySelectorAll("#scene7 .tools .tool").forEach((tool) => {
+    addDragListeners(tool);
+  });
 }
 
 function showScene8() {
   soundClick();
-
+  resetRuangKonstruksi();
   document.getElementById("scene3").style.display = "none";
   document.getElementById("scene8").style.display = "flex";
+  document.querySelectorAll("#scene8 .tools .tool").forEach((tool) => {
+    addDragListeners(tool);
+  });
 }
 
 function backScene4() {
@@ -161,8 +180,8 @@ function openModal(correct, level) {
 }
 
 function closeModal() {
+  soundClick();
   modal.style.display = "none";
-
   switch (correctLevel) {
     case 1:
       backScene4();
@@ -187,7 +206,6 @@ function closeModal() {
       break;
     default:
       correctLevel = 0;
-      soundClick();
 
       break;
   }
@@ -339,6 +357,7 @@ function resetHelm() {
     newHelm.addEventListener("dragstart", drag);
 
     // Tambahkan helm baru ke kontainer helm
+    addDragListeners(newHelm);
     helmsContainer.appendChild(newHelm);
   });
 
@@ -434,6 +453,7 @@ function resetRuangGambar() {
 
     // Tambahkan event listener untuk drag
     toolElement.addEventListener("dragstart", drag);
+    addDragListeners(toolElement);
 
     toolsContainer.appendChild(toolElement);
   });
@@ -535,7 +555,7 @@ function resetRuangBubut() {
 
     // Tambahkan event listener untuk drag
     toolElement.addEventListener("dragstart", drag);
-
+    addDragListeners(toolElement);
     toolsContainer.appendChild(toolElement);
   });
 }
@@ -639,7 +659,7 @@ function resetRuangPengecoranLogam() {
 
     // Tambahkan event listener untuk drag
     toolElement.addEventListener("dragstart", drag);
-
+    addDragListeners(toolElement);
     toolsContainer.appendChild(toolElement);
   });
 }
@@ -740,7 +760,7 @@ function resetRuangKonstruksi() {
 
     // Tambahkan event listener untuk drag
     toolElement.addEventListener("dragstart", drag);
-
+    addDragListeners(toolElement);
     toolsContainer.appendChild(toolElement);
   });
 }
