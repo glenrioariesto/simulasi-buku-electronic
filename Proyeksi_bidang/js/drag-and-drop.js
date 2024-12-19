@@ -102,9 +102,9 @@ function allDropboxesFilled(dropboxes) {
   // Cek setiap dropbox, pastikan ada child element (bidang) di dalamnya
   return Array.from(dropboxes).every((zone) => zone.hasChildNodes());
 }
+let frame = document.querySelector(".frame-right");
 
-document.querySelectorAll(".bidang").forEach((bidang) => {
-  // Touch event handlers for mobile
+function addDragListeners(bidang) {
   bidang.addEventListener(
     "touchstart",
     function (event) {
@@ -113,6 +113,8 @@ document.querySelectorAll(".bidang").forEach((bidang) => {
       draggedBidang = event.target;
 
       let touch = event.touches[0];
+      draggedBidang.style.width = "24.5%";
+      draggedBidang.style.height = "23.5%";
       draggedBidang.style.position = "absolute";
       draggedBidang.style.left =
         touch.pageX - draggedBidang.offsetWidth / 2 + "px";
@@ -124,16 +126,22 @@ document.querySelectorAll(".bidang").forEach((bidang) => {
     false
   );
 
-  bidang.addEventListener("touchmove", function (event) {
-    event.preventDefault();
-    let touch = event.touches[0];
-    draggedBidang.style.left =
-      touch.pageX - draggedBidang.offsetWidth / 2 + "px";
-    draggedBidang.style.top =
-      touch.pageY - draggedBidang.offsetHeight / 2 + "px";
-  });
+  bidang.addEventListener(
+    "touchmove",
+    function (event) {
+      event.preventDefault();
+
+      let touch = event.touches[0];
+      draggedBidang.style.left =
+        touch.pageX - draggedBidang.offsetWidth / 2 + "px";
+      draggedBidang.style.top =
+        touch.pageY - draggedBidang.offsetHeight / 2 + "px";
+    },
+    false
+  );
   bidang.addEventListener("touchend", function (event) {
     let dropboxes = document.querySelectorAll(".dropbox");
+    let droppedInZone = false;
 
     dropboxes.forEach((zone) => {
       let rect = zone.getBoundingClientRect();
@@ -169,14 +177,22 @@ document.querySelectorAll(".bidang").forEach((bidang) => {
         if (dropbox.firstChild) {
           dropbox.removeChild(dropbox.firstChild);
         }
-        let frame = document.querySelector(".frame-right");
-        let clonedBidang = draggedBidang.cloneNode(true);
-        clonedBidang.style.position = "static";
-        clonedBidang.style.left = "0";
-        clonedBidang.style.top = "0";
-        clonedBidang.setAttribute("draggable", "true");
+        droppedInZone = true;
+        if (
+          !Array.from(frame.children).some(
+            (child) => child.id === draggedBidang.id
+          )
+        ) {
+          let clonedBidang = draggedBidang.cloneNode(true);
+          clonedBidang.style.position = "static";
+          clonedBidang.style.left = "0";
+          clonedBidang.style.top = "0";
+          clonedBidang.setAttribute("draggable", "true");
+          addDragListeners(clonedBidang);
 
-        frame.appendChild(clonedBidang);
+          frame.appendChild(clonedBidang);
+        }
+
         draggedBidang.style.position = "static";
         draggedBidang.style.left = "0";
         draggedBidang.style.top = "0";
@@ -191,7 +207,23 @@ document.querySelectorAll(".bidang").forEach((bidang) => {
         }
       }
     });
+    if (!droppedInZone) {
+      if (
+        !Array.from(frame.children).some(
+          (child) => child.id === draggedBidang.id
+        )
+      ) {
+        draggedBidang.style.position = "static";
+        draggedBidang.setAttribute("draggable", "true");
+        frame.appendChild(draggedBidang);
+      } else {
+        draggedBidang.remove();
+      }
+    }
   });
+}
+document.querySelectorAll(".bidang").forEach((bidang) => {
+  addDragListeners(bidang);
 });
 
 function checkOrder(dropzone) {
