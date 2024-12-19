@@ -72,7 +72,7 @@ function addDragListeners(device) {
 
   device.addEventListener("touchend", function (event) {
     let dropzones = document.querySelectorAll(".dropbox");
-
+    let droppedInZone = false;
     dropzones.forEach((zone) => {
       let rect = zone.getBoundingClientRect();
       let deviceRect = draggedSoftware.getBoundingClientRect();
@@ -97,20 +97,23 @@ function addDragListeners(device) {
 
       if (distance < threshold) {
         if (!zone.hasChildNodes()) {
-          clonedSoftware = draggedSoftware.cloneNode(true);
+          droppedInZone = true;
+          if (
+            !Array.from(containerDevice.children).some(
+              (child) => child.id === draggedSoftware.id
+            )
+          ) {
+            clonedSoftware = draggedSoftware.cloneNode(true);
 
-          // Tambahkan event listener untuk elemen yang di-clone
-          addDragListeners(clonedSoftware);
+            // Tambahkan event listener untuk elemen yang di-clone
+            addDragListeners(clonedSoftware);
 
-          const dropbox = draggedSoftware.closest(".dropbox");
-          if (dropbox) {
-            return;
+            clonedSoftware.style.position = "static";
+            clonedSoftware.style.left = "0";
+            clonedSoftware.style.top = "0";
+            clonedSoftware.setAttribute("draggable", "true");
+            containerDevice.appendChild(clonedSoftware);
           }
-          clonedSoftware.style.position = "static";
-          clonedSoftware.style.left = "0";
-          clonedSoftware.style.top = "0";
-          clonedSoftware.setAttribute("draggable", "true");
-          containerDevice.appendChild(clonedSoftware);
 
           draggedSoftware.style.position = "static";
           draggedSoftware.style.left = "0";
@@ -124,6 +127,19 @@ function addDragListeners(device) {
         }
       }
     });
+    if (!droppedInZone) {
+      if (
+        !Array.from(containerDevice.children).some(
+          (child) => child.id === draggedSoftware.id
+        )
+      ) {
+        draggedSoftware.style.position = "static";
+        draggedSoftware.setAttribute("draggable", "true");
+        containerDevice.appendChild(draggedSoftware);
+      } else {
+        draggedSoftware.remove();
+      }
+    }
   });
 }
 
@@ -133,7 +149,7 @@ document.querySelectorAll(".device").forEach((device) => {
 function addCableAnimation(cable, container, index) {
   return new Promise((resolve) => {
     if (!cable || !container) {
-      console.error(`Cable or container at index ${index} not found.`);
+      console.warn(`Cable or container at index ${index} not found.`);
       resolve(); // Resolve immediately to prevent further issues
       return;
     }
@@ -336,9 +352,6 @@ function resetDropboxes() {
 }
 
 function resetSimulation() {
-  document.querySelectorAll(".device").forEach((device) => {
-    addDragListeners(device);
-  });
   soundClick();
   resetCables();
   resetDropboxes();

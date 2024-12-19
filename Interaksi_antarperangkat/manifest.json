@@ -1,0 +1,15 @@
+{
+  "short_name": "Simulasi",
+  "name": "Simulasi Interaksi Antarperangkat",
+  "start_url": "/Interaksi_antarperangkat/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/Interaksi_antarperangkat/assets/logo-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ]
+}
