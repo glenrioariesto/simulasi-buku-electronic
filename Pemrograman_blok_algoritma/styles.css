@@ -39,6 +39,28 @@ img {
   overflow: hidden;
 }
 
+.button-muted {
+  width: 8vw;
+  height: 8vh;
+  position: fixed;
+  top: 1vw;
+  right: 1vw;
+  z-index: 9999;
+  cursor: pointer;
+}
+.button-muted img {
+  width: 70%;
+  height: auto;
+}
+
+.button-muted:hover {
+  transform: scale(1.1);
+}
+
+.button-muted:active {
+  transform: scale(0.9);
+}
+
 #scene1 {
   background-image: url("assets/background-1.svg");
 }
