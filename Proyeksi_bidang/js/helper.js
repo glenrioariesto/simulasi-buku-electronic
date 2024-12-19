@@ -269,3 +269,58 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", showScene2);
   }
 });
+
+function showCustomAlert(message) {
+  const alertBox = document.getElementById("customAlert");
+  const alertText = alertBox.querySelector(".alert-text");
+  alertText.textContent = message;
+  alertBox.style.display = "block"; // Menampilkan alert
+}
+
+// Fungsi untuk menangani pilihan Yes
+function handleYes() {
+  // Masukkan logika untuk aksi ketika pengguna memilih "Yes"
+  console.log("Pengguna memilih Yes");
+  enterFullScreen();
+  closeAlert();
+}
+
+// Fungsi untuk menangani pilihan No
+function handleNo() {
+  // Masukkan logika untuk aksi ketika pengguna memilih "No"
+  console.log("Pengguna memilih No");
+  closeAlert();
+}
+
+// Fungsi untuk menutup alert
+function closeAlert() {
+  const alertBox = document.getElementById("customAlert");
+  alertBox.style.display = "none"; // Menyembunyikan alert
+}
+
+// Memanggil showCustomAlert setelah halaman dimuat
+window.onload = function () {
+  showCustomAlert("Apakah Anda ingin masuk ke mode layar penuh?");
+};
+
+function enterFullScreen() {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.webkitRequestFullscreen) {
+    document.documentElement.webkitRequestFullscreen();
+  } else if (document.documentElement.msRequestFullscreen) {
+    document.documentElement.msRequestFullscreen();
+  } else {
+    alert("Browser ini tidak mendukung full screen.");
+  }
+}
+
+function exitFullScreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
