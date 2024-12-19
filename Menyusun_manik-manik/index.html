@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulasi Menyusun Manik-Manik</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/logo-96x96.png?v=2" type="image/x-icon" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -35,6 +37,9 @@
       <img src="assets/logo.svg" alt="Logo" />
     </div>
     <div id="scene1" class="scene">
+      <div class="button-muted" onclick="backgroundSoundGame()">
+        <img id="sound-image" src="assets/unmute.png" alt="Logo" />
+      </div>
       <img class="text-cover" src="assets/text.svg" alt="Text" />
       <div class="button-scene1 button-play" onclick="showScene2()">
         <div class="play"></div>
@@ -54,12 +59,6 @@
               </span>
               <br />
               <img src="assets/allManik2.png" alt="Announcement" />
-              <!-- <div class="beads-announcement">
-                <div id="bead-blue" class="bead-announcement red"></div>
-                <div id="bead-blue" class="bead-announcement green"></div>
-                <div id="bead-blue" class="bead-announcement yellow"></div>
-                <div id="bead-blue" class="bead-announcement blue"></div>
-              </div> -->
             </div>
 
             <!-- Slide 2 -->
@@ -168,7 +167,7 @@
       </div>
     </div>
 
-    <audio id="backgroundSound" autoplay loop>
+    <audio id="backgroundSound" loop>
       <source src="assets/sounds/backsound.mp3" loop type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>

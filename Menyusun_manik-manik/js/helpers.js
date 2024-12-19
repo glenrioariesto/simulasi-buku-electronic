@@ -5,6 +5,22 @@ const celebrateSound = document.getElementById("celebrateSound");
 const celebrate2Sound = document.getElementById("celebrate2Sound");
 const failSound = document.getElementById("failSound");
 
+let isPlaying = true;
+const soundImage = document.getElementById("sound-image");
+function backgroundSoundGame() {
+  soundClick();
+  if (!isPlaying) {
+    isPlaying = true;
+    backgroundSound.pause();
+    soundImage.src = "assets/unmute.png";
+  } else {
+    backgroundSound.currentTime = 10;
+    backgroundSound.volume = 0.2;
+    backgroundSound.play();
+    soundImage.src = "assets/mute.png";
+    isPlaying = false;
+  }
+}
 function soundFail() {
   failSound.currentTime = 0;
   failSound.play();
@@ -29,14 +45,8 @@ function soundClick() {
   clickSound.play();
 }
 
-function soundBackground() {
-  backgroundSound.currentTime = 0;
-  backgroundSound.play();
-}
-
 function showScene2() {
   soundClick();
-  soundBackground();
   document.getElementById("scene1").style.display = "none";
   document.getElementById("scene2").style.display = "block";
 }
