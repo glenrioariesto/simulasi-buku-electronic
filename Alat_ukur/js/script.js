@@ -6,6 +6,7 @@ let caliper5 = document.getElementById("layer5");
 let caliper6 = document.getElementById("layer6");
 let caliper7 = document.getElementById("layer7");
 let modalImage = document.getElementById("modalImage");
+let correctWrongImage = document.getElementById("correctWrong");
 
 const containerBackground = document.querySelector(".container");
 let containerWidth = containerBackground.offsetWidth;
@@ -442,6 +443,8 @@ function checkAnswer() {
   if (isCorrectAnswer || answeredCorrectly[level - 1]) {
     handleCorrectAnswer();
   } else {
+    correctWrongImage.src = "assets/text-popup-salah.png";
+    updateModalImage();
     showModal("Jawaban Salah", "wrong");
   }
 
@@ -450,6 +453,8 @@ function checkAnswer() {
 
 function handleCorrectAnswer() {
   answeredCorrectly[level - 1] = true; // Tandai jawaban benar
+  correctWrongImage.src = "assets/text-popup-benar.png";
+
   updateModalImage(); // Update gambar berdasarkan level
   showSuccessMessage(); // Tampilkan pesan sukses
   navigateToNextBolt(); // Navigasi jika semua level tertentu sudah dijawab
@@ -468,7 +473,6 @@ function updateModalImage() {
     9: "assets/kayu-1.svg",
     10: "assets/kayu-2.svg",
   };
-
   const smallerImages = [4, 7, 8];
   const heightPriorityImages = [9, 10];
   modalImage.src = modalImageSrc[level] || "";

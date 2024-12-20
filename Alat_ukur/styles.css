@@ -716,12 +716,17 @@ body {
   height: auto;
   z-index: 1000;
 }
+#correctWrong {
+  max-width: 20vw;
+  height: auto;
+  margin-bottom: 1vw;
+}
 
 .modal-content.correct {
-  background-image: url("assets/pop-up-correct.webp");
+  background-image: url("assets/popup kosong.png");
 }
 .modal-content.wrong {
-  background-image: url("assets/pop-up-wrong.webp");
+  background-image: url("assets/popup kosong.png");
 }
 .modal-content p {
   font-size: 1.1vw;
