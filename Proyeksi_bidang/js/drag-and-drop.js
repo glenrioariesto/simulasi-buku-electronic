@@ -255,7 +255,7 @@ function checkOrder(dropzone) {
   if (correct) {
     setTimeout(() => {
       soundCorrect();
-      openModal("assets/jawaban-benar.png");
+      openModal("assets/jawaban-benar.webp");
 
       reshuffleBidangs();
       reset();
@@ -292,7 +292,7 @@ function checkOrder(dropzone) {
   } else {
     setTimeout(() => {
       soundFail();
-      openModal("assets/jawaban-salah.png");
+      openModal("assets/jawaban-salah.webp");
       reshuffleBidangs();
       reset();
     }, 1000);
@@ -358,38 +358,38 @@ function checkLevel(level = 0) {
   const img = document.getElementById("soalImage");
   switch (level) {
     case 0:
-      img.src = "assets/1.png";
+      img.src = "assets/1.webp";
       break;
     case 1:
-      img.src = "assets/2.png";
+      img.src = "assets/2.webp";
       break;
     case 2:
-      img.src = "assets/3.png";
+      img.src = "assets/3.webp";
       break;
     case 3:
-      img.src = "assets/4.png";
+      img.src = "assets/4.webp";
       break;
     case 4:
-      img.src = "assets/5.png";
+      img.src = "assets/5.webp";
       break;
     case 5:
-      img.src = "assets/level2/11.png";
+      img.src = "assets/level2/11.webp";
       break;
     case 6:
-      img.src = "assets/level2/12.png";
+      img.src = "assets/level2/12.webp";
       break;
     case 7:
-      img.src = "assets/level2/13.png";
+      img.src = "assets/level2/13.webp";
       break;
     case 8:
-      img.src = "assets/level2/14.png";
+      img.src = "assets/level2/14.webp";
       break;
     case 9:
-      img.src = "assets/level2/15.png";
+      img.src = "assets/level2/15.webp";
       break;
     default:
       currentLevel = 0;
-      img.src = "assets/1.png";
+      img.src = "assets/1.webp";
       break;
   }
 }

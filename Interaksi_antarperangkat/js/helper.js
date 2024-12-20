@@ -12,12 +12,12 @@ function backgroundSoundGame() {
   if (!isPlaying) {
     isPlaying = true;
     backgroundSound.pause();
-    soundImage.src = "assets/unmute.png";
+    soundImage.src = "assets/unmute.webp";
   } else {
     backgroundSound.currentTime = 10;
     backgroundSound.volume = 0.2;
     backgroundSound.play();
-    soundImage.src = "assets/mute.png";
+    soundImage.src = "assets/mute.webp";
     isPlaying = false;
   }
 }
@@ -93,7 +93,7 @@ function showScene3() {
     case 1:
       const bg = document.getElementById("announcement-container");
       bg.style.backgroundImage =
-        "url('assets/background-pop-up-announcement-2.png')";
+        "url('assets/background-pop-up-announcement-2.webp')";
       break;
     case 2:
       document.getElementById("scene3").style.display = "flex";

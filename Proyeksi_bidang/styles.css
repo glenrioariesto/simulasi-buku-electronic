@@ -63,7 +63,7 @@ body {
 
 #scene1 {
   position: relative;
-  background-image: url("assets/cover3D.jpg");
+  background-image: url("assets/Background Cover.webp");
   background-size: cover;
   background-position: center;
 }
@@ -73,7 +73,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url("assets/mulai.png");
+  background-image: url("assets/mulai.webp");
   width: 15vw;
   height: 10vh;
   position: absolute;
@@ -120,7 +120,7 @@ body {
 #scene4,
 #scene7 {
   position: relative;
-  background-image: url("assets/background.jpeg");
+  background-image: url("assets/Background.webp");
 }
 #scene3::before,
 #scene4::before,
@@ -175,7 +175,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("assets/wadah.png");
+  background-image: url("assets/wadah.webp");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -238,106 +238,106 @@ body {
 }
 
 #bidang1 {
-  background-image: url("assets/1a.png");
+  background-image: url("assets/1a.webp");
 }
 #bidang2 {
-  background-image: url("assets/1b.png");
+  background-image: url("assets/1b.webp");
 }
 #bidang3 {
-  background-image: url("assets/1c.png");
+  background-image: url("assets/1c.webp");
 }
 #bidang4 {
-  background-image: url("assets/2a.png");
+  background-image: url("assets/2a.webp");
 }
 #bidang5 {
-  background-image: url("assets/2b.png");
+  background-image: url("assets/2b.webp");
 }
 #bidang6 {
-  background-image: url("assets/2c.png");
+  background-image: url("assets/2c.webp");
 }
 #bidang7 {
-  background-image: url("assets/3a.png");
+  background-image: url("assets/3a.webp");
 }
 #bidang8 {
-  background-image: url("assets/3b.png");
+  background-image: url("assets/3b.webp");
 }
 #bidang9 {
-  background-image: url("assets/3c.png");
+  background-image: url("assets/3c.webp");
 }
 #bidang10 {
-  background-image: url("assets/4a.png");
+  background-image: url("assets/4a.webp");
 }
 #bidang11 {
-  background-image: url("assets/4b.png");
+  background-image: url("assets/4b.webp");
 }
 #bidang12 {
-  background-image: url("assets/4c.png");
+  background-image: url("assets/4c.webp");
 }
 #bidang13 {
-  background-image: url("assets/5a.png");
+  background-image: url("assets/5a.webp");
 }
 #bidang14 {
-  background-image: url("assets/5b.png");
+  background-image: url("assets/5b.webp");
 }
 #bidang15 {
-  background-image: url("assets/5c.png");
+  background-image: url("assets/5c.webp");
 }
 #bidang16 {
-  background-image: url("assets/6a.png");
+  background-image: url("assets/6a.webp");
 }
 /* level 2 */
 #bidang17 {
-  background-image: url("assets/level2/11a.png");
+  background-image: url("assets/level2/11a.webp");
 }
 #bidang18 {
-  background-image: url("assets/level2/11b-and-15b.png");
+  background-image: url("assets/level2/11b-and-15b.webp");
 }
 #bidang19 {
-  background-image: url("assets/level2/11c.png");
+  background-image: url("assets/level2/11c.webp");
 }
 #bidang20 {
-  background-image: url("assets/level2/12a.png");
+  background-image: url("assets/level2/12a.webp");
 }
 #bidang21 {
-  background-image: url("assets/level2/12b.png");
+  background-image: url("assets/level2/12b.webp");
 }
 #bidang22 {
-  background-image: url("assets/level2/12c.png"); /* kembar sama dengan bidang28*/
+  background-image: url("assets/level2/12c.webp"); /* kembar sama dengan bidang28*/
 }
 #bidang23 {
-  background-image: url("assets/level2/13a.png");
+  background-image: url("assets/level2/13a.webp");
 }
 #bidang24 {
-  background-image: url("assets/level2/13b.png");
+  background-image: url("assets/level2/13b.webp");
 }
 #bidang25 {
-  background-image: url("assets/level2/13c.png");
+  background-image: url("assets/level2/13c.webp");
 }
 #bidang26 {
-  background-image: url("assets/level2/14a.png");
+  background-image: url("assets/level2/14a.webp");
 }
 #bidang27 {
-  background-image: url("assets/level2/14b.png");
+  background-image: url("assets/level2/14b.webp");
 }
 #bidang28 {
-  background-image: url("assets/level2/14c.png"); /* kembar sama dengan bidang22*/
+  background-image: url("assets/level2/14c.webp"); /* kembar sama dengan bidang22*/
 }
 #bidang29 {
-  background-image: url("assets/level2/15a.png");
+  background-image: url("assets/level2/15a.webp");
 }
 #bidang30 {
-  background-image: url("assets/level2/15c.png");
+  background-image: url("assets/level2/15c.webp");
 }
 #bidang31 {
-  background-image: url("assets/level2/16a.png");
+  background-image: url("assets/level2/16a.webp");
 }
 
 #bidang32 {
-  background-image: url("assets/level2/17a.png");
+  background-image: url("assets/level2/17a.webp");
 }
 
 #scene2 {
-  background-image: url("assets/background caramain.jpg");
+  background-image: url("assets/Background.webp");
 }
 
 .container-scene2 {
@@ -357,7 +357,7 @@ body {
   align-items: center;
   width: 50%;
   height: 60%;
-  background-image: url("assets/frame.png");
+  background-image: url("assets/frame.webp");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -468,7 +468,7 @@ body {
 }
 
 #prevBtn {
-  background-image: url("assets/guide-back.png");
+  background-image: url("assets/guide-back.webp");
   width: 5vw;
   height: 5vw;
 }
@@ -482,7 +482,7 @@ body {
 }
 
 #nextBtn {
-  background-image: url("assets/guide-next.png");
+  background-image: url("assets/guide-next.webp");
   width: 5vw;
   height: 5vw;
 }
@@ -615,13 +615,13 @@ body {
   border-radius: 25%;
 }
 .object.object-1 {
-  background-image: url("assets/objek1.png");
+  background-image: url("assets/objek1.webp");
 }
 .object.object-2 {
-  background-image: url("assets/objek2.png");
+  background-image: url("assets/objek2.webp");
 }
 .object.object-3 {
-  background-image: url("assets/objek3.png");
+  background-image: url("assets/objek3.webp");
 }
 
 .object:hover {
@@ -725,31 +725,31 @@ body {
 
 /* Individual Button Backgrounds */
 #rotateLeftBtn {
-  background-image: url("assets/putar-kiri.png");
+  background-image: url("assets/putar-kiri.webp");
 }
 
 #rotateRightBtn {
-  background-image: url("assets/putar-kanan.png");
+  background-image: url("assets/putar-kanan.webp");
 }
 
 #checkBtn {
-  background-image: url("assets/periksa.png");
+  background-image: url("assets/periksa.webp");
 }
 
 #leftBtn {
-  background-image: url("assets/arah-kiri.png");
+  background-image: url("assets/arah-kiri.webp");
 }
 
 #topBtn {
-  background-image: url("assets/arah-atas.png");
+  background-image: url("assets/arah-atas.webp");
 }
 
 #downBtn {
-  background-image: url("assets/arah-bawah.png");
+  background-image: url("assets/arah-bawah.webp");
 }
 
 #rightBtn {
-  background-image: url("assets/arah-kanan.png");
+  background-image: url("assets/arah-kanan.webp");
 }
 
 #rightBtn:hover,
@@ -821,7 +821,7 @@ body {
 }
 
 #scene5 {
-  background-image: url("assets/background caramain.jpg");
+  background-image: url("assets/Background.webp");
 }
 
 #scene5::before {
@@ -847,7 +847,7 @@ body {
 }
 
 #exitBtn {
-  background-image: url("assets/keluar.png");
+  background-image: url("assets/keluar.webp");
   width: 10vw;
   height: 10vw;
 }
@@ -859,7 +859,7 @@ body {
   transform: scale(0.9);
 }
 #extraGameBtn {
-  background-image: url("assets/extra game.png");
+  background-image: url("assets/extra game.webp");
   width: 10vw;
   height: 10vw;
 }

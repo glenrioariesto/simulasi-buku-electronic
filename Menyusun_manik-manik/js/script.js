@@ -153,7 +153,25 @@ const connectSound = new Howl({
 let selectedBall = null;
 let connectionsCount = {}; // Object to track the number of connections per ball
 let leftWall, rightWall, topWall, bottomWall;
+
+function preload() {
+  if (!isScene3Active) return;
+
+  // Load the background image before the sketch starts
+  bgImage = loadImage("assets/background-game.svg"); // Replace with the correct path to your image
+  textureYellowCircle = loadImage("assets/marble-hijau-bulat.svg");
+  textureRedRectangle = loadImage("assets/marble-merah-kotak.svg");
+  textureGreenHexagon = loadImage("assets/marble-hijau-polygon.svg");
+  textureBlueStar = loadImage("assets/marble-biru-bintang.svg");
+  toplesImage = loadImage("assets/toples.svg");
+  meja = loadImage("assets/meja-marble.svg");
+}
+
+let isScene3Active = false;
+
 function setup() {
+  if (!isScene3Active) return;
+
   let canvasElement = createCanvas(windowWidth, windowHeight);
   canvasElement.parent("scene3");
   engine = Engine.create();
@@ -306,18 +324,7 @@ function getColorByLabel(label) {
     Merah: "#f9d531",
     Biru: "#2b67af",
   };
-  return colorMap[label] || "#000"; // Default ke hitam jika label tidak dikenal
-}
-
-function preload() {
-  // Load the background image before the sketch starts
-  bgImage = loadImage("assets/background-game.svg"); // Replace with the correct path to your image
-  textureYellowCircle = loadImage("assets/marble-hijau-bulat.svg");
-  textureRedRectangle = loadImage("assets/marble-merah-kotak.svg");
-  textureGreenHexagon = loadImage("assets/marble-hijau-polygon.svg");
-  textureBlueStar = loadImage("assets/marble-biru-bintang.svg");
-  toplesImage = loadImage("assets/toples.svg");
-  meja = loadImage("assets/meja-marble.svg");
+  return colorMap[label] || "#000000"; // Default ke hitam jika label tidak dikenal
 }
 
 function getTriangleVertices(x, y, size) {
@@ -359,50 +366,65 @@ function createBalancedStarVertices(radius, outerRatio, innerRatio, nPoints) {
 }
 
 function draw() {
-  background(bgImage);
-  Engine.update(engine, 1000 / 60);
-  // Menggambar chains pertama (di belakang objek)
-  for (let chain of chains) {
-    let x1 = chain.bodyA.position.x;
-    let y1 = chain.bodyA.position.y;
-    let x2 = chain.bodyB.position.x;
-    let y2 = chain.bodyB.position.y;
-    line(x1, y1, x2, y2); // Menggambar chain antara dua bodies
-  }
-
-  // Menyisipkan gambar di dalam kotak
-  for (let i = 0; i < bodies.length; i++) {
-    let x1 = bodies[i].position.x;
-    let y1 = bodies[i].position.y;
-
-    // Menentukan warna berdasarkan label
-    let color = getColorByLabel(bodies[i].label);
-    fill(color);
-
-    // Menggunakan tekstur berdasarkan label
-    push(); // Mulai transformasi (untuk rotasi dan translasi)
-    translate(x1, y1); // Pindahkan ke posisi objek
-    rotate(bodies[i].angle); // Rotasi sesuai dengan sudut objek
-
-    if (bodies[i].label === "Kuning") {
-      imageMode(CENTER);
-      image(textureYellowCircle, 0, 0, radius * 2, radius * 2); // Menggambar tekstur untuk Kuning
-    } else if (bodies[i].label === "Hijau") {
-      imageMode(CENTER);
-      image(textureGreenHexagon, 0, 0, radius * 2, radius * 2); // Menggambar tekstur untuk Hijau
-    } else if (bodies[i].label === "Merah") {
-      imageMode(CENTER);
-      image(textureRedRectangle, 0, 0, radius * 2, radius * 2); // Menggambar tekstur untuk Merah
-    } else if (bodies[i].label === "Biru") {
-      imageMode(CENTER);
-      image(textureBlueStar, 0, 0, radius * 2.5, radius * 2.5); // Menggambar tekstur untuk Biru
+  if (!isScene3Active) return;
+  if (bgImage) {
+    background(bgImage);
+    Engine.update(engine, 1000 / 60);
+    // Menggambar chains pertama (di belakang objek)
+    for (let chain of chains) {
+      let x1 = chain.bodyA.position.x;
+      let y1 = chain.bodyA.position.y;
+      let x2 = chain.bodyB.position.x;
+      let y2 = chain.bodyB.position.y;
+      line(x1, y1, x2, y2); // Menggambar chain antara dua bodies
     }
 
-    pop(); // Kembali ke transformasi sebelumnya
+    // Menyisipkan gambar di dalam kotak
+    for (let i = 0; i < bodies.length; i++) {
+      let x1 = bodies[i].position.x;
+      let y1 = bodies[i].position.y;
+
+      // Menentukan warna berdasarkan label
+      let color = getColorByLabel(bodies[i].label);
+      fill(color);
+
+      // Menggunakan tekstur berdasarkan label
+      push(); // Mulai transformasi (untuk rotasi dan translasi)
+      translate(x1, y1); // Pindahkan ke posisi objek
+      rotate(bodies[i].angle); // Rotasi sesuai dengan sudut objek
+
+      if (bodies[i].label === "Kuning") {
+        imageMode(CENTER);
+        image(textureYellowCircle, 0, 0, radius * 2, radius * 2); // Menggambar tekstur untuk Kuning
+      } else if (bodies[i].label === "Hijau") {
+        imageMode(CENTER);
+        image(textureGreenHexagon, 0, 0, radius * 2, radius * 2); // Menggambar tekstur untuk Hijau
+      } else if (bodies[i].label === "Merah") {
+        imageMode(CENTER);
+        image(textureRedRectangle, 0, 0, radius * 2, radius * 2); // Menggambar tekstur untuk Merah
+      } else if (bodies[i].label === "Biru") {
+        imageMode(CENTER);
+        image(textureBlueStar, 0, 0, radius * 2.5, radius * 2.5); // Menggambar tekstur untuk Biru
+      }
+
+      pop(); // Kembali ke transformasi sebelumnya
+    }
+    fill(0);
+    imageMode(CORNER);
+    image(meja, 0, height - 60, width, 100);
   }
-  fill(0);
-  imageMode(CORNER);
-  image(meja, 0, height - 60, width, 100);
+}
+function activateScene3() {
+  isScene3Active = true;
+  radius = window.innerWidth > 1000 ? 50 : 25;
+  length = window.innerWidth > 1000 ? 100 : 50;
+  preload();
+  setup();
+}
+
+function deactivateScene3() {
+  isScene3Active = false;
+  Composite.clear(engine.world, true);
 }
 
 function checkBallOrder() {
@@ -757,4 +779,103 @@ window.addEventListener("resize", () => {
   });
 
   Composite.add(engine.world, [leftWall, rightWall, bottomWall]);
+});
+const buttons = document.querySelectorAll(".button-game");
+buttons.forEach((button) => {
+  button.addEventListener(
+    "touchstart",
+    (e) => {
+      e.preventDefault(); // Prevents the default touch behavior
+      if (e.target.classList.contains("check")) {
+        checkBallOrder();
+      } else if (e.target.classList.contains("reset")) {
+        resetGame();
+      } else if (e.target.classList.contains("info")) {
+        showBackScene2();
+      }
+    },
+    { passive: false }
+  );
+
+  button.addEventListener("click", (e) => {
+    if (e.target.classList.contains("check")) {
+      checkBallOrder();
+    } else if (e.target.classList.contains("reset")) {
+      resetGame();
+    } else if (e.target.classList.contains("info")) {
+      showBackScene2();
+    }
+  });
+});
+const buttonCloseModals = document.querySelectorAll(".btn.close");
+
+buttonCloseModals.forEach((button) => {
+  button.addEventListener(
+    "touchstart",
+    (e) => {
+      e.preventDefault(); // Prevent default behavior
+      const modalId = e.target.getAttribute("id"); // Get the ID of the button
+      if (modalId) {
+        closeModalById(modalId); // Call a specific closeModal function
+      }
+    },
+    { passive: false }
+  );
+
+  button.addEventListener("click", (e) => {
+    const modalId = e.target.getAttribute("id"); // Get the ID of the button
+    if (modalId) {
+      closeModalById(modalId); // Call a specific closeModal function
+    }
+  });
+});
+
+// Function to handle modal closure by ID
+function closeModalById(id) {
+  if (id === "closeModal") {
+    closeModal(); // Handle the first modal
+  } else if (id === "closeModal2") {
+    closeModal2(); // Handle the second modal
+  } else if (id === "closeModal3") {
+    closeModal3(); // Handle the third modal
+  }
+}
+
+const optionButtons = document.querySelectorAll(".option-btn");
+optionButtons.forEach((button) => {
+  button.addEventListener(
+    "touchstart",
+    (e) => {
+      e.preventDefault(); // Prevent default touch behavior
+      const option = e.target.getAttribute("data-option");
+      if (option) {
+        storeAnswer(option); // Call the storeAnswer function with the option
+      }
+    },
+    { passive: false }
+  );
+
+  button.addEventListener("click", (e) => {
+    const option = e.target.getAttribute("data-option");
+    if (option) {
+      storeAnswer(option); // Call the storeAnswer function with the option
+    }
+  });
+});
+
+const checkButtons = document.querySelectorAll(".btn.check");
+
+checkButtons.forEach((button) => {
+  button.addEventListener(
+    "touchstart",
+    (e) => {
+      e.preventDefault(); // Prevent default touch behavior
+      checkAnswer(); // Kirimkan event ke fungsi
+    },
+    { passive: false }
+  );
+
+  button.addEventListener("click", (e) => {
+    checkAnswer(); // Kirimkan event ke fungsi
+  });
 });

@@ -127,10 +127,10 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 6vw;
+  padding-top: 5vw;
   width: auto; /* Sesuaikan jika ingin agar kontainer melebar penuh */
   height: auto; /* Sesuaikan jika ingin agar kontainer memenuhi tinggi layar */
-  max-height: 300px;
+
   overflow: hidden; /* Pastikan tidak ada konten yang keluar dari kontainer */
   box-sizing: border-box;
   z-index: 1000; /* Atur z-index jika perlu berada di atas elemen lain */
@@ -138,7 +138,6 @@ h1 {
 
 .announcement {
   margin: 10vw auto;
-  padding: 2vw 2vw 0vw 2vw;
   font-size: 1em;
 }
 
@@ -288,6 +287,7 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .button {
@@ -527,7 +527,6 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 2vw;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -567,6 +566,7 @@ h1 {
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  z-index: 1000;
 }
 
 .modal-content .btn.close {

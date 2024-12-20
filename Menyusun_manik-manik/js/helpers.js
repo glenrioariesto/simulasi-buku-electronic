@@ -55,6 +55,7 @@ function showScene3() {
   soundClick();
   document.getElementById("scene2").style.display = "none";
   document.getElementById("scene3").style.display = "flex";
+  activateScene3();
 }
 
 function showBackScene1() {
@@ -64,6 +65,7 @@ function showBackScene1() {
 
 function showBackScene2() {
   soundClick();
+  deactivateScene3();
   document.getElementById("scene3").style.display = "none";
   document.getElementById("scene2").style.display = "flex";
 

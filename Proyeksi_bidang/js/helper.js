@@ -14,12 +14,12 @@ function backgroundSoundGame() {
   if (!isPlaying) {
     isPlaying = true;
     backgroundSound.pause();
-    soundImage.src = "assets/unmute.png";
+    soundImage.src = "assets/unmute.webp";
   } else {
     backgroundSound.currentTime = 10;
     backgroundSound.volume = 0.5;
     backgroundSound.play();
-    soundImage.src = "assets/mute.png";
+    soundImage.src = "assets/mute.webp";
     isPlaying = false;
   }
 }
@@ -233,7 +233,7 @@ const prevSlide = () => {
 // Tampilkan slide pertama saat halaman dimuat
 showSlide(currentSlide);
 
-function hackButton() {
+function devButton() {
   if (currentLevel === 4) {
     setTimeout(() => {
       setTimeout(() => {

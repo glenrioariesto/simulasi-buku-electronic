@@ -69,7 +69,7 @@ audio {
 
 #scene1 {
   gap: 6vw;
-  background-image: url("assets/background-1.png");
+  background-image: url("assets/background-1.webp");
   background-color: #e4dbcb;
 }
 
@@ -93,7 +93,7 @@ audio {
 .button-play {
   width: 20vw;
   height: 10vw;
-  background-image: url("assets/button-play.png");
+  background-image: url("assets/button-play.webp");
 }
 
 .button-scene:hover {
@@ -106,7 +106,7 @@ audio {
 }
 
 #scene2 {
-  background-image: url("assets/background-2.png");
+  background-image: url("assets/background-2.webp");
 }
 
 .announcement-container {
@@ -117,7 +117,7 @@ audio {
     -50%,
     -50%
   ); /* Pusatkan secara horizontal dan vertikal */
-  background-image: url("assets/background-pop-up-announcement.png");
+  background-image: url("assets/background-pop-up-announcement.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -132,7 +132,7 @@ audio {
 }
 
 .announcement-container.announcement-1 {
-  background-image: url("assets/selamat.png");
+  background-image: url("assets/selamat.webp");
 }
 
 .announcement {
@@ -150,7 +150,7 @@ audio {
 .button-next {
   width: 20vw;
   height: 10vw;
-  background-image: url("assets/button-next.png");
+  background-image: url("assets/button-next.webp");
 }
 
 .button-container {
@@ -165,28 +165,6 @@ audio {
   bottom: 3vw;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.tab {
-  width: 20vw;
-  height: 20vw;
-  max-width: 100px;
-  max-height: 50px;
-  font-weight: bold;
-  background-image: url("assets/background-pop-up.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0vw;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  clip-path: polygon(0% 0%, 100% 0%, 94% 100%, 3% 100%);
-  z-index: 1;
 }
 
 .button {
@@ -204,30 +182,8 @@ audio {
   background-color: transparent;
 }
 
-#previousBtn {
-  background-image: url("assets/prev-btn.svg");
-  height: 5vw;
-  width: 5vw;
-}
-
-#nextBtn {
-  background-image: url("assets/next-btn.svg");
-  height: 5vw;
-  width: 5vw;
-}
-
-#previousBtn:hover,
-#nextBtn:hover {
-  transform: scale(1.1);
-}
-
-#previousBtn:active,
-#nextBtn:active {
-  transform: scale(0.9);
-}
-
 #scene3 {
-  background-image: url("assets/background-2.png");
+  background-image: url("assets/background-2.webp");
 }
 
 .container {
@@ -265,7 +221,7 @@ audio {
 }
 
 .dropbox {
-  background-image: url("assets/bg-dropbox.png");
+  background-image: url("assets/bg-dropbox.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -296,7 +252,7 @@ audio {
   transform: translateY(-50%);
 }
 #drop-sinyal {
-  background-image: url("assets/sinyal.png");
+  background-image: url("assets/sinyal.webp");
   display: none;
   bottom: 18%;
   right: 25.33%;
@@ -346,7 +302,7 @@ audio {
 }
 
 #drop-sinyal-level2 {
-  background-image: url("assets/sinyal.png");
+  background-image: url("assets/sinyal.webp");
   display: none;
   bottom: 13%;
   right: 10.33%;
@@ -391,38 +347,38 @@ audio {
 }
 
 #dvr {
-  background-image: url("assets/dvr.png");
+  background-image: url("assets/dvr.webp");
 }
 
 #router {
-  background-image: url("assets/router.png");
+  background-image: url("assets/router.webp");
 }
 
 #cctv-wireless {
-  background-image: url("assets/cctv-wireless.png");
+  background-image: url("assets/cctv-wireless.webp");
 }
 
 #cctv-analog {
-  background-image: url("assets/cctv-analog.png");
+  background-image: url("assets/cctv-analog.webp");
 }
 
 #internet {
-  background-image: url("assets/Internet.png");
+  background-image: url("assets/Internet.webp");
 }
 
 #laptop {
-  background-image: url("assets/laptop.png");
+  background-image: url("assets/laptop.webp");
 }
 #hp {
-  background-image: url("assets/hp.png");
+  background-image: url("assets/hp.webp");
 }
 
 #monitor {
-  background-image: url("assets/monitor.png");
+  background-image: url("assets/monitor.webp");
 }
 
 #modem {
-  background-image: url("assets/modem.png");
+  background-image: url("assets/modem.webp");
 }
 
 .cable-container {
@@ -671,7 +627,7 @@ audio {
 #startBtn {
   width: 18vw;
   height: 100%;
-  background-image: url("assets/tombol-mulai.png");
+  background-image: url("assets/tombol-mulai.webp");
 }
 
 #startBtn:hover {
@@ -685,7 +641,7 @@ audio {
 #resetBtn {
   width: 12vw;
   height: 100%;
-  background-image: url("assets/tombol-ulangi.png");
+  background-image: url("assets/tombol-ulangi.webp");
 }
 
 #resetBtn:hover {
@@ -758,13 +714,13 @@ audio {
 }
 
 #scene4 {
-  background-image: url("assets/background-2.png");
+  background-image: url("assets/background-2.webp");
 }
 
 .button-selesai {
   width: 20vw;
   height: 10vw;
-  background-image: url("assets/button-selesai.png");
+  background-image: url("assets/button-selesai.webp");
 }
 
 .modal {
@@ -799,11 +755,11 @@ audio {
 }
 
 .modal-content.correct {
-  background-image: url("assets/pop-up-benar.png");
+  background-image: url("assets/pop-up-benar.webp");
 }
 
 .modal-content.incorrect {
-  background-image: url("assets/pop-up-salah.png");
+  background-image: url("assets/pop-up-salah.webp");
 }
 
 .modal-button {
@@ -817,7 +773,7 @@ audio {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("assets/button-baik.png");
+  background-image: url("assets/button-baik.webp");
 }
 
 .modal-button:hover {
