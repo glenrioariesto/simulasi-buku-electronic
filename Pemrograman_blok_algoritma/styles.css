@@ -62,7 +62,7 @@ img {
 }
 
 #scene1 {
-  background-image: url("assets/background-1.svg");
+  background-image: url("assets/background-1.webp");
 }
 
 .title-cover {
@@ -82,7 +82,7 @@ img {
 }
 .button-play {
   background-color: transparent;
-  background-image: url("assets/button-play.svg");
+  background-image: url("assets/button-play.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -98,7 +98,7 @@ img {
 }
 
 #scene2 {
-  background-image: url("assets/background-1.svg");
+  background-image: url("assets/background-1.webp");
 }
 
 .announcement-container {
@@ -109,7 +109,7 @@ img {
     -50%,
     -50%
   ); /* Pusatkan secara horizontal dan vertikal */
-  background-image: url("assets/background-pop-up.svg");
+  background-image: url("assets/background-pop-up.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -160,28 +160,6 @@ img {
   transform: translateX(-50%);
 }
 
-.tab {
-  width: 20vw;
-  height: 20vw;
-  max-width: 100px;
-  max-height: 50px;
-  font-weight: bold;
-  background-image: url("assets/background-pop-up.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0vw;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  clip-path: polygon(0% 0%, 100% 0%, 94% 100%, 3% 100%);
-  z-index: 1;
-}
-
 .button {
   background-image: url(assets/button-orange.svg);
   background-repeat: no-repeat;
@@ -201,11 +179,11 @@ img {
 }
 
 #previousBtn {
-  background-image: url("assets/prev-btn.svg");
+  background-image: url("assets/prev-btn.webp");
 }
 
 #nextBtn {
-  background-image: url("assets/next-btn.svg");
+  background-image: url("assets/next-btn.webp");
 }
 
 #previousBtn:hover,
@@ -219,7 +197,7 @@ img {
 }
 
 #scene3 {
-  background-image: url("assets/background-2.svg");
+  background-image: url("assets/background-2.webp");
 }
 .title-scene3 {
   font-size: 2vw;
@@ -252,7 +230,7 @@ img {
   width: 100%;
   height: 14vw;
   margin: 1vw 2vw;
-  background-image: url("assets/jalan lurus.svg");
+  background-image: url("assets/jalan lurus.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -271,13 +249,13 @@ img {
 }
 
 .car-1 {
-  background-image: url("assets/mobilan_kuning.png");
+  background-image: url("assets/mobilan_kuning.webp");
 }
 .car-2 {
-  background-image: url("assets/mobilan_putih.png");
+  background-image: url("assets/mobilan_putih.webp");
 }
 .car-3 {
-  background-image: url("assets/mobilan_merah.png");
+  background-image: url("assets/mobilan_merah.webp");
 }
 
 .car-loading.move-right-start {
@@ -342,7 +320,7 @@ img {
 }
 
 #scene4 {
-  background-image: url("assets/background-2.svg");
+  background-image: url("assets/background-2.webp");
 }
 
 .container {
@@ -370,7 +348,7 @@ img {
   border: #296508 solid 0.5vw;
   border-radius: 1vw;
   padding: 0.5vw;
-  background-image: url("assets/background-2.svg");
+  background-image: url("assets/background-2.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -390,27 +368,27 @@ img {
   position: relative;
 }
 .map-level-1 {
-  background-image: url("assets/TRACK 1.svg");
+  background-image: url("assets/TRACK 1.webp");
 }
 
 .map-level-2 {
-  background-image: url("assets/TRACK 2.svg");
+  background-image: url("assets/TRACK 2.webp");
 }
 
 .map-level-3 {
-  background-image: url("assets/TRACK 3.svg");
+  background-image: url("assets/TRACK 3.webp");
 }
 
 .map-level-4 {
-  background-image: url("assets/TRACK 4.svg");
+  background-image: url("assets/TRACK 4.webp");
 }
 
 .map-level-5 {
-  background-image: url("assets/TRACK 5.svg");
+  background-image: url("assets/TRACK 5.webp");
 }
 
 .map-level-6 {
-  background-image: url("assets/TRACK 6.svg");
+  background-image: url("assets/TRACK 6.webp");
 }
 
 #car {
@@ -508,47 +486,43 @@ button {
 }
 
 #startBtn {
-  background-image: url("assets/mulai.png");
+  background-image: url("assets/mulai.webp");
 }
 
 #startBtn:hover {
-  /* background-image: url("assets/tombol-mulai-hover.svg"); */
   transform: scale(1.1);
 }
 
 #startBtn:active {
-  /* background-image: url("assets/tombol-mulai-hover.svg"); */
   transform: scale(0.9);
 }
 
 #resetBtn {
-  background-image: url("assets/ulangi.png");
+  background-image: url("assets/ulangi.webp");
 }
 
 #resetBtn:hover {
-  /* background-image: url("assets/tombol-ulangi-hover.svg"); */
   transform: scale(1.1);
 }
 
 #resetBtn:active {
-  /* background-image: url("assets/tombol-ulangi-hover.svg"); */
   transform: scale(0.9);
 }
 
 #rightBtn {
-  background-image: url("assets/btn-right.svg");
+  background-image: url("assets/btn-right.webp");
 }
 
 #forwardBtn {
-  background-image: url("assets/btn-forward.svg");
+  background-image: url("assets/btn-forward.webp");
 }
 
 #leftBtn {
-  background-image: url("assets/btn-left.svg");
+  background-image: url("assets/btn-left.webp");
 }
 
 #scene5 {
-  background-image: url("assets/scene5.svg");
+  background-image: url("assets/background-end.webp");
   gap: 2vw;
 }
 
@@ -691,12 +665,6 @@ button {
     max-height: 40vw;
     width: 50vw;
   }
-  .tab {
-    max-width: 15vw;
-    max-height: 15vh;
-    font-size: 1.5vw;
-    top: 0.5vw;
-  }
 }
 
 .modal {
@@ -734,7 +702,7 @@ button {
   height: 30vw;
   width: 50%;
   margin: 15% auto; /* 15% from the top and centered */
-  background-image: url("assets/background-pop-up.svg");
+  background-image: url("assets/background-pop-up.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
