@@ -65,7 +65,7 @@ body {
   transform: scale(0.9);
 }
 #scene1 {
-  background-image: url("assets/background-cover.png");
+  background-image: url("assets/background-cover.webp");
   padding-top: 12vh;
   z-index: 0;
 }
@@ -97,7 +97,7 @@ body {
 }
 .button-play {
   background-color: transparent;
-  background-image: url("assets/btn-play.png");
+  background-image: url("assets/btn-play.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -113,7 +113,7 @@ body {
 }
 
 #scene2 {
-  background-image: url("assets/background-scene2.png");
+  background-image: url("assets/background-scene2.webp");
   background-position: top;
   z-index: 0;
 }
@@ -131,7 +131,7 @@ body {
 }
 .button-scene2.play {
   background-color: transparent;
-  background-image: url("assets/btn-play-simulation.png");
+  background-image: url("assets/btn-play-simulation.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -147,7 +147,7 @@ body {
 }
 
 #scene3 {
-  background-image: url("assets/background-game.png");
+  background-image: url("assets/background-game.webp");
   z-index: 0;
 }
 
@@ -194,7 +194,7 @@ body {
   position: relative; /* Untuk mengatur konteks posisi anak */
   width: 11.5vw;
   height: 100%; /* Ukuran area background */
-  background-image: url("assets/Input-answer.png"); /* Ganti dengan path gambar Anda */
+  background-image: url("assets/Input-answer.webp"); /* Ganti dengan path gambar Anda */
   background-size: contain; /* Sesuaikan ukuran gambar */
   background-repeat: no-repeat; /* Agar gambar tidak diulang */
   background-position: center; /* Tempatkan gambar di tengah */
@@ -216,7 +216,7 @@ body {
   height: 100%;
   background-color: transparent;
   border: none;
-  background-image: url("assets/submit-answer.png"); /* Ganti dengan path gambar Anda */
+  background-image: url("assets/submit-answer.webp"); /* Ganti dengan path gambar Anda */
   background-size: contain; /* Sesuaikan ukuran gambar */
   background-repeat: no-repeat; /* Agar gambar tidak diulang */
   background-position: start; /* Tempatkan gambar di tengah */
@@ -286,11 +286,11 @@ body {
 }
 
 .arrow.left {
-  background-image: url("assets/btn-kiri.png");
+  background-image: url("assets/btn-kiri.webp");
 }
 
 .arrow.right {
-  background-image: url("assets/btn-kanan.png");
+  background-image: url("assets/btn-kanan.webp");
 }
 
 .arrow:hover {
@@ -325,11 +325,11 @@ body {
 }
 
 .zoom-btn.in {
-  background-image: url("assets/zoom-in.png");
+  background-image: url("assets/zoom-in.webp");
 }
 
 .zoom-btn.out {
-  background-image: url("assets/zoom-out.png");
+  background-image: url("assets/zoom-out.webp");
 }
 .zoom-btn.in:hover,
 .zoom-btn.out:hover {
@@ -373,21 +373,21 @@ body {
 }
 
 .layer.layer1 {
-  background-image: url("assets/layer 1.png");
+  background-image: url("assets/layer 1.svg");
   z-index: -1;
 }
 
 .layer.layer2 {
-  background-image: url("assets/layer 2.png");
+  background-image: url("assets/layer 2.svg");
   z-index: 0;
 }
 
 .layer.layer1-mikro {
-  background-image: url("assets/layer1-mikro.png");
+  background-image: url("assets/layer1-mikro.svg");
   z-index: -1;
 }
 .layer.layer2-mikro {
-  background-image: url("assets/layer2-mikro.png");
+  background-image: url("assets/layer2-mikro.svg");
   z-index: 0;
 }
 
@@ -401,12 +401,12 @@ body {
   overflow: hidden;
 }
 .layer.layer3-mikro {
-  background-image: url("assets/layer3-mikro.png");
+  background-image: url("assets/layer3-mikro.svg");
   z-index: 0;
 }
 
 .layer5-mikro {
-  background-image: url("assets/layer4-mikro.png");
+  background-image: url("assets/layer4-mikro.svg");
   z-index: 0;
   background-size: contain;
   background-position: center;
@@ -417,80 +417,80 @@ body {
 }
 
 .layer.layer6-mikro {
-  background-image: url("assets/layer5-mikro.png");
+  background-image: url("assets/layer5-mikro.webp");
   z-index: 2;
 }
 
 /*Alat UK 0.2 mm */
 .layer.layer3-U02 {
-  background-image: url("assets/02-layer3.png");
+  background-image: url("assets/02-layer3.svg");
   z-index: 1;
 }
 /* Alat UK 0.5 mm */
 .layer.layer3-U05 {
-  background-image: url("assets/05-layer3.png");
+  background-image: url("assets/05-layer3.svg");
   z-index: 0;
 }
 
 .layer.layer1-kayu {
-  background-image: url("assets/layer1-busur-derajat.png");
+  background-image: url("assets/layer1-busur-derajat.svg");
   z-index: 0;
 }
 .layer.layer2-kayu {
-  background-image: url("assets/layer2-busur-derajat.png");
+  background-image: url("assets/layer2-busur-derajat.svg");
   z-index: 0;
 }
 
 .layer.layer3-kayu1 {
-  background-image: url("assets/kayu1-layer.png");
+  background-image: url("assets/kayu1-layer.svg");
   z-index: 0;
 }
 
 .layer.layer3-kayu2 {
-  background-image: url("assets/kayu2-layer.png");
+  background-image: url("assets/kayu2-layer.svg");
   z-index: 0;
 }
 
 /* baut UK 0.2 mm */
 .layer.bolt1-U02 {
-  background-image: url("assets/02-baut-1.png");
+  background-image: url("assets/02-baut-1.svg");
   z-index: 0;
 }
 
 .layer.bolt2-U02 {
-  background-image: url("assets/02-baut-2.png");
+  background-image: url("assets/02-baut-2.svg");
   z-index: 0;
 }
 
 .layer.bolt3-U02 {
-  background-image: url("assets/02-baut-3.png");
+  background-image: url("assets/02-baut-3.svg");
   z-index: 0;
 }
 
 /* baut UK 0.5 mm */
 .layer.bolt1-U05 {
-  background-image: url("assets/05-baut-1.png");
+  background-image: url("assets/05-baut-1.svg");
   z-index: 0;
 }
 
 .layer.bolt2-U05 {
-  background-image: url("assets/05-baut-2.png");
+  background-image: url("assets/05-baut-2.svg");
   z-index: 0;
 }
 
 .layer.bolt3-U05 {
-  background-image: url("assets/05-baut-3.png");
+  background-image: url("assets/05-baut-3.svg");
   z-index: 0;
 }
 
 /* baut UK mikro */
 .layer.bola1-mikro {
-  background-image: url("assets/bola-kecil-layer.png");
+  background-image: url("assets/bola-kecil-layer.webp");
   z-index: 0;
 }
 
 .layer.bola2-mikro {
-  background-image: url("assets/bola-besar-layer.png");
+  background-image: url("assets/bola-besar-layer.webp");
   z-index: 0;
 }
 
@@ -514,63 +514,63 @@ body {
 }
 
 .bolt1-controls-U02 {
-  background-image: url("assets/baut1-UK02.png");
-  width: 7vw;
+  background-image: url("assets/baut1-UK02.webp");
+  width: 10vw;
   height: 3vw;
 }
 
 .bolt2-controls-U02 {
-  background-image: url("assets/baut2-UK02.png");
-  width: 7vw;
+  background-image: url("assets/baut2-UK02.webp");
+  width: 10vw;
   height: 3vw;
 }
 
 .bolt3-controls-U02 {
-  background-image: url("assets/baut3-UK02.png");
-  width: 7vw;
+  background-image: url("assets/baut3-UK02.webp");
+  width: 10vw;
   height: 3vw;
 }
 
 .bolt1-controls-U05 {
-  background-image: url("assets/baut1-UK05.png");
-  width: 7vw;
-  height: 3vw;
+  background-image: url("assets/baut1-UK05.webp");
+  width: 6vw;
+  height: 5vw;
 }
 
 .bolt2-controls-U05 {
-  background-image: url("assets/baut2-UK05.png");
-  width: 7vw;
-  height: 3vw;
+  background-image: url("assets/baut2-UK05.webp");
+  width: 10vw;
+  height: 5vw;
 }
 
 .bolt3-controls-U05 {
-  background-image: url("assets/baut3-UK05.png");
-  width: 7vw;
-  height: 3vw;
+  background-image: url("assets/baut3-UK05.webp");
+  width: 10vw;
+  height: 5vw;
 }
 
 .bolt1-controls-UkMikro {
-  background-image: url("assets/bola-kecil.png");
-  width: 5vw;
-  height: 5vw;
+  background-image: url("assets/bola-kecil.webp");
+  width: 10vw;
+  height: 10vw;
 }
 
 .bolt2-controls-UkMikro {
-  background-image: url("assets/bola-besar.png");
-  width: 5vw;
-  height: 5vw;
+  background-image: url("assets/bola-besar.webp");
+  width: 10vw;
+  height: 10vw;
 }
 
 .kayu1-controls {
-  background-image: url("assets/kayu-1.png");
-  width: 3.5vw;
-  height: 5vw;
+  background-image: url("assets/kayu-1.svg");
+  width: 5.5vw;
+  height: 10vw;
 }
 
 .kayu2-controls {
-  background-image: url("assets/kayu-2.png");
-  width: 3.5vw;
-  height: 5vw;
+  background-image: url("assets/kayu-2.svg");
+  width: 5.5vw;
+  height: 10vw;
 }
 
 /* Large devices (laptops/desktops, 992px - 1200px) */
@@ -598,7 +598,7 @@ body {
   height: 10vw;
 }
 .information.instruction-1 {
-  background-image: url("assets/intruksi-1.png");
+  background-image: url("assets/intruksi-1.webp");
   bottom: 5vw;
   left: 1vw;
   display: flex;
@@ -606,7 +606,7 @@ body {
 }
 
 .information.instruction-2 {
-  background-image: url("assets/intruksi-2.png");
+  background-image: url("assets/intruksi-2.webp");
   bottom: 8vw;
   right: 7vw;
   display: flex;
@@ -614,7 +614,7 @@ body {
 }
 
 #scene4 {
-  background-image: url("assets/background-end.png");
+  background-image: url("assets/background-end.webp");
   z-index: 0;
   position: relative;
 }
@@ -624,7 +624,7 @@ body {
   top: 50%;
   left: 30%;
   transform: translate(-50%, -50%);
-  background-image: url("assets/message-selamat.png");
+  background-image: url("assets/message-selamat.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -636,7 +636,7 @@ body {
   position: absolute;
   bottom: -4%;
   right: 2%;
-  background-image: url("assets/bu-sri.png");
+  background-image: url("assets/bu-sri.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -659,7 +659,7 @@ body {
 }
 .button-end {
   background-color: transparent;
-  background-image: url("assets/btn-selesai.png");
+  background-image: url("assets/btn-selesai.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -718,17 +718,17 @@ body {
 }
 
 .modal-content.correct {
-  background-image: url("assets/pop-up-correct.png");
+  background-image: url("assets/pop-up-correct.webp");
 }
 .modal-content.wrong {
-  background-image: url("assets/pop-up-wrong.png");
+  background-image: url("assets/pop-up-wrong.webp");
 }
 .modal-content p {
   font-size: 1.1vw;
 }
 
 .modal-content .btn {
-  background-image: url("assets/btn-baik.png");
+  background-image: url("assets/btn-baik.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-color: transparent;

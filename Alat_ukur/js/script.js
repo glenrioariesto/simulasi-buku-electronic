@@ -57,8 +57,13 @@ function updateLimitLeft(limitLevel = 0) {
 
   switch (limitLevel) {
     case 1:
+      boltElements.bolt1UK02.style.display = "block";
       boltElements.bolt2UK02.style.display = "block";
       boltElements.bolt3UK02.style.display = "block";
+      boltElements.bolt1UK02.style.opacity = "0.5";
+      boltElements.bolt2UK02.style.opacity = "1";
+      boltElements.bolt3UK02.style.opacity = "1";
+
       // limitLeft = window.innerWidth <= 1000 ? 33 : 33;
       limitLeft = 33;
 
@@ -68,9 +73,13 @@ function updateLimitLeft(limitLevel = 0) {
       break;
     case 2:
       boltElements.bolt1UK02.style.display = "block";
+      boltElements.bolt2UK02.style.display = "block";
       boltElements.bolt3UK02.style.display = "block";
+      boltElements.bolt1UK02.style.opacity = "1";
+      boltElements.bolt2UK02.style.opacity = "0.5";
+      boltElements.bolt3UK02.style.opacity = "1";
       // limitLeft = window.innerWidth <= 1000 ? 27 : 55;
-      limitLeft = 27;
+      limitLeft = 26;
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
       positionX = containerWidth * 0.1;
       level = limitLevel;
@@ -79,6 +88,10 @@ function updateLimitLeft(limitLevel = 0) {
     case 3:
       boltElements.bolt1UK02.style.display = "block";
       boltElements.bolt2UK02.style.display = "block";
+      boltElements.bolt3UK02.style.display = "block";
+      boltElements.bolt1UK02.style.opacity = "1";
+      boltElements.bolt2UK02.style.opacity = "1";
+      boltElements.bolt3UK02.style.opacity = "0.5";
       // limitLeft = window.innerWidth <= 1000 ? 31 : 64;
       limitLeft = 31;
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
@@ -87,8 +100,12 @@ function updateLimitLeft(limitLevel = 0) {
 
       break;
     case 4:
+      boltElements.bolt1UK05.style.display = "block";
       boltElements.bolt2UK05.style.display = "block";
       boltElements.bolt3UK05.style.display = "block";
+      boltElements.bolt1UK05.style.opacity = "0.5";
+      boltElements.bolt2UK05.style.opacity = "1";
+      boltElements.bolt3UK05.style.opacity = "1";
       // limitLeft = window.innerWidth <= 1000 ? 55 : 110;
       limitLeft = 55;
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
@@ -98,7 +115,11 @@ function updateLimitLeft(limitLevel = 0) {
       break;
     case 5:
       boltElements.bolt1UK05.style.display = "block";
+      boltElements.bolt2UK05.style.display = "block";
       boltElements.bolt3UK05.style.display = "block";
+      boltElements.bolt1UK05.style.opacity = "1";
+      boltElements.bolt2UK05.style.opacity = "0.5";
+      boltElements.bolt3UK05.style.opacity = "1";
       // limitLeft = window.innerWidth <= 1000 ? 40 : 80;
       limitLeft = 40;
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
@@ -109,6 +130,10 @@ function updateLimitLeft(limitLevel = 0) {
     case 6:
       boltElements.bolt1UK05.style.display = "block";
       boltElements.bolt2UK05.style.display = "block";
+      boltElements.bolt3UK05.style.display = "block";
+      boltElements.bolt1UK05.style.opacity = "1";
+      boltElements.bolt2UK05.style.opacity = "1";
+      boltElements.bolt3UK05.style.opacity = "0.5";
       // limitLeft = window.innerWidth <= 1000 ? 37 : 76;
       limitLeft = 37;
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
@@ -117,7 +142,10 @@ function updateLimitLeft(limitLevel = 0) {
 
       break;
     case 7:
+      boltElements.bolt1UKMikro.style.display = "block";
       boltElements.bolt2UKMikro.style.display = "block";
+      boltElements.bolt1UKMikro.style.opacity = "0.5";
+      boltElements.bolt2UKMikro.style.opacity = "1";
       // limitLeft = window.innerWidth <= 1000 ? 40 : 80;
       limitLeft = 40;
       limitRight = 0.8882;
@@ -126,6 +154,9 @@ function updateLimitLeft(limitLevel = 0) {
       break;
     case 8:
       boltElements.bolt1UKMikro.style.display = "block";
+      boltElements.bolt2UKMikro.style.display = "block";
+      boltElements.bolt1UKMikro.style.opacity = "1";
+      boltElements.bolt2UKMikro.style.opacity = "0.5";
       // limitLeft = window.innerWidth <= 1000 ? 64 : 127;
       limitLeft = 64;
       limitRight = 0.8882;
@@ -133,15 +164,21 @@ function updateLimitLeft(limitLevel = 0) {
       level = limitLevel;
       break;
     case 9:
+      boltElements.kayu1.style.display = "block";
       boltElements.kayu2.style.display = "block";
+      boltElements.kayu1.style.opacity = "1";
+      boltElements.kayu2.style.opacity = "0.5";
       level = limitLevel;
       leftRotationLimit = -90;
       rightRotationLimit = 15;
       break;
     case 10:
+      boltElements.kayu1.style.display = "block";
+      boltElements.kayu2.style.display = "block";
+      boltElements.kayu1.style.opacity = "1";
+      boltElements.kayu2.style.opacity = "0.5";
       leftRotationLimit = -90;
       rightRotationLimit = 52;
-      boltElements.kayu1.style.display = "block";
       level = limitLevel;
 
       break;
@@ -358,9 +395,9 @@ const correctAnswersDesktop = [
   "10",
 ];
 const correctAnswersMobile = [
-  "12.44",
-  "10.18",
-  "11.68",
+  "12.50",
+  "9.86",
+  "11.76",
   "20.80",
   "15.15",
   "14.00",
@@ -420,16 +457,16 @@ function handleCorrectAnswer() {
 
 function updateModalImage() {
   const modalImageSrc = {
-    1: "assets/baut1-UK02.png",
-    2: "assets/baut2-UK02.png",
-    3: "assets/baut3-UK02.png",
-    4: "assets/baut1-UK05.png",
-    5: "assets/baut2-UK05.png",
-    6: "assets/baut3-UK05.png",
-    7: "assets/bola-kecil.png",
-    8: "assets/bola-besar.png",
-    9: "assets/kayu-1.png",
-    10: "assets/kayu-2.png",
+    1: "assets/baut1-UK02.webp",
+    2: "assets/baut2-UK02.webp",
+    3: "assets/baut3-UK02.webp",
+    4: "assets/baut1-UK05.webp",
+    5: "assets/baut2-UK05.webp",
+    6: "assets/baut3-UK05.webp",
+    7: "assets/bola-kecil.webp",
+    8: "assets/bola-besar.webp",
+    9: "assets/kayu-1.svg",
+    10: "assets/kayu-2.svg",
   };
 
   const smallerImages = [4, 7, 8];
