@@ -59,7 +59,7 @@ h1 {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-image: url("assets/background.svg");
+  background-image: url("assets/background.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -84,7 +84,7 @@ h1 {
 }
 .button-play {
   background-color: transparent;
-  background-image: url("assets/button-play.svg");
+  background-image: url("assets/button-play.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -120,7 +120,7 @@ h1 {
     -50%,
     -50%
   ); /* Pusatkan secara horizontal dan vertikal */
-  background-image: url("assets/background-pop-up-aturan.svg");
+  background-image: url("assets/background-pop-up-aturan.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -150,6 +150,8 @@ h1 {
 .text-slide-2 {
   font-size: 1.2vw;
   margin-bottom: 1vw;
+  width: 40%;
+  height: auto;
   text-align: center;
 }
 
@@ -232,50 +234,6 @@ h1 {
   font-size: 1.5vw;
 }
 
-.beads-announcement {
-  display: flex;
-  padding: 1vw 10vw 0vw 10vw;
-  /* padding-left: 10vw;
-  padding-right: 10vw; */
-  justify-content: center;
-}
-
-.bead-announcement {
-  width: 3vw;
-  height: 3vw;
-  cursor: pointer;
-  line-height: 60px;
-}
-
-.bead.red,
-.bead-announcement.red {
-  background-image: url("assets/marble-merah-kotak.svg");
-  background-size: cover;
-  background-position: center;
-  margin: 0 auto;
-}
-.bead.green,
-.bead-announcement.green {
-  background-image: url("assets/marble-hijau-polygon.svg");
-  background-size: cover;
-  background-position: center;
-  margin: 0 auto;
-}
-.bead.yellow,
-.bead-announcement.yellow {
-  background-image: url("assets/marble-hijau-bulat.svg");
-  background-size: cover;
-  background-position: center;
-  margin: 0 auto;
-}
-.bead.blue,
-.bead-announcement.blue {
-  background-image: url("assets/marble-biru-bintang.svg");
-  background-size: cover;
-  background-position: center;
-  margin: 0 auto;
-}
-
 .button-container-right {
   display: flex;
   width: 100%;
@@ -291,7 +249,6 @@ h1 {
 }
 
 .button {
-  background-image: url("assets/button-orange.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -319,11 +276,24 @@ h1 {
   border: none;
   background-color: transparent;
 }
+.button.next {
+  width: 15vw;
+  height: 5vw;
+  background-image: url("assets/selanjutnya.webp");
+}
+.button.prev {
+  width: 15vw;
+  height: 5vw;
+  background-image: url("assets/sebelumnya.webp");
+}
 
-.button.next:hover,
+.button.next:hover {
+  background-image: url("assets/selanjutnya hover.webp");
+  transform: scale(1.1);
+}
 .button.prev:hover {
   transform: scale(1.1);
-  background-image: url("assets/button-orange-hover.svg");
+  background-image: url("assets/sebelumnya hover.webp");
 }
 .button.next:active,
 .button.prev:active {
@@ -333,7 +303,7 @@ h1 {
 .button-game.check {
   width: 10vw;
   height: 5vw;
-  background-image: url("assets/periksa.png");
+  background-image: url("assets/periksa.webp");
 }
 .button-game.check:hover {
   transform: scale(1.1);
@@ -346,7 +316,7 @@ h1 {
 .button-game.reset {
   width: 6vw;
   height: 5vw;
-  background-image: url("assets/button-red.png");
+  background-image: url("assets/button-red.webp");
 }
 .button-game.reset:hover {
   transform: scale(1.1);
@@ -358,7 +328,7 @@ h1 {
 .button-game.info {
   width: 5vw;
   height: 5vw;
-  background-image: url("assets/info.png");
+  background-image: url("assets/info.webp");
 }
 .button-game.info:hover {
   /* background-image: url(assets/button-game-red-hover.svg); */
@@ -410,6 +380,47 @@ h1 {
   outline: none;
 }
 
+#scene4 {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("assets/selamat.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-selesai {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  width: 10vw;
+  height: 10vw;
+  transition: transform 0.5s ease;
+  outline: none;
+  background-color: transparent;
+  background-image: url("assets/selesai.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.button-scene4:hover {
+  transform: scale(1.1) translateX(-50%);
+}
+
+.button-scene4:active,
+.button-scene4:focus {
+  transform: scale(0.9) translateX(-50%);
+}
+
 @media (min-width: 1025px) and (max-width: 1440px) and (orientation: landscape) {
   .button {
     font-size: 1.5vw;
@@ -425,6 +436,7 @@ h1 {
   .announcement-container {
     padding-top: 0vw;
     max-height: 500px;
+
     width: 100%;
   }
   .tab {
@@ -522,7 +534,7 @@ h1 {
   height: 30vw;
   width: 50%;
   margin: 15% auto; /* 15% from the top and centered */
-  background-image: url("assets/background-pop-up.svg");
+  background-image: url("assets/background-pop-up.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -541,7 +553,6 @@ h1 {
 }
 
 .modal-content .btn {
-  background-image: url("assets/button-orange.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-color: transparent;
@@ -555,6 +566,8 @@ h1 {
 }
 
 .modal-content .btn.check {
+  background-image: url("assets/periksa.webp");
+
   font-size: 2vw;
   position: absolute;
   bottom: -5vw;
@@ -570,6 +583,8 @@ h1 {
 }
 
 .modal-content .btn.close {
+  background-image: url("assets/close.png");
+
   font-size: 2vw;
   position: absolute;
   top: -2vh;

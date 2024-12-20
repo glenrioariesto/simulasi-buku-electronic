@@ -12,12 +12,12 @@ function backgroundSoundGame() {
   if (!isPlaying) {
     isPlaying = true;
     backgroundSound.pause();
-    soundImage.src = "assets/unmute.png";
+    soundImage.src = "assets/unmute.webp";
   } else {
     backgroundSound.currentTime = 10;
     backgroundSound.volume = 0.2;
     backgroundSound.play();
-    soundImage.src = "assets/mute.png";
+    soundImage.src = "assets/mute.webp";
     isPlaying = false;
   }
 }
@@ -58,8 +58,13 @@ function showScene3() {
   activateScene3();
 }
 
-function showBackScene1() {
+function showScene4() {
   document.getElementById("scene3").style.display = "none";
+  document.getElementById("scene4").style.display = "flex";
+}
+
+function showBackScene1() {
+  document.getElementById("scene4").style.display = "none";
   document.getElementById("scene1").style.display = "flex";
 }
 
@@ -81,7 +86,7 @@ function showModal(message, correct, image) {
   document.getElementById("message").innerHTML = message;
   const modalInfo = document.getElementById("imageInfo");
   const modalImage = document.getElementById("modalImage");
-  const imageUrl = "assets/allManik2.png";
+  const imageUrl = "assets/allManik2.webp";
   if (image) {
     modalImage.src = imageUrl; // Set URL gambar
     modalImage.style.display = "block"; // Tampilkan gambar
@@ -146,7 +151,12 @@ const slides = document.querySelectorAll(".slide");
 
 function changeSlide(direction) {
   soundClick();
+
+  // Hilangkan kelas "active" dari slide saat ini
   slides[currentSlide].classList.remove("active");
+  slides[currentSlide].classList.remove(`slide-image-${currentSlide + 1}`);
+
+  // Hitung slide berikutnya
   currentSlide += direction;
 
   if (currentSlide >= slides.length) {
@@ -156,7 +166,9 @@ function changeSlide(direction) {
     currentSlide = 0; // Mencegah mundur lebih jauh dari slide pertama
   }
 
+  // Tambahkan kelas "active" dan kelas gambar baru ke slide saat ini
   slides[currentSlide].classList.add("active");
+  slides[currentSlide].classList.add(`slide-image-${currentSlide + 1}`);
 }
 let selectedOption;
 function storeAnswer(option) {
@@ -222,9 +234,8 @@ function selectAnswer(option) {
 
       if (level === 2) {
         level = 0;
-        showBackScene1();
+        showScene4();
         currentSlide = 0;
-        document.getElementById("myModal3").style.display = "none";
       } else if (level === 1) {
         initManik = initManik2; // Pindah ke inisialisasi level 2
       }

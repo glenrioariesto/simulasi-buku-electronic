@@ -21,7 +21,6 @@ let bgImage;
 let textureYellowCircle;
 let textureRedRectangle;
 let textureBlueStar;
-let toplesImage;
 let meja;
 let leftToplesWall = { x: 100, y: 200, width: 20, height: 300 };
 let textureGreenHexagon;
@@ -159,11 +158,10 @@ function preload() {
 
   // Load the background image before the sketch starts
   bgImage = loadImage("assets/background-game.svg"); // Replace with the correct path to your image
-  textureYellowCircle = loadImage("assets/marble-hijau-bulat.svg");
-  textureRedRectangle = loadImage("assets/marble-merah-kotak.svg");
-  textureGreenHexagon = loadImage("assets/marble-hijau-polygon.svg");
-  textureBlueStar = loadImage("assets/marble-biru-bintang.svg");
-  toplesImage = loadImage("assets/toples.svg");
+  textureYellowCircle = loadImage("assets/marble-hijau-bulat.webp");
+  textureRedRectangle = loadImage("assets/marble-merah-kotak.webp");
+  textureGreenHexagon = loadImage("assets/marble-hijau-polygon.webp");
+  textureBlueStar = loadImage("assets/marble-biru-bintang.webp");
   meja = loadImage("assets/meja-marble.svg");
 }
 

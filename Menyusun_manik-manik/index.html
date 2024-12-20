@@ -34,13 +34,13 @@
   </head>
   <body>
     <div class="logo">
-      <img src="assets/logo.svg" alt="Logo" />
+      <img src="assets/logo.webp" alt="Logo" />
     </div>
     <div id="scene1" class="scene">
       <div class="button-muted" onclick="backgroundSoundGame()">
-        <img id="sound-image" src="assets/unmute.png" alt="Logo" />
+        <img id="sound-image" src="assets/unmute.webp" alt="Logo" />
       </div>
-      <img class="text-cover" src="assets/text.svg" alt="Text" />
+      <img class="text-cover" src="assets/judul-cover.webp" alt="Text" />
       <div class="button-scene1 button-play" onclick="showScene2()">
         <div class="play"></div>
       </div>
@@ -58,26 +58,23 @@
                 Berikut adalah urutannya manik-maniknya.
               </span>
               <br />
-              <img src="assets/allManik2.png" alt="Announcement" />
+              <img src="assets/allManik2.webp" alt="Announcement" />
             </div>
 
             <!-- Slide 2 -->
             <div class="slide" data-slide="2">
-              <div></div>
               <span class="text-slide-2">
                 Klik pada manik-manik yang sudah terangkai <br />
                 lalu klik pada manik-manik yang belum dirangkai <br />
                 sesuai urutan.
               </span>
+              <br />
+              <img src="assets/allManik2.webp" alt="Announcement" />
             </div>
           </div>
           <div class="next-scene">
-            <button class="button prev" onclick="changeSlide(-1)">
-              Sebelumnya
-            </button>
-            <button class="button next" onclick="changeSlide(1)">
-              Selanjutnya
-            </button>
+            <button class="button prev" onclick="changeSlide(-1)"></button>
+            <button class="button next" onclick="changeSlide(1)"></button>
           </div>
         </div>
       </div>
@@ -90,6 +87,13 @@
         <button class="button-game reset" onclick="resetGame()"></button>
         <button class="button-game info" onclick="showBackScene2()"></button>
       </div>
+    </div>
+
+    <div id="scene4" class="scene">
+      <div
+        class="button-scene4 button-selesai"
+        onclick="showBackScene1()"
+      ></div>
     </div>
 
     <div id="customAlert" class="alert">
@@ -128,12 +132,16 @@
             D. 5
           </div>
         </div>
-        <button id="checkAnswer1" class="btn check" onclick="checkAnswer()">
-          Periksa Jawaban
-        </button>
-        <button id="closeModal2" class="btn close" onclick="closeModal2()">
-          &#x2718;
-        </button>
+        <button
+          id="checkAnswer1"
+          class="btn check"
+          onclick="checkAnswer()"
+        ></button>
+        <button
+          id="closeModal2"
+          class="btn close"
+          onclick="closeModal2()"
+        ></button>
       </div>
     </div>
 
@@ -160,12 +168,16 @@
             D. 27
           </div>
         </div>
-        <button id="checkAnswer2" class="btn check" onclick="checkAnswer()">
-          Periksa Jawaban
-        </button>
-        <button id="closeModal3" class="btn close" onclick="closeModal3()">
-          &#x2718;
-        </button>
+        <button
+          id="checkAnswer2"
+          class="btn check"
+          onclick="checkAnswer()"
+        ></button>
+        <button
+          id="closeModal3"
+          class="btn close"
+          onclick="closeModal3()"
+        ></button>
       </div>
     </div>
 
@@ -175,9 +187,11 @@
         <p id="message"></p>
         <img id="modalImage" src="" class="modal-image" alt="Modal Image" />
 
-        <button id="closeModal" class="btn close" onclick="closeModal()">
-          &#x2718;
-        </button>
+        <button
+          id="closeModal"
+          class="btn close"
+          onclick="closeModal()"
+        ></button>
       </div>
     </div>
 
