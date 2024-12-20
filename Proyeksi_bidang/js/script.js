@@ -213,9 +213,12 @@ window.checkRotation = () => {
         const loadAlat1 = document.getElementById("loadAlat1");
         loadAlat1.classList.add("success");
         winStatus.alat1 = true;
-        openModal("assets/jawaban-benar.png");
+        soundCorrect();
+        openModal("assets/jawaban-benar.webp");
       } else {
-        openModal("assets/jawaban-salah.png");
+        soundFail();
+
+        openModal("assets/jawaban-salah.webp");
       }
       break;
     case 2:
@@ -223,9 +226,12 @@ window.checkRotation = () => {
         const loadAlat2 = document.getElementById("loadAlat2");
         loadAlat2.classList.add("success");
         winStatus.alat2 = true;
-        openModal("assets/jawaban-benar.png");
+        soundCorrect();
+        openModal("assets/jawaban-benar.webp");
       } else {
-        openModal("assets/jawaban-salah.png");
+        soundFail();
+
+        openModal("assets/jawaban-salah.webp");
       }
       break;
     case 3:
@@ -233,9 +239,12 @@ window.checkRotation = () => {
         const loadAlat3 = document.getElementById("loadAlat3");
         loadAlat3.classList.add("success");
         winStatus.alat3 = true;
-        openModal("assets/jawaban-benar.png");
+        soundCorrect();
+        openModal("assets/jawaban-benar.webp");
       } else {
-        openModal("assets/jawaban-salah.png");
+        soundFail();
+
+        openModal("assets/jawaban-salah.webp");
       }
       break;
     default:
@@ -293,4 +302,10 @@ document.getElementById("loadAlat2").addEventListener("click", () => {
 document.getElementById("loadAlat3").addEventListener("click", () => {
   soundClick();
   loadObject(3);
+});
+
+window.addEventListener("resize", () => {
+  objectView = window.innerWidth <= 1200 ? 7 : 1;
+  camera.fov = objectView;
+  camera.updateProjectionMatrix();
 });
