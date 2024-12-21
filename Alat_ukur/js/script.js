@@ -31,7 +31,6 @@ let limitLeft = 0;
 let limitRight = 0;
 // Update posisi alat ukur
 
-const answerBolt = document.getElementById("UK-bolt");
 const question = document.getElementById("question");
 const boltElements = {
   bolt1UK02: document.getElementById("bolt1-UK02"),
@@ -207,7 +206,9 @@ function setCaliperLevel(levelBolt) {
       caliper1.classList.add("layer1");
       caliper2.classList.add("layer2");
       caliper3.classList.add("layer3-U02");
-      answerBolt.innerText = "0,02 mm";
+      question.innerHTML = `Berapakah ukuran baut tersebut&#44; jika diukur menggunakan
+      <br />jangka sorong dengan
+      <span id="UK-bolt" class="highlight">0,02 mm</span>?`;
       break;
     case 4:
     case 5:
@@ -216,7 +217,9 @@ function setCaliperLevel(levelBolt) {
       caliper2.classList.add("layer2");
       caliper3.classList.add("layer3-U05");
 
-      answerBolt.innerText = "0,05 mm";
+      question.innerHTML = `Berapakah ukuran baut tersebut&#44; jika diukur menggunakan
+      <br />jangka sorong dengan
+      <span id="UK-bolt" class="highlight">0,05 mm</span>?`;
 
       break;
     case 7:
@@ -381,44 +384,33 @@ function choosedBolt(bolt = 0) {
     containerBackground.appendChild(newLayer);
   }
 }
-const correctAnswersDesktop = [
-  "12.70",
-  "10.40",
-  "12.10",
-  "20.40",
-  "15.15",
-  "14.35",
-  "1",
-  "1",
-  "1",
-  "10",
-];
+
 const correctAnswersMobile = [
-  "12.50",
-  "9.86",
-  "11.76",
-  "20.80",
-  "15.15",
-  "14.00",
-  "1",
-  "1",
-  "1",
-  "10",
+  "12.50", //soal1 UK02
+  "9.86", //soal2 UK02
+  "11.76", //soal3 UK02
+  "20.85", //soal1 UK05
+  "15.15", //soal2 UK05
+  "14.05", //soal3 UK05
+  "1", //soal1 mikro
+  "1", //soal2 mikro
+  "105.00", //soal1 busur derajat
+  "142.00", //soal2 busur derajat
 ];
 
 const correctAnswersDev = [
-  "111.00",
-  "111.00",
-  "111.00",
-  "111.00",
-  "111.00",
-  "111.00",
-  "111.00",
-  "111.00",
-  "111.00",
-  "111.00",
+  "12121.00",
+  "12121.00",
+  "12121.00",
+  "12121.00",
+  "12121.00",
+  "12121.00",
+  "12121.00",
+  "12121.00",
+  "12121.00",
+  "12121.00",
 ];
-const answeredCorrectly = Array(correctAnswersDesktop.length).fill(false);
+const answeredCorrectly = Array(correctAnswersMobile.length).fill(false);
 
 function formatAnswer(value) {
   return parseFloat(value).toFixed(2);
@@ -429,13 +421,10 @@ function checkAnswer() {
   const answerInput = document.getElementById("answer");
   const answer = formatAnswer(answerInput.value.replace(",", "."));
 
-  const correctDesktopAnswer = correctAnswersDesktop[level - 1];
   const correctMobileAnswer = correctAnswersMobile[level - 1];
   const correctAnswerDev = correctAnswersDev[level - 1];
   const isCorrectAnswer =
-    (answer === correctDesktopAnswer ||
-      answer === correctMobileAnswer ||
-      answer === correctAnswerDev) &&
+    (answer === correctMobileAnswer || answer === correctAnswerDev) &&
     !answeredCorrectly[level - 1];
 
   if (isCorrectAnswer || answeredCorrectly[level - 1]) {
@@ -511,22 +500,39 @@ function showSuccessMessage() {
 
 function navigateToNextBolt() {
   if (answeredCorrectly[8] && answeredCorrectly[9]) {
-    showScene4();
+    setTimeout(() => {
+      backScene5();
+    }, 2000);
+    answeredCorrectly[8] = false;
+    answeredCorrectly[9] = false;
   } else if (answeredCorrectly[6] && answeredCorrectly[7]) {
-    choosedBolt(9);
-    // caliper1.style.transform = `translateX(0px)`;
+    setTimeout(() => {
+      backScene5();
+    }, 2000);
+    answeredCorrectly[6] = false;
+    answeredCorrectly[7] = false;
   } else if (
     answeredCorrectly[3] &&
     answeredCorrectly[4] &&
     answeredCorrectly[5]
   ) {
-    choosedBolt(7);
+    setTimeout(() => {
+      backScene5();
+    }, 2000);
+    answeredCorrectly[3] = false;
+    answeredCorrectly[4] = false;
+    answeredCorrectly[5] = false;
   } else if (
     answeredCorrectly[0] &&
     answeredCorrectly[1] &&
     answeredCorrectly[2]
   ) {
-    choosedBolt(4);
+    setTimeout(() => {
+      backScene5();
+    }, 2000);
+    answeredCorrectly[0] = false;
+    answeredCorrectly[1] = false;
+    answeredCorrectly[2] = false;
   }
 }
 

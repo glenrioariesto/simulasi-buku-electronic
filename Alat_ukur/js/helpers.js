@@ -108,8 +108,10 @@ function showScene5() {
   //   information.classList.add("instruction-1");
   // }
 }
-function backScene5() {
-  soundClick();
+function backScene5(sound = true) {
+  if (sound) {
+    soundClick();
+  }
   scene3.style.display = "none";
   scene5.style.display = "flex";
   choosedBolt();
@@ -121,6 +123,7 @@ function backScene5() {
   originX = 50;
   originY = 50;
   scale = 1;
+  updateZoom();
 }
 function showScene3(pickLevel) {
   soundClick();
@@ -131,6 +134,7 @@ function showScene3(pickLevel) {
   information.classList.add("instruction-1");
   caliper1.style.transform = `translateX(0px)`;
   caliper2.style.transform = `rotate(0deg)`;
+  questionContainer.classList.remove("active");
 
   displayLevel(pickLevel);
 }
