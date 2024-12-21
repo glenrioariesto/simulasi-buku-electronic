@@ -5,6 +5,7 @@ const scene1 = document.getElementById("scene1");
 const scene2 = document.getElementById("scene2");
 const scene3 = document.getElementById("scene3");
 const scene4 = document.getElementById("scene4");
+const scene5 = document.getElementById("scene5");
 
 const clickSound = document.getElementById("clickOptionSound");
 const backgroundSound = document.getElementById("playSoundGame");
@@ -18,17 +19,21 @@ const failSound = document.getElementById("failSound");
 const failSound2 = document.getElementById("failSound2");
 let isPlaying = true;
 const soundImage = document.getElementById("sound-image");
+const soundImage2 = document.getElementById("sound-image2");
+
 function backgroundSoundGame() {
   soundClick();
   if (!isPlaying) {
     isPlaying = true;
     backgroundSound.pause();
     soundImage.src = "assets/unmute.webp";
+    soundImage2.src = "assets/unmute.webp";
   } else {
     backgroundSound.currentTime = 10;
     backgroundSound.volume = 0.2;
     backgroundSound.play();
     soundImage.src = "assets/mute.webp";
+    soundImage2.src = "assets/mute.webp";
     isPlaying = false;
   }
 }
@@ -94,13 +99,56 @@ function showScene2() {
   logo.style.left = "1vw";
 }
 
-function showScene3() {
+function showScene5() {
   soundClick();
   scene2.style.display = "none";
+  scene5.style.display = "flex";
+  // if (countInstruction === 0) {
+  //   information.style.display = "flex"; // Pastikan elemen terlihat
+  //   information.classList.add("instruction-1");
+  // }
+}
+function backScene5() {
+  soundClick();
+  scene3.style.display = "none";
+  scene5.style.display = "flex";
+  choosedBolt();
+  countInstruction = 0;
+  information.style.display = "none";
+  information.classList.remove("instruction-1");
+  information.classList.remove("instruction-2");
+  removeLayersCreatedByCreateLayer4And5();
+}
+function showScene3(pickLevel) {
+  soundClick();
+  scene5.style.display = "none";
   scene3.style.display = "flex";
-  if (countInstruction === 0) {
-    information.style.display = "flex"; // Pastikan elemen terlihat
-    information.classList.add("instruction-1");
+  countInstruction = 0;
+  information.style.display = "flex";
+  information.classList.add("instruction-1");
+  caliper1.style.transform = `translateX(0px)`;
+  caliper2.style.transform = `rotate(0deg)`;
+
+  displayLevel(pickLevel);
+}
+
+function displayLevel(level) {
+  switch (level) {
+    case 1:
+      choosedBolt(1);
+      break;
+    case 2:
+      choosedBolt(4);
+      break;
+    case 3:
+      choosedBolt(7);
+      break;
+    case 4:
+      choosedBolt(9);
+      break;
+    default:
+      console.warn("Invalid level selected.");
+      break;
   }
 }
 

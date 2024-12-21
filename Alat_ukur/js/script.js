@@ -167,8 +167,8 @@ function updateLimitLeft(limitLevel = 0) {
     case 9:
       boltElements.kayu1.style.display = "block";
       boltElements.kayu2.style.display = "block";
-      boltElements.kayu1.style.opacity = "1";
-      boltElements.kayu2.style.opacity = "0.5";
+      boltElements.kayu1.style.opacity = "0.5";
+      boltElements.kayu2.style.opacity = "1";
       level = limitLevel;
       leftRotationLimit = -90;
       rightRotationLimit = 15;
@@ -237,7 +237,7 @@ function setCaliperLevel(levelBolt) {
       removeLayersCreatedByCreateLayer4And5();
       caliper1.classList.add("layer1-kayu");
       caliper2.classList.add("layer2-kayu");
-      caliper3.remove();
+      caliper3.className = "";
 
       question.innerHTML =
         "Berapakah satuan derajat pada balok kayu tersebut,<br> jika diukur menggunakan busur derajat?";
@@ -293,7 +293,6 @@ const updatePosition = () => {
   if (level === 9 || level === 10) {
     const rotationStep = 1; // Derajat rotasi per langkah
     const newRotation = currentRotation + direction * rotationStep;
-    console.log("new", newRotation);
     if (newRotation < leftRotationLimit) {
       currentRotation = leftRotationLimit; // Tidak lebih dari batas kiri
     } else if (newRotation > rightRotationLimit) {
@@ -301,7 +300,6 @@ const updatePosition = () => {
     } else {
       currentRotation = newRotation; // Rotasi diperbolehkan
     }
-    console.log("current", currentRotation);
     caliper2.style.transform = `rotate(${currentRotation}deg)`;
   } else {
     caliper1.style.transform = `translateX(${Math.round(positionX)}px)`;
@@ -445,7 +443,7 @@ function checkAnswer() {
   } else {
     correctWrongImage.src = "assets/text-popup-salah.png";
     updateModalImage();
-    showModal("Jawaban Salah", "wrong");
+    showModal("<br>Jawaban Salah <br><br><br>", "wrong");
   }
 
   answerInput.value = ""; // Reset input
@@ -516,7 +514,7 @@ function navigateToNextBolt() {
     showScene4();
   } else if (answeredCorrectly[6] && answeredCorrectly[7]) {
     choosedBolt(9);
-    caliper1.style.transform = `translateX(0px)`;
+    // caliper1.style.transform = `translateX(0px)`;
   } else if (
     answeredCorrectly[3] &&
     answeredCorrectly[4] &&

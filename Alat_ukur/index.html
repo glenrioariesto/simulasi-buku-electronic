@@ -18,7 +18,7 @@
     </div>
     <div id="scene1" class="scene">
       <div class="button-muted" onclick="backgroundSoundGame()">
-        <img id="sound-image" src="assets/unmute.png" alt="Logo" />
+        <img id="sound-image" src="assets/unmute.webp" alt="Logo" />
       </div>
       <img
         src="assets/judul-cover.webp"
@@ -34,9 +34,12 @@
       <div class="button-scene1 button-play" onclick="showScene2()"></div>
     </div>
     <div id="scene2" class="scene">
-      <div class="button-scene2 play" onclick="showScene3()"></div>
+      <div class="button-scene2 play" onclick="showScene5()"></div>
     </div>
     <div id="scene3" class="scene">
+      <div class="button-back" onclick="backScene5()">
+        <img src="assets/menu.webp" alt="Logo" />
+      </div>
       <div class="game">
         <div id="question-container">
           <h1 id="question" class="question">
@@ -140,6 +143,31 @@
       <div class="message-end"></div>
       <div class="button-scene4 button-end" onclick="showScene1()"></div>
       <div class="bu-sri"></div>
+    </div>
+
+    <!-- Scene 5 menu -->
+    <div id="scene5" class="scene">
+      <div class="button-muted" onclick="backgroundSoundGame()">
+        <img id="sound-image2" src="assets/unmute.webp" alt="Logo" />
+      </div>
+      <div class="title">Pilih simulasi yang akan kamu mainkan</div>
+      <div class="menu-container">
+        <div class="menu-item" onclick="showScene3(1)">
+          <img src="assets/menu jangka sorong 02.webp" alt="Helm Keselamatan" />
+        </div>
+        <div class="menu-item" onclick="showScene3(2)">
+          <img src="assets/menu jangka sorong 05.webp" alt="Ruang Gambar" />
+        </div>
+        <div class="menu-item" onclick="showScene3(3)">
+          <img src="assets/menu mikrometer 01.webp" alt="Ruang Mesin Bubut" />
+        </div>
+        <div class="menu-item" onclick="showScene3(4)">
+          <img
+            src="assets/menu busur derajat.webp"
+            alt="Ruang Pengecoran Logam"
+          />
+        </div>
+      </div>
     </div>
 
     <div id="information" class="information"></div>

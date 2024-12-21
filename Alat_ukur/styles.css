@@ -151,6 +151,28 @@ body {
   z-index: 0;
 }
 
+.button-back {
+  width: 8vw;
+  height: 8vh;
+  position: fixed;
+  top: 1vw;
+  right: 1vw;
+  z-index: 9999;
+  cursor: pointer;
+}
+.button-back img {
+  width: 100%;
+  height: auto;
+}
+
+.button-back:hover {
+  transform: scale(1.1);
+}
+
+.button-back:active {
+  transform: scale(0.9);
+}
+
 #question-container {
   display: none;
   flex-direction: column;
@@ -392,12 +414,12 @@ body {
 }
 
 .layer.container {
-  left: 38.4%;
+  left: 38.8%;
   top: 22%;
   transform: translateY(-50%);
   position: relative;
   height: 40px;
-  width: 20px;
+  width: 16px;
   overflow: hidden;
 }
 .layer.layer3-mikro {
@@ -406,7 +428,7 @@ body {
 }
 
 .layer5-mikro {
-  background-image: url("assets/layer4-mikro.svg");
+  background-image: url("assets/layer4-mikro.webp");
   z-index: 0;
   background-size: contain;
   background-position: center;
@@ -496,12 +518,12 @@ body {
 
 /* kayu busur derajat */
 .layer.kayu-1 {
-  background-image: url("assets/kayu1-layer.png");
+  background-image: url("assets/kayu1-layer.svg");
   z-index: 0;
 }
 
 .layer.kayu-2 {
-  background-image: url("assets/kayu2-layer.png");
+  background-image: url("assets/kayu2-layer.svg");
   z-index: 0;
 }
 
@@ -551,8 +573,8 @@ body {
 
 .bolt1-controls-UkMikro {
   background-image: url("assets/bola-kecil.webp");
-  width: 10vw;
-  height: 10vw;
+  width: 8vw;
+  height: 8vw;
 }
 
 .bolt2-controls-UkMikro {
@@ -823,6 +845,55 @@ body {
 
 .btn-alert.no:hover {
   background-color: #e53935;
+}
+
+#scene5 {
+  background-image: url("assets/background-game.webp");
+  z-index: 0;
+}
+
+/* Menu Item Container */
+.menu-container {
+  display: flex;
+  width: 90%;
+
+  padding: 1vw 1vw;
+  margin-top: 2vw;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Menu Item Styling */
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  cursor: pointer;
+}
+.title {
+  font-size: 1.7vw;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.menu-item:hover {
+  transform: scale(1.1);
+}
+
+.menu-item:active,
+.menu-item:focus {
+  transform: scale(0.9);
+}
+
+.menu-item img {
+  border: 2px solid #fff;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 99%;
+  border-radius: 0.5vw;
 }
 
 .landscape-message {
