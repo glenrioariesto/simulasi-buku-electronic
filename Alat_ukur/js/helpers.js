@@ -118,6 +118,9 @@ function backScene5() {
   information.classList.remove("instruction-1");
   information.classList.remove("instruction-2");
   removeLayersCreatedByCreateLayer4And5();
+  originX = 50;
+  originY = 50;
+  scale = 1;
 }
 function showScene3(pickLevel) {
   soundClick();
