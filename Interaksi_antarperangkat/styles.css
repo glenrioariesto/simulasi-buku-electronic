@@ -210,7 +210,7 @@ audio {
   height: 350px;
   border-radius: 5px;
   border: 2px solid #a1664d;
-  background-image: url("assets/background-3.svg");
+  background-image: url("assets/background-3.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -313,7 +313,7 @@ audio {
 .container-controls {
   display: flex;
   flex-direction: column;
-  background-image: url("assets/background-3.svg");
+  background-image: url("assets/background-3.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -842,8 +842,23 @@ audio {
   display: none; /* Sembunyikan pesan saat potrait */
 }
 
+@media screen and (min-width: 719px) and (max-width: 739px) {
+  .announcement {
+    height: 70%;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1240px) {
+  .announcement {
+    height: 70%;
+  }
+}
+
 /* Desktop Landscape */
 @media (min-width: 1240px) and (orientation: landscape) {
+  .announcement {
+    height: 80%;
+  }
   .container {
     max-width: 1600px;
     height: 100%;

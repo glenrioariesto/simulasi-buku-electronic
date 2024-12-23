@@ -435,6 +435,7 @@ body {
   background-repeat: no-repeat;
   width: 100%;
   height: 550px;
+  position: absolute;
   top: 100%;
 }
 
@@ -938,6 +939,25 @@ body {
   100% {
     opacity: 0;
     transform: translateY(-20px);
+  }
+}
+
+@media screen and (min-width: 933px) and (max-width: 1024px) {
+  .layer.container {
+    left: 38.8%;
+    top: 22%;
+    transform: translateY(-50%);
+    position: relative;
+    height: 80px;
+    width: 28px;
+    overflow: hidden;
+  }
+
+  .layer5-mikro {
+    width: 100%;
+    height: 1016px;
+    position: absolute;
+    top: 100%;
   }
 }
 

@@ -11,7 +11,11 @@ let correctWrongImage = document.getElementById("correctWrong");
 const containerBackground = document.querySelector(".container");
 let containerWidth = containerBackground.offsetWidth;
 let isDragging = false;
-let scale = 1; // Skala awal untuk zoom
+const isTabletStandard = window.innerWidth > 932 && window.innerWidth <= 1024;
+const isTabletLarge = window.innerWidth > 1024 && window.innerWidth <= 1280;
+
+let scale = isTabletStandard ? 0.5 : isTabletLarge ? 1 : 1;
+
 const zoomStep = 0.1; // Increment zoom per step
 const minScale = 1; // Skala minimum
 const maxScale = 10; // Skala maksimum
@@ -55,6 +59,11 @@ function updateLimitLeft(limitLevel = 0) {
   containerWidth = containerBackground.offsetWidth;
   resetBolts();
 
+  const isTabletStandardLimit =
+    window.innerWidth > 932 && window.innerWidth <= 1024;
+  const isTabletLargeLimit =
+    window.innerWidth > 1024 && window.innerWidth <= 1280;
+
   switch (limitLevel) {
     case 1:
       boltElements.bolt1UK02.style.display = "block";
@@ -65,11 +74,12 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.bolt3UK02.style.opacity = "1";
 
       // limitLeft = window.innerWidth <= 1000 ? 33 : 33;
-      limitLeft = 33;
+      limitLeft = isTabletStandardLimit ? 66 : isTabletLargeLimit ? 33 : 33;
 
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
       level = limitLevel;
       positionX = containerWidth * 0.1;
+
       break;
     case 2:
       boltElements.bolt1UK02.style.display = "block";
@@ -78,8 +88,8 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.bolt1UK02.style.opacity = "1";
       boltElements.bolt2UK02.style.opacity = "0.5";
       boltElements.bolt3UK02.style.opacity = "1";
-      // limitLeft = window.innerWidth <= 1000 ? 27 : 55;
-      limitLeft = 26;
+      limitLeft = isTabletStandardLimit ? 52 : isTabletLargeLimit ? 26 : 26;
+
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
       positionX = containerWidth * 0.1;
       level = limitLevel;
@@ -92,8 +102,8 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.bolt1UK02.style.opacity = "1";
       boltElements.bolt2UK02.style.opacity = "1";
       boltElements.bolt3UK02.style.opacity = "0.5";
-      // limitLeft = window.innerWidth <= 1000 ? 31 : 64;
-      limitLeft = 31;
+      limitLeft = isTabletStandardLimit ? 62 : isTabletLargeLimit ? 31 : 31;
+
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
       positionX = containerWidth * 0.1;
       level = limitLevel;
@@ -106,8 +116,11 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.bolt1UK05.style.opacity = "0.5";
       boltElements.bolt2UK05.style.opacity = "1";
       boltElements.bolt3UK05.style.opacity = "1";
-      // limitLeft = window.innerWidth <= 1000 ? 55 : 110;
-      limitLeft = 55;
+      limitLeft = isTabletStandardLimit
+        ? 110.499995
+        : isTabletLargeLimit
+        ? 55
+        : 55;
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
       positionX = containerWidth * 0.1;
       level = limitLevel;
@@ -120,8 +133,7 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.bolt1UK05.style.opacity = "1";
       boltElements.bolt2UK05.style.opacity = "0.5";
       boltElements.bolt3UK05.style.opacity = "1";
-      // limitLeft = window.innerWidth <= 1000 ? 40 : 80;
-      limitLeft = 40;
+      limitLeft = isTabletStandardLimit ? 80 : isTabletLargeLimit ? 40 : 40;
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
       positionX = containerWidth * 0.1;
       level = limitLevel;
@@ -134,8 +146,7 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.bolt1UK05.style.opacity = "1";
       boltElements.bolt2UK05.style.opacity = "1";
       boltElements.bolt3UK05.style.opacity = "0.5";
-      // limitLeft = window.innerWidth <= 1000 ? 37 : 76;
-      limitLeft = 37;
+      limitLeft = isTabletStandardLimit ? 74 : isTabletLargeLimit ? 37 : 37;
       limitRight = window.innerWidth <= 1000 ? 0.3399 : 0.339;
       positionX = containerWidth * 0.1;
       level = limitLevel;
@@ -146,9 +157,9 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.bolt2UKMikro.style.display = "block";
       boltElements.bolt1UKMikro.style.opacity = "0.5";
       boltElements.bolt2UKMikro.style.opacity = "1";
-      // limitLeft = window.innerWidth <= 1000 ? 40 : 80;
-      limitLeft = 40;
+      limitLeft = isTabletStandardLimit ? 82 : isTabletLargeLimit ? 41 : 41;
       limitRight = 0.8882;
+      positionY = positionX * -3;
       positionX = containerWidth * 0.11199;
       level = limitLevel;
       break;
@@ -157,8 +168,11 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.bolt2UKMikro.style.display = "block";
       boltElements.bolt1UKMikro.style.opacity = "1";
       boltElements.bolt2UKMikro.style.opacity = "0.5";
-      // limitLeft = window.innerWidth <= 1000 ? 64 : 127;
-      limitLeft = 64;
+      limitLeft = isTabletStandardLimit
+        ? 129.9
+        : isTabletLargeLimit
+        ? 64.4
+        : 64.4;
       limitRight = 0.8882;
       positionX = containerWidth * 0.11199;
       level = limitLevel;
@@ -322,7 +336,7 @@ const updateZoom = () => {
 function moveLeft() {
   soundTools();
   positionX = Math.max(limitLeft, positionX - 1); // Batas kiri
-  positionY = positionX * -5;
+  positionY = positionX * -3.1;
   direction = -0.2;
 
   updatePosition(); // Perbarui posisi
@@ -333,7 +347,7 @@ function moveRight() {
   const maxPositionX = containerWidth - containerWidth * limitRight; // Sesuaikan batas kanan dengan lebar kontainer
 
   positionX = Math.min(maxPositionX, positionX + 1);
-  positionY = positionX * -3;
+  positionY = positionX * -3.1;
   direction = 0.2;
   updatePosition(); // Perbarui posisi
 }
@@ -392,8 +406,21 @@ const correctAnswersMobile = [
   "20.85", //soal1 UK05
   "15.15", //soal2 UK05
   "14.05", //soal3 UK05
-  "1", //soal1 mikro
-  "1", //soal2 mikro
+  "15.28", //soal1 mikro
+  "24.04", //soal2 mikro
+  "105.00", //soal1 busur derajat
+  "142.00", //soal2 busur derajat
+];
+
+const correctAnswersTablet = [
+  "12.50", //soal1 UK02
+  "9.86", //soal2 UK02
+  "11.76", //soal3 UK02
+  "20.85", //soal1 UK05
+  "15.15", //soal2 UK05
+  "14.05", //soal3 UK05
+  "15.28", //soal1 mikro
+  "24.50", //soal2 mikro
   "105.00", //soal1 busur derajat
   "142.00", //soal2 busur derajat
 ];
@@ -422,9 +449,12 @@ function checkAnswer() {
   const answer = formatAnswer(answerInput.value.replace(",", "."));
 
   const correctMobileAnswer = correctAnswersMobile[level - 1];
+  const correctTabletAnswer = correctAnswersTablet[level - 1];
   const correctAnswerDev = correctAnswersDev[level - 1];
   const isCorrectAnswer =
-    (answer === correctMobileAnswer || answer === correctAnswerDev) &&
+    (answer === correctMobileAnswer ||
+      answer === correctAnswerDev ||
+      answer === correctTabletAnswer) &&
     !answeredCorrectly[level - 1];
 
   if (isCorrectAnswer || answeredCorrectly[level - 1]) {
@@ -681,10 +711,15 @@ updateZoom();
 // Tambahkan event listener untuk mendeteksi perubahan ukuran layar
 window.addEventListener("resize", () => {
   const screenWidth = window.innerWidth;
+  const isTabletStandardResize =
+    window.innerWidth > 932 && window.innerWidth <= 1024;
+  const isTabletLargeResize =
+    window.innerWidth > 1024 && window.innerWidth <= 1280;
 
   if (screenWidth <= 1200) {
-    scale = 1; // Tablet
+    scale = isTabletStandardResize ? 0.5 : isTabletLargeResize ? 1 : 1;
   } else {
+    console.log("Desktop");
     scale = 2; // Desktop
   }
   updateLimitLeft();
