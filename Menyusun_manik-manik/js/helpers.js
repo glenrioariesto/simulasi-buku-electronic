@@ -51,10 +51,18 @@ function showScene2() {
   document.getElementById("scene2").style.display = "block";
 }
 
+function showBackScene1() {
+  soundClick();
+  document.getElementById("scene2").style.display = "none";
+  document.getElementById("scene1").style.display = "block";
+}
+
 function showScene3() {
   soundClick();
   document.getElementById("scene2").style.display = "none";
   document.getElementById("scene3").style.display = "flex";
+  isScene3Active = true;
+  initializeScene3();
   activateScene3();
 }
 
@@ -164,6 +172,8 @@ function changeSlide(direction) {
     return;
   } else if (currentSlide < 0) {
     currentSlide = 0; // Mencegah mundur lebih jauh dari slide pertama
+    showBackScene1();
+    return;
   }
 
   // Tambahkan kelas "active" dan kelas gambar baru ke slide saat ini

@@ -176,11 +176,12 @@ body {
   justify-content: center;
   align-items: center;
   background-image: url("assets/wadah.webp");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 50%;
+  border-radius: 1.2vw;
 }
 
 .dropbox {
@@ -528,7 +529,7 @@ body {
 }
 #previewObject {
   width: 60%;
-  height: 7%;
+  height: 1%;
 }
 
 .controls-preview {
@@ -926,9 +927,25 @@ body {
   color: #333;
   display: none; /* Sembunyikan pesan saat potrait */
 }
+@media screen and (min-width: 1024px) {
+  .frame-left {
+    width: 50%;
+    max-width: 500px;
+  }
+  .frame-right {
+    width: 45%;
+  }
+}
 
 @media only screen and (orientation: portrait) {
-  s.landscape-message {
+  #scene1,
+  #scene2,
+  #scene3,
+  #scene4 {
+    display: none;
+  }
+
+  .landscape-message {
     display: flex;
     height: 100vh;
     flex-direction: column;

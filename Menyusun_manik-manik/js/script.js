@@ -166,12 +166,18 @@ function preload() {
 }
 
 let isScene3Active = false;
+let canvasElement;
 
 function setup() {
-  if (!isScene3Active) return;
-
-  let canvasElement = createCanvas(windowWidth, windowHeight);
+  canvasElement = createCanvas(windowWidth, windowHeight);
   canvasElement.parent("scene3");
+  canvasElement.style("display", "none");
+}
+
+function initializeScene3() {
+  console.log("initializeScene3", isScene3Active);
+  if (!isScene3Active) return;
+  canvasElement.style("display", "block");
   engine = Engine.create();
 
   // Mouse control setup
@@ -366,6 +372,7 @@ function createBalancedStarVertices(radius, outerRatio, innerRatio, nPoints) {
 function draw() {
   if (!isScene3Active) return;
   if (bgImage) {
+    // console.log("draw");
     background(bgImage);
     Engine.update(engine, 1000 / 60);
     // Menggambar chains pertama (di belakang objek)
@@ -417,7 +424,7 @@ function activateScene3() {
   radius = window.innerWidth > 1000 ? 50 : 25;
   length = window.innerWidth > 1000 ? 100 : 50;
   preload();
-  setup();
+  initializeScene3();
 }
 
 function deactivateScene3() {
@@ -753,7 +760,6 @@ function reset() {
   selectedBall = null;
   connectedBallsOrder = [];
   initializeBalls();
-  console.log("Reset complete!");
 }
 
 // Adjust canvas size on window resize
@@ -794,16 +800,6 @@ buttons.forEach((button) => {
     },
     { passive: false }
   );
-
-  button.addEventListener("click", (e) => {
-    if (e.target.classList.contains("check")) {
-      checkBallOrder();
-    } else if (e.target.classList.contains("reset")) {
-      resetGame();
-    } else if (e.target.classList.contains("info")) {
-      showBackScene2();
-    }
-  });
 });
 const buttonCloseModals = document.querySelectorAll(".btn.close");
 
@@ -819,13 +815,6 @@ buttonCloseModals.forEach((button) => {
     },
     { passive: false }
   );
-
-  button.addEventListener("click", (e) => {
-    const modalId = e.target.getAttribute("id"); // Get the ID of the button
-    if (modalId) {
-      closeModalById(modalId); // Call a specific closeModal function
-    }
-  });
 });
 
 // Function to handle modal closure by ID
@@ -852,13 +841,6 @@ optionButtons.forEach((button) => {
     },
     { passive: false }
   );
-
-  button.addEventListener("click", (e) => {
-    const option = e.target.getAttribute("data-option");
-    if (option) {
-      storeAnswer(option); // Call the storeAnswer function with the option
-    }
-  });
 });
 
 const checkButtons = document.querySelectorAll(".btn.check");
@@ -872,8 +854,39 @@ checkButtons.forEach((button) => {
     },
     { passive: false }
   );
+});
 
-  button.addEventListener("click", (e) => {
-    checkAnswer(); // Kirimkan event ke fungsi
-  });
+const alertButtons = document.querySelectorAll(".btn-alert");
+
+alertButtons.forEach((button) => {
+  button.addEventListener(
+    "touchstart",
+    (e) => {
+      e.preventDefault(); // Prevent default touch behavior
+      if (button.classList.contains("no")) {
+        handleNo();
+      } else {
+        handleYes();
+      }
+    },
+    { passive: false }
+  );
+});
+
+const slideButtons = document.querySelectorAll(".button");
+
+slideButtons.forEach((button) => {
+  // Tangani event touchstart
+  button.addEventListener(
+    "touchstart",
+    (e) => {
+      e.preventDefault(); // Mencegah perilaku bawaan
+      if (button.classList.contains("prev")) {
+        changeSlide(-1);
+      } else if (button.classList.contains("next")) {
+        changeSlide(1);
+      }
+    },
+    { passive: false }
+  );
 });

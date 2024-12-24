@@ -831,6 +831,17 @@ audio {
   display: none;
 }
 
+@media screen and (min-width: 1024px) and (max-width: 1400px) {
+  .cover-left {
+    width: 30vh;
+    height: 50%;
+  }
+  .cover-right {
+    width: 30vh;
+    height: 50%;
+  }
+}
+
 @media only screen and (orientation: portrait) {
   .landscape-message {
     display: flex;
