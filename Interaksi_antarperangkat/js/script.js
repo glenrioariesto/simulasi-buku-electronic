@@ -114,10 +114,11 @@ function addDragListeners(device) {
             clonedSoftware.setAttribute("draggable", "true");
             containerDevice.appendChild(clonedSoftware);
           }
-
           draggedSoftware.style.position = "static";
           draggedSoftware.style.left = "0";
           draggedSoftware.style.top = "0";
+          draggedSoftware.style.width = "100px";
+          draggedSoftware.style.height = "70px !important";
           draggedSoftware.style.transform = "translate(-25%, -15%)";
 
           zone.classList.add("no-border");

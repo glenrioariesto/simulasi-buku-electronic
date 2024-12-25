@@ -85,10 +85,10 @@ function showScene4() {
   // Menambahkan kelas untuk animasi untuk instruksi
   instruction.style.animation = "slideIn 2s forwards"; // Memulai animasi slide-in untuk instruksi
 
-  setTimeout(() => {
-    // Menghapus kelas 'show' setelah animasi selesai
-    info.classList.remove("show");
-  }, 10000);
+  // setTimeout(() => {
+  //   // Menghapus kelas 'show' setelah animasi selesai
+  //   info.classList.remove("show");
+  // }, 10000);
 }
 
 document.addEventListener("click", (event) => {

@@ -221,7 +221,7 @@ function setCaliperLevel(levelBolt) {
       caliper2.classList.add("layer2");
       caliper3.classList.add("layer3-U02");
       question.innerHTML = `Berapakah ukuran baut tersebut&#44; jika diukur menggunakan
-      <br />jangka sorong dengan
+      <br />jangka sorong dengan ketelitian
       <span id="UK-bolt" class="highlight">0,02 mm</span>?`;
       break;
     case 4:
@@ -232,7 +232,7 @@ function setCaliperLevel(levelBolt) {
       caliper3.classList.add("layer3-U05");
 
       question.innerHTML = `Berapakah ukuran baut tersebut&#44; jika diukur menggunakan
-      <br />jangka sorong dengan
+      <br />jangka sorong dengan ketelitian
       <span id="UK-bolt" class="highlight">0,05 mm</span>?`;
 
       break;
@@ -406,10 +406,10 @@ const correctAnswersMobile = [
   "20.85", //soal1 UK05
   "15.15", //soal2 UK05
   "14.05", //soal3 UK05
-  "15.28", //soal1 mikro
+  "15.26", //soal1 mikro
   "24.04", //soal2 mikro
-  "105.00", //soal1 busur derajat
-  "142.00", //soal2 busur derajat
+  "75.00", //soal1 busur derajat
+  "38.00", //soal2 busur derajat
 ];
 
 const correctAnswersTablet = [
@@ -419,7 +419,7 @@ const correctAnswersTablet = [
   "20.85", //soal1 UK05
   "15.15", //soal2 UK05
   "14.05", //soal3 UK05
-  "15.28", //soal1 mikro
+  "15.26", //soal1 mikro
   "24.50", //soal2 mikro
   "105.00", //soal1 busur derajat
   "142.00", //soal2 busur derajat
@@ -462,7 +462,7 @@ function checkAnswer() {
   } else {
     correctWrongImage.src = "assets/text-popup-salah.png";
     updateModalImage();
-    showModal("<br>Jawaban Salah <br><br><br>", "wrong");
+    showModal("Jawaban Salah <br>", "wrong");
   }
 
   answerInput.value = ""; // Reset input
@@ -487,18 +487,15 @@ function updateModalImage() {
     6: "assets/baut3-UK05.webp",
     7: "assets/bola-kecil.webp",
     8: "assets/bola-besar.webp",
-    9: "assets/kayu-1.svg",
-    10: "assets/kayu-2.svg",
+    9: "assets/plat-1-popup.png",
+    10: "assets/plat-2-popup.png",
   };
   const smallerImages = [4, 7, 8];
-  const heightPriorityImages = [9, 10];
+
   modalImage.src = modalImageSrc[level] || "";
   if (smallerImages.includes(level)) {
-    modalImage.style.width = "150px";
+    modalImage.style.width = "60vw";
     modalImage.style.height = "auto";
-  } else if (heightPriorityImages.includes(level)) {
-    modalImage.style.width = "auto";
-    modalImage.style.height = "150px";
   } else {
     modalImage.style.width = "300px";
     modalImage.style.height = "auto";

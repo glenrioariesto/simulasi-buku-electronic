@@ -647,11 +647,11 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 1000;
-  width: 35%; /* Atur lebar sesuai kebutuhan */
+  width: 50%; /* Atur lebar sesuai kebutuhan */
   height: 50%; /* Atur tinggi sesuai kebutuhan */
   background-image: url("assets/petunjuk.webp"); /* Gambar petunjuk */
   top: 25%;
-  left: 32.5%;
+  left: 25%;
   transform: translate(-50%, -50%); /* Posisikan di tengah */
   display: flex;
   opacity: 0; /* Mulai dengan opacity 0 */
@@ -840,6 +840,12 @@ audio {
     width: 30vh;
     height: 50%;
   }
+  /* 
+  .modal-button {
+    bottom: 20%;
+    width: 40%;
+    height: 10%;
+  } */
 }
 
 @media only screen and (orientation: portrait) {

@@ -103,10 +103,6 @@ function showScene5() {
   soundClick();
   scene2.style.display = "none";
   scene5.style.display = "flex";
-  // if (countInstruction === 0) {
-  //   information.style.display = "flex"; // Pastikan elemen terlihat
-  //   information.classList.add("instruction-1");
-  // }
 }
 function backScene5(sound = true) {
   if (sound) {
@@ -118,6 +114,8 @@ function backScene5(sound = true) {
   countInstruction = 0;
   information.style.display = "none";
   information.classList.remove("instruction-1");
+  information.classList.remove("instruction-1-bola");
+  information.classList.remove("instruction-1-plat");
   information.classList.remove("instruction-2");
   removeLayersCreatedByCreateLayer4And5();
   originX = 50;
@@ -130,8 +128,7 @@ function showScene3(pickLevel) {
   scene5.style.display = "none";
   scene3.style.display = "flex";
   countInstruction = 0;
-  information.style.display = "flex";
-  information.classList.add("instruction-1");
+
   caliper1.style.transform = `translateX(0px)`;
   caliper2.style.transform = `rotate(0deg)`;
   questionContainer.classList.remove("active");
@@ -140,18 +137,24 @@ function showScene3(pickLevel) {
 }
 
 function displayLevel(level) {
+  information.style.display = "flex";
+
   switch (level) {
     case 1:
       choosedBolt(1);
+      information.classList.add("instruction-1");
       break;
     case 2:
       choosedBolt(4);
+      information.classList.add("instruction-1");
       break;
     case 3:
       choosedBolt(7);
+      information.classList.add("instruction-1-bola");
       break;
     case 4:
       choosedBolt(9);
+      information.classList.add("instruction-1-plat");
       break;
     default:
       console.warn("Invalid level selected.");
@@ -201,6 +204,8 @@ document.addEventListener("click", (event) => {
       // Instruction-2 menggantikan instruction-1
       countInstruction++;
       information.classList.remove("instruction-1");
+      information.classList.remove("instruction-1-bola");
+      information.classList.remove("instruction-1-plat");
       void information.offsetWidth;
       information.classList.add("instruction-2");
     } else if (information && countInstruction === 2) {

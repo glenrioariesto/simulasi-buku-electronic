@@ -214,7 +214,7 @@ body {
   align-items: center;
   justify-content: center; /* Menempatkan input di tengah */
   position: relative; /* Untuk mengatur konteks posisi anak */
-  width: 11.5vw;
+  width: 40%;
   height: 100%; /* Ukuran area background */
   background-image: url("assets/Input-answer.webp"); /* Ganti dengan path gambar Anda */
   background-size: contain; /* Sesuaikan ukuran gambar */
@@ -519,12 +519,12 @@ body {
 
 /* kayu busur derajat */
 .layer.kayu-1 {
-  background-image: url("assets/kayu1-layer.svg");
+  background-image: url("assets/plat-layer-1.png");
   z-index: 0;
 }
 
 .layer.kayu-2 {
-  background-image: url("assets/kayu2-layer.svg");
+  background-image: url("assets/plat-layer-2.png");
   z-index: 0;
 }
 
@@ -585,13 +585,13 @@ body {
 }
 
 .kayu1-controls {
-  background-image: url("assets/kayu-1.svg");
+  background-image: url("assets/plat-1.png");
   width: 5.5vw;
   height: 10vw;
 }
 
 .kayu2-controls {
-  background-image: url("assets/kayu-2.svg");
+  background-image: url("assets/plat-2.png");
   width: 5.5vw;
   height: 10vw;
 }
@@ -624,6 +624,22 @@ body {
   background-image: url("assets/intruksi-1.webp");
   bottom: 5vw;
   left: 1vw;
+  display: flex;
+  animation-name: slideIn;
+}
+
+.information.instruction-1-bola {
+  background-image: url("assets/intruksi-1-bola.png");
+  bottom: 8vw;
+  left: 1vw;
+  display: flex;
+  animation-name: slideIn;
+}
+
+.information.instruction-1-plat {
+  background-image: url("assets/intruksi-1-plat.png");
+  bottom: 10vw;
+  left: 0vw;
   display: flex;
   animation-name: slideIn;
 }
@@ -713,14 +729,14 @@ body {
 
 .modal-content {
   height: 30vw;
-  width: 50%;
+  width: 40vw;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   position: relative;
 }
@@ -730,9 +746,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  top: 80%;
-  transform: translateY(-90%);
+  width: 80%;
+  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .modal-content img {
   max-width: 10vw;
