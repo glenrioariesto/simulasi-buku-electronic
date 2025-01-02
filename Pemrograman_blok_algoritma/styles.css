@@ -414,13 +414,15 @@ img {
   /* width: 210px;
   height: 70px; */
   top: 70px;
-  right: 00px;
+  right: 0px;
 }
 #wall3 {
   /* width: 280px;
   height: 70px; */
   bottom: 70px;
   left: 0px;
+  background-color: #1f701f;
+
 }
 
 /* #finish {
@@ -557,7 +559,7 @@ button {
 }
 
 /* Tablet Landscape */
-@media (min-width: 933px) and (max-width: 1024px) and (orientation: landscape) {
+@media (min-width: 933px) and (max-width: 1023px) and (orientation: landscape) {
   .container {
     width: 100%;
     max-width: 1000px;
@@ -587,22 +589,26 @@ button {
   }
 
   #wall1 {
-    /* width: 100px;
-    height: 300px; */
     top: 0px;
     left: 5px;
   }
   #wall2 {
-    /* width: 300px;
-    height: 100px; */
+
     top: 100px;
     right: 0px;
   }
   #wall3 {
-    /* width: 400px;
-    height: 100px; */
     bottom: 100px;
     left: 0px;
+  }
+}
+
+
+@media (min-width: 1023px) and (max-width: 1240px) and (orientation: landscape) {
+  .container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 10px;
   }
 }
 

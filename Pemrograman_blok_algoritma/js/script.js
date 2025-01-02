@@ -3,6 +3,7 @@ let mapSize = {
   x: window.innerWidth <= 1240 ? 490 : 1120, // Width
   y: window.innerWidth <= 1240 ? 350 : 800, // Height
 };
+console.log(mapSize)
 let moveSpeed = mapSize.x / 7;
 let carSize = moveSpeed;
 let carPosition = { x: moveSpeed, y: moveSpeed * 3 };
