@@ -66,8 +66,8 @@ h1 {
 }
 
 .text-cover {
-  width: 60%;
-  height: 60%;
+  width: 60vw;
+  height:auto;
   user-select: none;
   pointer-events: none;
 }

@@ -99,7 +99,7 @@ body {
 
 .text-cover {
   width: 60vw;
-  height: 10vh;
+  height: auto;
   position: absolute;
   top: 20%;
   left: 50%;

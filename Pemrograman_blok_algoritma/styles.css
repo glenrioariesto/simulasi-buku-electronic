@@ -67,7 +67,7 @@ img {
 
 .title-cover {
   width: 60vw;
-  height: 60vh;
+  height: auto;
 }
 
 .button-scene1 {

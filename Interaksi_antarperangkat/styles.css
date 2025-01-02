@@ -74,9 +74,9 @@ audio {
 }
 
 .title-cover {
-  padding-top: 8vw;
+  padding-top: 2vw;
   width: 80vw;
-  height: 40vh;
+  height: auto;
 }
 
 .button-scene {
