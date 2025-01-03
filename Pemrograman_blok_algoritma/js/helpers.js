@@ -170,7 +170,6 @@ function closeModal() {
   // clickSound.currentTime = 0;
   // clickSound.play();
   document.getElementById("myModal").style.display = "none";
-
   const map = document.getElementById("map");
   map.className = "";
   switch (level) {

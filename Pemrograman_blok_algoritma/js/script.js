@@ -3,7 +3,6 @@ let mapSize = {
   x: window.innerWidth <= 1240 ? 490 : 1120, // Width
   y: window.innerWidth <= 1240 ? 350 : 800, // Height
 };
-console.log(mapSize)
 let moveSpeed = mapSize.x / 7;
 let carSize = moveSpeed;
 let carPosition = { x: moveSpeed, y: moveSpeed * 3 };
@@ -24,7 +23,11 @@ const resetBtn = document.getElementById("resetBtn");
 function playCarSound() {
   carSound.currentTime = 0;
   carSound.play().catch((error) => {
-    console.error("Gagal memainkan suara mobil:", error.message);
+    carSound.play().catch((error) => {
+      carSound.play().catch((error) => {
+        console.error("Audio playback error:", error);
+      })
+    })
   });
 }
 
@@ -91,7 +94,6 @@ function executeInstructions() {
           combinedInstructions = []; // Hapus instruksi
           return;
         }
-        console.log(instruction.id);
         if (instruction.id === "leftBtn") {
           stopCarSound();
           turnLeft();
@@ -134,6 +136,7 @@ function executeInstructions() {
       startBtn.removeAttribute("disabled");
       startBtn.style.opacity = 1;
       startBtn.style.pointerEvents = "auto";
+     
 
       // Pastikan suara berhenti jika belum dihentikan
     }, combinedInstructions.length * 1500)
@@ -318,6 +321,7 @@ function moveForward(speed = moveSpeed) {
   let totalSteps = Math.ceil(speed / moveSpeed);
 
   for (let i = 1; i <= totalSteps; i++) {
+
     if (checkCarFinished(carPosition)) {
       totalSteps = i;
       showModal(
@@ -408,6 +412,7 @@ function moveForward(speed = moveSpeed) {
       timeoutIds = [];
       return;
     }
+    
   }
 }
 
