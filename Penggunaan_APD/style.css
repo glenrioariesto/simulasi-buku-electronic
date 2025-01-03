@@ -649,7 +649,7 @@ body {
   z-index: 1000;
   width: 50%; /* Atur lebar sesuai kebutuhan */
   height: 50%; /* Atur tinggi sesuai kebutuhan */
-  background-image: url("assets/petunjuk.webp"); /* Gambar petunjuk */
+  background-image: url("assets/petunjuk.png"); /* Gambar petunjuk */
   top: 25%;
   left: 25%;
   transform: translate(-50%, -50%); /* Posisikan di tengah */
