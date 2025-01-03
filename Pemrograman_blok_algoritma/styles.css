@@ -708,7 +708,7 @@ button {
   height: 30vw;
   width: 50%;
   margin: 15% auto; /* 15% from the top and centered */
-  background-image: url("assets/background-pop-up.webp");
+  background-image: url("assets/background-pop-up-modal.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -742,12 +742,13 @@ button {
 }
 
 .modal-content .btn.close {
+  background-image: url("assets/close.png");
+
   font-size: 2vw;
   position: absolute;
   color: #1f701f;
-  top: -2vh;
+  top: 0;
   right: 0;
-  border-radius: 100%;
   width: 6vw;
   height: 6vw;
   display: flex;
