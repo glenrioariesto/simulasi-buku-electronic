@@ -64,6 +64,8 @@ function showScene3() {
   isScene3Active = true;
   initializeScene3();
   activateScene3();
+  reset();
+  
 }
 
 function showScene4() {
@@ -166,7 +168,6 @@ function changeSlide(direction) {
 
   // Hitung slide berikutnya
   currentSlide += direction;
-
   if (currentSlide >= slides.length) {
     showScene3(); // Pindah ke scene berikutnya jika sudah mencapai slide terakhir
     return;

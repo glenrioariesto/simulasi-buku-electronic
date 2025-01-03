@@ -705,7 +705,7 @@ function reset() {
       initManik = [...initManik2];
       num = 31;
       Composite.clear(engine.world);
-      setup();
+      activateScene3();
       break;
     default:
       initManik = [...initManik];

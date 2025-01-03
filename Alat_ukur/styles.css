@@ -73,6 +73,7 @@ body {
 .title-cover {
   width: 55vw;
   height: auto;
+  margin-bottom: 5vh;
 }
 
 .text {
