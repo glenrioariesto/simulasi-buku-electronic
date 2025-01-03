@@ -761,10 +761,11 @@ function reset() {
   connectedBallsOrder = [];
   initializeBalls();
 }
-
-// Adjust canvas size on window resize
-window.addEventListener("resize", () => {
+function adjustCanvasSize() {
+  // Resize canvas sesuai ukuran jendela
   resizeCanvas(windowWidth, windowHeight);
+
+  // Update ground
   ground = Bodies.rectangle(width / 2, height - 50, width, 10, {
     isStatic: true,
   });
@@ -772,6 +773,7 @@ window.addEventListener("resize", () => {
 
   // Update boundary positions
   Composite.remove(engine.world, [leftWall, rightWall, topWall, bottomWall]);
+
   leftWall = Bodies.rectangle(0, height / 2, 10, height, {
     isStatic: true,
   });
@@ -783,7 +785,11 @@ window.addEventListener("resize", () => {
   });
 
   Composite.add(engine.world, [leftWall, rightWall, bottomWall]);
+}
+window.addEventListener("resize", () => {
+  adjustCanvasSize();
 });
+
 const buttons = document.querySelectorAll(".button-game");
 buttons.forEach((button) => {
   button.addEventListener(

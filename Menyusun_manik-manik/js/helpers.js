@@ -54,7 +54,7 @@ function showScene2() {
 function showBackScene1() {
   soundClick();
   document.getElementById("scene2").style.display = "none";
-  document.getElementById("scene1").style.display = "block";
+  document.getElementById("scene1").style.display = "flex";
 }
 
 function showScene3() {
@@ -71,12 +71,10 @@ function showScene3() {
 function showScene4() {
   document.getElementById("scene3").style.display = "none";
   document.getElementById("scene4").style.display = "flex";
+  level = 1;
 }
 
-function showBackScene1() {
-  document.getElementById("scene4").style.display = "none";
-  document.getElementById("scene1").style.display = "flex";
-}
+
 
 function showBackScene2() {
   soundClick();
@@ -89,7 +87,7 @@ function showBackScene2() {
   if (slides.length > 0) {
     slides[0].classList.add("active"); // Aktifkan slide pertama
   }
-  currentSlide = 0;
+
 }
 
 function showModal(message, correct, image) {
@@ -157,29 +155,32 @@ function showInfo() {
 }
 
 let currentSlide = 0;
+let isChangingSlide = false; 
 const slides = document.querySelectorAll(".slide");
-
 function changeSlide(direction) {
-  soundClick();
-
+  if (isChangingSlide) return; 
+  isChangingSlide = true; 
   // Hilangkan kelas "active" dari slide saat ini
+  soundClick();
   slides[currentSlide].classList.remove("active");
   slides[currentSlide].classList.remove(`slide-image-${currentSlide + 1}`);
 
   // Hitung slide berikutnya
   currentSlide += direction;
   if (currentSlide >= slides.length) {
-    showScene3(); // Pindah ke scene berikutnya jika sudah mencapai slide terakhir
-    return;
+    showScene3();
+    currentSlide = 0; // Pindah ke scene berikutnya jika sudah mencapai slide terakhir
   } else if (currentSlide < 0) {
-    currentSlide = 0; // Mencegah mundur lebih jauh dari slide pertama
     showBackScene1();
-    return;
+    currentSlide = slides.length - 2;  // Mencegah mundur lebih jauh dari slide pertama
   }
 
   // Tambahkan kelas "active" dan kelas gambar baru ke slide saat ini
   slides[currentSlide].classList.add("active");
   slides[currentSlide].classList.add(`slide-image-${currentSlide + 1}`);
+  setTimeout(() => {
+    isChangingSlide = false;
+  }, 500); 
 }
 let selectedOption;
 function storeAnswer(option) {
@@ -245,7 +246,12 @@ function selectAnswer(option) {
 
       if (level === 2) {
         level = 0;
-        showScene4();
+        setTimeout(() => {
+          showScene4();
+          closeModal();
+          closeModal2();
+          closeModal3();
+        }, 2500);
         currentSlide = 0;
       } else if (level === 1) {
         initManik = initManik2; // Pindah ke inisialisasi level 2
@@ -274,10 +280,18 @@ function showCustomAlert(message) {
 // Fungsi untuk menangani pilihan Yes
 function handleYes() {
   // Masukkan logika untuk aksi ketika pengguna memilih "Yes"
-  console.log("Pengguna memilih Yes");
   enterFullScreen();
   closeAlert();
+  
+  
+  document.addEventListener('fullscreenchange', onFullScreenChange);
+  document.addEventListener('webkitfullscreenchange', onFullScreenChange);
+  document.addEventListener('mozfullscreenchange', onFullScreenChange);
+  document.addEventListener('msfullscreenchange', onFullScreenChange);
+
 }
+
+
 
 // Fungsi untuk menangani pilihan No
 function handleNo() {
@@ -297,6 +311,20 @@ window.onload = function () {
   showCustomAlert("Apakah Anda ingin masuk ke mode layar penuh?");
 };
 
+function onFullScreenChange() {
+  // Cek apakah sudah dalam mode layar penuh
+  if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+    // Setelah layar penuh diaktifkan, panggil adjustCanvasSize
+    adjustCanvasSize();
+
+    // Hapus event listener untuk menghindari pemanggilan berulang
+    document.removeEventListener('fullscreenchange', onFullScreenChange);
+    document.removeEventListener('webkitfullscreenchange', onFullScreenChange);
+    document.removeEventListener('mozfullscreenchange', onFullScreenChange);
+    document.removeEventListener('msfullscreenchange', onFullScreenChange);
+  }
+}
+
 function enterFullScreen() {
   if (document.documentElement.requestFullscreen) {
     document.documentElement.requestFullscreen();
@@ -306,7 +334,7 @@ function enterFullScreen() {
     document.documentElement.msRequestFullscreen();
   } else {
     alert("Browser ini tidak mendukung full screen.");
-  }
+  } 
 }
 
 function exitFullScreen() {
