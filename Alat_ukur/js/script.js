@@ -192,7 +192,7 @@ function updateLimitLeft(limitLevel = 0) {
       boltElements.kayu1.style.opacity = "1";
       boltElements.kayu2.style.opacity = "0.5";
       leftRotationLimit = -90;
-      rightRotationLimit = 52;
+      rightRotationLimit = 52.5;
       level = limitLevel;
 
       break;
@@ -409,7 +409,7 @@ const correctAnswersMobile = [
   "15.26", //soal1 mikro
   "24.04", //soal2 mikro
   "75.00", //soal1 busur derajat
-  "38.00", //soal2 busur derajat
+  "37.00", //soal2 busur derajat
 ];
 
 const correctAnswersTablet = [
