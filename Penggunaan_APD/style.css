@@ -29,6 +29,7 @@ body {
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-background-size: cover;
   background-position: center;
 }
 
@@ -408,6 +409,7 @@ body {
 }
 .container-content-scene5 {
   padding-top: 2vw;
+  display: -webkit-flex;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -423,6 +425,8 @@ body {
   height: 100%;
   width: 40%;
   background-size: cover;
+  -webkit-background-size: cover;
+  -webkit-background-position: center; 
   background-position: center;
   position: relative;
 }
@@ -463,12 +467,15 @@ body {
   padding-top: 1vw;
   width: 100%;
   height: 60%;
+  display: -webkit-grid;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0.5vw;
   justify-content: center;
+  -webkit-justify-content: center;
   align-items: center;
+  -webkit-align-items: center; 
   justify-items: center;
   align-items: center;
   position: relative;
@@ -486,31 +493,37 @@ body {
 .tool.helm {
   background-image: url("assets/helm.webp");
   z-index: 6;
+  -webkit-z-index: 6;
 }
 
 .tool.mask {
   background-image: url("assets/maskah.webp");
   z-index: 5;
+  -webkit-z-index: 5;
 }
 
 .tool.gloves {
   background-image: url("assets/sarungtangan.webp");
   z-index: 4;
+  -webkit-z-index: 4;
 }
 
 .tool.spectacles {
   background-image: url("assets/spectacles.webp");
   z-index: 3;
+  -webkit-z-index: 3;
 }
 
 .tool.boots {
   background-image: url("assets/sepatu.webp");
   z-index: 2;
+  -webkit-z-index: 2;
 }
 
 .tool.earplug {
   background-image: url("assets/Earplug.webp");
   z-index: 1;
+  -webkit-z-index: 1;
 }
 /* tool use */
 .tool.helm-use {
@@ -518,6 +531,7 @@ body {
   width: 100%;
   background-image: url("assets/set helm.webp");
   z-index: 10;
+  -webkit-z-index: 10;
   position: absolute;
 }
 
@@ -527,6 +541,7 @@ body {
   background-image: url("assets/set masker.webp");
   position: absolute;
   z-index: 5;
+  -webkit-z-index: 5;
 }
 
 .tool.gloves-use {
@@ -535,6 +550,7 @@ body {
   background-image: url("assets/set sarungtangan.webp");
   position: absolute;
   z-index: 4;
+  -webkit-z-index: 4;
 }
 
 .tool.spectacles-use {
@@ -543,6 +559,7 @@ body {
   background-image: url("assets/set spectacles.webp");
   position: absolute;
   z-index: 3;
+  -webkit-z-index: 3;
 }
 
 .tool.boots-use {
@@ -551,6 +568,7 @@ body {
   background-image: url("assets/setsepatu.webp");
   position: absolute;
   z-index: 2;
+  -webkit-z-index: 2;
 }
 
 .tool.earplug-use {
@@ -559,6 +577,7 @@ body {
   background-image: url("assets/set earplug.webp");
   position: absolute;
   z-index: 1;
+  -webkit-z-index: 1;
 }
 
 .button-scene5 {
@@ -575,10 +594,12 @@ body {
 }
 
 .button-scene5.check-gambar:hover {
+  -webkit-transform: scale(1.1);
   transform: scale(1.1); /* Optional hover effect */
 }
 
 .button-scene5.check-gambar:active {
+  -webkit-transform: scale(0.9);
   transform: scale(0.9); /* Optional active effect */
 }
 
