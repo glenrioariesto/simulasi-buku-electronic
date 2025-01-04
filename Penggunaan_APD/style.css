@@ -435,6 +435,13 @@ body {
   width: 30%;
 }
 
+.characters-container-scene5 img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+
 .character4 {
   display: flex;
   justify-content: center;
