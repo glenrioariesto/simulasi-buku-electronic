@@ -58,6 +58,7 @@ function showBackScene1() {
 }
 
 function showScene3() {
+  closeAlert();
   soundClick();
   document.getElementById("scene2").style.display = "none";
   document.getElementById("scene3").style.display = "flex";

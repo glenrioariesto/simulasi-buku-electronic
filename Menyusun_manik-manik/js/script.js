@@ -1,4 +1,5 @@
 const {
+  Common,
   Engine,
   Body,
   Bodies,
@@ -178,8 +179,13 @@ function initializeScene3() {
   console.log("initializeScene3", isScene3Active);
   if (!isScene3Active) return;
   canvasElement.style("display", "block");
-  engine = Engine.create();
 
+
+  if (typeof polyDecomp !== 'undefined') {
+    Common.setDecomp(polyDecomp);
+  }
+  engine = Engine.create();
+  
   // Mouse control setup
   mouse = Mouse.create(document.body);
   mouseConstraint = MouseConstraint.create(engine, {
@@ -277,8 +283,11 @@ function initializeScene3() {
 
   // Add bodies to world
   Composite.add(engine.world, bodies);
+
   initializeBalls();
 }
+
+
 
 function initializeBalls() {
   for (let i = 0; i < defaultConnections.length; i++) {
