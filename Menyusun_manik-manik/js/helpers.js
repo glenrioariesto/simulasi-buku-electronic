@@ -57,11 +57,19 @@ function showBackScene1() {
   document.getElementById("scene1").style.display = "flex";
 }
 
+function showBackScene1FromScene4() {
+  soundClick();
+  document.getElementById("scene4").style.display = "none";
+  document.getElementById("scene1").style.display = "flex";
+  window.location.reload();
+}
+
 function showScene3() {
   closeAlert();
   soundClick();
   document.getElementById("scene2").style.display = "none";
   document.getElementById("scene3").style.display = "flex";
+  level = 1;
   isScene3Active = true;
   initializeScene3();
   activateScene3();
@@ -72,7 +80,6 @@ function showScene3() {
 function showScene4() {
   document.getElementById("scene3").style.display = "none";
   document.getElementById("scene4").style.display = "flex";
-  level = 1;
 }
 
 
@@ -297,7 +304,7 @@ function handleYes() {
 // Fungsi untuk menangani pilihan No
 function handleNo() {
   // Masukkan logika untuk aksi ketika pengguna memilih "No"
-  console.log("Pengguna memilih No");
+  // console.log("Pengguna memilih No");
   closeAlert();
 }
 
