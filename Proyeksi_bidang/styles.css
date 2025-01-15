@@ -529,7 +529,7 @@ body {
 }
 #previewObject {
   width: 60%;
-  height: 1%;
+  height: auto;
 }
 
 .controls-preview {
