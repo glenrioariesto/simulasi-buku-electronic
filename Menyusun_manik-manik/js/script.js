@@ -383,6 +383,7 @@ function draw() {
   if (bgImage) {
     // console.log("draw");
     background(bgImage);
+    Engine.update(engine,1000/60)
     // Menggambar chains pertama (di belakang objek)
     for (let chain of chains) {
       let x1 = chain.bodyA.position.x;
