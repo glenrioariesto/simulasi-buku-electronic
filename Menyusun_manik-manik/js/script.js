@@ -274,12 +274,12 @@ function initializeScene3() {
 
   // Create boundaries to prevent balls from going out of canvas
 
-  topWall = Bodies.rectangle(width / 2, 0, width, 10, wallOptions);
+  topWall = Bodies.rectangle(width / 2, 0, width, 20, wallOptions);
   leftWall = Bodies.rectangle(0, height / 2, 10, height, wallOptions);
   rightWall = Bodies.rectangle(width, height / 2, 10, height, wallOptions);
-  bottomWall = Bodies.rectangle(width / 2, height, width, 10, wallOptions);
+  bottomWall = Bodies.rectangle(width / 2, height, width, 100, wallOptions);
 
-  Composite.add(engine.world, [leftWall, rightWall, bottomWall, topWall]);
+  Composite.add(engine.world, [leftWall, rightWall, bottomWall,topWall]);
 
   // Add bodies to world
   Composite.add(engine.world, bodies);
@@ -299,7 +299,7 @@ function initializeBalls() {
     let fromBallPos = bodies[fromIndex].position;
 
     // Tentukan posisi baru untuk bola tujuan
-    let newToBallPos = createVector(fromBallPos.x + 50, fromBallPos.y + 100);
+    let newToBallPos = createVector(fromBallPos.x + 50, fromBallPos.y );
 
     // Pindahkan bola tujuan ke posisi baru
     Body.setPosition(bodies[toIndex], {
@@ -423,6 +423,20 @@ function draw() {
 
       pop(); // Kembali ke transformasi sebelumnya
     }
+
+
+    for (let i = 0; i < bodies.length; i++) {
+      if(i === clickedBall){
+        let x1 = bodies[i].position.x;
+        let y1 = bodies[i].position.y;
+        push(); 
+        translate(x1, y1);
+        rotate(bodies[i].angle);
+        imageMode(CENTER);
+        image(textureYellowCircle, 0, 0, radius , radius );
+        pop();
+      }
+    }
     fill(0);
     imageMode(CORNER);
     image(meja, 0, height - 60, width, 100);
@@ -448,14 +462,14 @@ function checkBallOrder() {
   soundClick();
   // Urutan bola berdasarkan posisi X-nya
   let connectedBallOrder = [];
-  console.log(connectedBallsOrder);
+  // console.log(connectedBallsOrder);
   for (let i = 0; i < connectedBallsOrder.length; i++) {
     if (i === 0) {
       connectedBallOrder.push(connectedBallsOrder[i].from);
     }
     connectedBallOrder.push(connectedBallsOrder[i].to);
   }
-  console.log("Urutan bola berdasarkan koneksi:", connectedBallOrder);
+  // console.log("Urutan bola berdasarkan koneksi:", connectedBallOrder);
   let isConnectedCorrect = false;
   switch (level) {
     case 1:
@@ -486,9 +500,9 @@ let connectedBallsOrder = [];
 let clickCount = 0;
 let lastClickedBall = null;
 let lastClickTime = 0;
+let clickedBall = null;
 function mousePressed() {
   let mousePos = createVector(mouseX, mouseY);
-  let clickedBall = null;
 
   for (let i = 0; i < bodies.length; i++) {
     let ballPos = createVector(bodies[i].position.x, bodies[i].position.y);
@@ -496,7 +510,6 @@ function mousePressed() {
     let tolerance = 5;
     if (distance < radius + tolerance) {
       clickedBall = i;
-      console.log(clickedBall);
       break;
     }
   }
@@ -507,12 +520,12 @@ function mousePressed() {
 
     // Deteksi Double-Click (dalam 300 ms)
     if (lastClickedBall === clickedBall && timeSinceLastClick < 300) {
-      console.log(`Double-click pada bola ${bodies[clickedBall].label}`);
+      // console.log(`Double-click pada bola ${bodies[clickedBall].label}`);
       handleDoubleClick(clickedBall);
       clickCount = 0; // Reset klik
     } else {
       // Single Click
-      console.log(`Single click pada bola ${bodies[clickedBall].label}`);
+      // console.log(`Single click pada bola ${bodies[clickedBall].label}`);
       handleSingleClick(clickedBall);
       clickCount = 1;
     }
@@ -524,48 +537,51 @@ function mousePressed() {
   }
 }
 
-function handleDoubleClick(clickedBall) {
-  // Logika untuk double-click
-  console.log(`Menangani double-click untuk bola ${bodies[clickedBall].label}`);
 
-  // Putuskan hubungan jika double-click
-  let connectionIndex = connectedBallsOrder.findIndex(
-    (connection) =>
-      connection.fromIndex === clickedBall || connection.toIndex === clickedBall
+function disconnectConnectedBalls(ballIndex) {
+  let connectionsToRemove = connectedBallsOrder.filter(
+    (connection) => connection.fromIndex === ballIndex || connection.toIndex === ballIndex
   );
 
-  if (connectionIndex !== -1) {
-    Composite.remove(engine.world, chains[connectionIndex]);
-    chains.splice(connectionIndex, 1);
-    const removedConnection = connectedBallsOrder.splice(connectionIndex, 1)[0];
-    console.log("Hubungan diputus");
-
-    const { fromIndex, toIndex } = removedConnection;
-
-    if (connectionsCount[fromIndex]?.count) {
-      connectionsCount[fromIndex].count -= 1;
-      if (connectionsCount[fromIndex].count === 0) {
-        delete connectionsCount[fromIndex];
+  connectionsToRemove.forEach((connection) => {
+    // Hapus koneksi dari connectedBallsOrder dan chains
+    let index = connectedBallsOrder.indexOf(connection);
+    if (index !== -1) {
+      Composite.remove(engine.world, chains[index]);
+      chains.splice(index, 1);
+      connectedBallsOrder.splice(index, 1);
+      const { fromIndex, toIndex } = connection;
+      // Update jumlah koneksi
+      if (connectionsCount[fromIndex]?.count) {
+        connectionsCount[fromIndex].count -= 1;
+        if (connectionsCount[fromIndex].count === 0) {
+          delete connectionsCount[fromIndex];
+        }
       }
-    }
 
-    if (connectionsCount[toIndex]?.count) {
-      connectionsCount[toIndex].count -= 1;
-      if (connectionsCount[toIndex].count === 0) {
-        delete connectionsCount[toIndex];
+      if (connectionsCount[toIndex]?.count) {
+        connectionsCount[toIndex].count -= 1;
+        if (connectionsCount[toIndex].count === 0) {
+          delete connectionsCount[toIndex];
+        }
       }
+      disconnectConnectedBalls(toIndex);
     }
-    connectSound.play();
+  });
+}
+function handleDoubleClick(clickedBall) {
+    disconnectConnectedBalls(clickedBall);
 
+    
     selectedBall = null;
     clickedBall = null;
-  }
+    connectSound.play();
 }
 
 function handleSingleClick(clickedBall) {
   if (selectedBall === null) {
     selectedBall = clickedBall;
-    console.log(`Bola terpilih: ${bodies[selectedBall].label}`);
+    // console.log(`Bola terpilih: ${bodies[selectedBall].label}`);
     if (connectedBallsOrder.length === 0 && clickedBall !== 0) {
       selectedBall = null;
     }
@@ -617,15 +633,15 @@ function handleSingleClick(clickedBall) {
               initialSelectedBall = clickedBall;
               initialClickedBall = selectedBall;
 
-              console.log(`Koneksi 1 ditambahkan: ${from} -> ${to}`);
+              // console.log(`Koneksi 1 ditambahkan: ${from} -> ${to}`);
             } else {
               initialSelectedBall = selectedBall;
               initialClickedBall = clickedBall;
-              console.log(`Koneksi 2 ditambahkan: ${from} -> ${to}`);
+              // console.log(`Koneksi 2 ditambahkan: ${from} -> ${to}`);
             }
           } else {
             selectedBall = null;
-            console.log("Koneksi harus mengikuti koneksi terakhir");
+            // console.log("Koneksi harus mengikuti koneksi terakhir");
             return;
           }
         } else {
@@ -642,8 +658,8 @@ function handleSingleClick(clickedBall) {
           toIndex: initialClickedBall,
         });
 
-        console.log(`Koneksi ditambahkan: ${from} -> ${to}`);
-        console.log("Urutan koneksi:", connectedBallsOrder);
+        // console.log(`Koneksi ditambahkan: ${from} -> ${to}`);
+        // console.log("Urutan koneksi:", connectedBallsOrder);
 
         if (getConnectionCount(selectedBall) > 0) {
           let selectedBallPos = bodies[selectedBall].position;
@@ -713,6 +729,12 @@ function isAlreadyConnected(ballA, ballB) {
 
 function reset() {
   switch (level) {
+    case 1:
+      initManik = [...initManik];
+      num = 17;
+      Composite.clear(engine.world);
+      activateScene3();
+      break;
     case 2:
       initManik = [...initManik2];
       num = 31;
@@ -722,6 +744,7 @@ function reset() {
     default:
       initManik = [...initManik];
       num = 17;
+      Composite.clear(engine.world);
       break;
   }
   // Clear all existing chains (connections)
@@ -743,14 +766,14 @@ function reset() {
 
     // Tentukan posisi bola pertama dan bola terakhir
     if (i === 0) {
-      x = width / 2; // Posisi bola pertama (misalnya di kiri)
+      x = width / 4; // Posisi bola pertama (misalnya di kiri)
       y = height / 8; // Posisi Y bola pertama
     } else {
       // Posisi bola lainnya berada di tengah-tengah bola pertama dan bola terakhir
-      let xStart = width / 8 + 150;
+      let xStart = width / 2;
       let xEnd = width;
       x = random(xStart, xEnd); // Menggunakan lerp untuk interpolasi posisi X
-      y = random(0, height - 150); // Posisi Y bola lainnya bisa acak
+      y = random(height / 7, height / 2); // Posisi Y bola lainnya bisa acak
     }
     let newPos = {
       x,
