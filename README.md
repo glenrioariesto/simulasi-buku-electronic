@@ -29,10 +29,33 @@ Proyek ini terdiri dari beberapa simulasi yang dapat diakses dan dimainkan langs
 ```bash
 simulasi-buku-electronic/
 ├── Alat_ukur/
-├── Interaksi_antarperangkat-wifi/
+├── Interaksi_antarperangkat/
 ├── Menyusun_manik-manik/
 ├── Pemrograman_blok_algoritma/
 ├── Penggunaan_APD/
 └── Proyeksi_bidang/
 
 Setiap folder berisi berkas HTML, CSS, dan JavaScript yang diperlukan untuk menjalankan simulasi masing-masing.
+
+🚀 Cara Menjalankan
+# Kloning repositori ke komputer Anda
+git clone https://github.com/glenrioariesto/simulasi-buku-electronic.git
+
+# Buka folder proyek
+cd simulasi-buku-electronic
+
+# Jalankan simulasi dengan membuka file index.html dari setiap folder menggunakan browser
+
+📌 Kontribusi
+
+Kontribusi sangat diterima! Jika Anda ingin menambahkan fitur baru atau memperbaiki bug, silakan buat issue atau kirim pull request.
+
+📜 Lisensi
+
+Proyek ini dilisensikan di bawah MIT License.
+
+📬 Kontak
+
+Jika ada pertanyaan atau masukan, silakan hubungi glenrioariesto.
+
+💡 Selamat belajar dan bereksplorasi dengan simulasi interaktif ini!
