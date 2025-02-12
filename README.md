@@ -34,10 +34,12 @@ simulasi-buku-electronic/
 ├── Pemrograman_blok_algoritma/
 ├── Penggunaan_APD/
 └── Proyeksi_bidang/
-
+```
 Setiap folder berisi berkas HTML, CSS, dan JavaScript yang diperlukan untuk menjalankan simulasi masing-masing.
 
-🚀 Cara Menjalankan
+## 🚀 Cara Menjalankan
+
+```bash
 # Kloning repositori ke komputer Anda
 git clone https://github.com/glenrioariesto/simulasi-buku-electronic.git
 
@@ -45,8 +47,9 @@ git clone https://github.com/glenrioariesto/simulasi-buku-electronic.git
 cd simulasi-buku-electronic
 
 # Jalankan simulasi dengan membuka file index.html dari setiap folder menggunakan browser
+```
 
-📌 Kontribusi
+##  📌 Kontribusi
 
 Kontribusi sangat diterima! Jika Anda ingin menambahkan fitur baru atau memperbaiki bug, silakan buat issue atau kirim pull request.
 
