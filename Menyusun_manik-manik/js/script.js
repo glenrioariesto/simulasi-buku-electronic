@@ -433,7 +433,7 @@ function draw() {
         translate(x1, y1);
         rotate(bodies[i].angle);
         imageMode(CENTER);
-        image(textureYellowCircle, 0, 0, radius , radius );
+        image(textureYellowCircle, 0, 0, 30 , 30 );
         pop();
       }
     }
