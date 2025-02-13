@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Buku Elektronik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media (max-width: 640px) {
+            .grid-cols-responsive {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .grid-cols-responsive {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 1025px) {
+            .grid-cols-responsive {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto p-4 md:p-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Simulasi Buku Elektronik 📖</h1>
+        <div class="grid gap-6 grid-cols-responsive">
+            <a href="./Alat_ukur/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
+                <img src="./assets/alat-ukur.png" alt="Alat Ukur" class="w-full h-auto object-cover">
+                <h2 class="text-lg font-semibold my-2 text-center">Alat Ukur</h2>
+            </a>
+            <a href="./Interaksi_antarperangkat-wifi/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
+                <img src="./assets/cctv.png" alt="Interaksi WiFi" class="w-full h-auto object-cover">
+                <h2 class="text-lg font-semibold my-2 text-center">Interaksi Antar Perangkat - WiFi</h2>
+            </a>
+            <a href="./Menyusun_manik-manik/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
+                <img src="./assets/menyusun-manik-manik.png" alt="Menyusun Manik-Manik" class="w-full h-auto object-cover">
+                <h2 class="text-lg font-semibold my-2 text-center">Menyusun Manik-Manik</h2>
+            </a>
+            <a href="./Pemrograman_blok_algoritma/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
+                <img src="./assets/pemrogragam-blok.png" alt="Pemrograman Blok Algoritma" class="w-full h-auto object-cover">
+                <h2 class="text-lg font-semibold my-2 text-center">Pemrograman Blok Algoritma</h2>
+            </a>
+            <a href="./Penggunaan_APD/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
+                <img src="./assets/penggunaan-apd.png" alt="Penggunaan APD" class="w-full h-auto object-cover">
+                <h2 class="text-lg font-semibold my-2 text-center">Penggunaan APD</h2>
+            </a>
+            <a href="./Proyeksi_bidang/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
+                <img src="./assets/proyeksi-bidang.png" alt="Proyeksi Bidang" class="w-full h-auto object-cover">
+                <h2 class="text-lg font-semibold my-2 text-center">Proyeksi Bidang</h2>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
