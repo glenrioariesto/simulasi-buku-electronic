@@ -92,7 +92,7 @@ function drop(event) {
     const newTool = document.createElement("div");
 
     // Ambil ID dari draggedTool dan tambahkan -use sesuai yang di css
-    const draggedToolId = draggedTool.id;
+    const draggedToolId = draggedTool.id.replace(/-use$/, '');
     const newToolId = `${draggedToolId}-use`;
     // Atur posisi alat
     newTool.id = newToolId;
