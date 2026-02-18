@@ -1,57 +1,210 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulasi Buku Elektronik</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @media (max-width: 640px) {
-            .grid-cols-responsive {
-                grid-template-columns: 1fr;
-            }
-        }
-        @media (min-width: 641px) and (max-width: 1024px) {
-            .grid-cols-responsive {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        @media (min-width: 1025px) {
-            .grid-cols-responsive {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-        }
-    </style>
+    <title>Simulasi Buku Elektronik — Menu Utama</title>
+    <meta name="description"
+        content="Jelajahi dunia simulasi interaktif untuk pembelajaran. Pilih dari 6 simulasi buku elektronik yang menarik dan edukatif.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center text-gray-900">
-    <div class="container p-4 md:p-8">
-        <h1 class="text-3xl font-bold text-center mb-8">Simulasi Buku Elektronik 📖</h1>
-        <div class="grid gap-6 grid-cols-responsive">
-            <a href="./Alat_ukur/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
-                <img src="./assets/alat-ukur.png" alt="Alat Ukur" class="w-full h-auto object-cover">
-                <h2 class="text-lg font-semibold my-2 text-center">Alat Ukur</h2>
-            </a>
-            <a href="./Interaksi_antarperangkat/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
-                <img src="./assets/cctv.png" alt="Interaksi WiFi" class="w-full h-auto object-cover">
-                <h2 class="text-lg font-semibold my-2 text-center">Interaksi Antar Perangkat - WiFi</h2>
-            </a>
-            <a href="./Menyusun_manik-manik/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
-                <img src="./assets/menyusun-manik-manik.png" alt="Menyusun Manik-Manik" class="w-full h-auto object-cover">
-                <h2 class="text-lg font-semibold my-2 text-center">Menyusun Manik-Manik</h2>
-            </a>
-            <a href="./Pemrograman_blok_algoritma/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
-                <img src="./assets/pemrogragam-blok.png" alt="Pemrograman Blok Algoritma" class="w-full h-auto object-cover">
-                <h2 class="text-lg font-semibold my-2 text-center">Pemrograman Blok Algoritma</h2>
-            </a>
-            <a href="./Penggunaan_APD/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
-                <img src="./assets/penggunaan-apd.png" alt="Penggunaan APD" class="w-full h-auto object-cover">
-                <h2 class="text-lg font-semibold my-2 text-center">Penggunaan APD</h2>
-            </a>
-            <a href="./Proyeksi_bidang/index.html" class="block bg-white shadow-lg rounded-lg hover:shadow-xl overflow-hidden">
-                <img src="./assets/proyeksi-bidang.png" alt="Proyeksi Bidang" class="w-full h-auto object-cover">
-                <h2 class="text-lg font-semibold my-2 text-center">Proyeksi Bidang</h2>
-            </a>
-        </div>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-main"></div>
+
+    <!-- Decorative Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Dot Pattern Overlay -->
+    <div class="dot-pattern"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
+
+    <!-- Main Content -->
+    <div class="page-content">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-icon">📖</div>
+            <h1>Simulasi Buku Elektronik</h1>
+            <p class="tagline">Jelajahi dunia simulasi interaktif untuk pembelajaran yang menyenangkan dan bermakna</p>
+            <div class="header-divider"></div>
+        </header>
+
+        <!-- Card Grid -->
+        <main class="card-grid-wrapper">
+            <div class="card-grid">
+
+                <!-- Card 1: Alat Ukur -->
+                <a href="./Alat_ukur/index.html" class="card" id="card-alat-ukur">
+                    <div class="card-image-wrapper">
+                        <img src="./assets/alat-ukur.png" alt="Alat Ukur" loading="lazy">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-label">
+                            <span class="card-emoji">🔧</span>
+                            <span class="card-title">Alat Ukur</span>
+                        </div>
+                        <p class="card-desc">Simulasi penggunaan berbagai alat ukur teknik secara interaktif</p>
+                        <div class="card-arrow">
+                            Mulai Belajar
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2: Interaksi Antar Perangkat -->
+                <a href="./Interaksi_antarperangkat/index.html" class="card" id="card-interaksi-wifi">
+                    <div class="card-image-wrapper">
+                        <img src="./assets/cctv.png" alt="Interaksi Antar Perangkat WiFi" loading="lazy">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-label">
+                            <span class="card-emoji">📡</span>
+                            <span class="card-title">Interaksi Antar Perangkat — WiFi</span>
+                        </div>
+                        <p class="card-desc">Pelajari koneksi dan interaksi antar perangkat melalui jaringan WiFi</p>
+                        <div class="card-arrow">
+                            Mulai Belajar
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3: Menyusun Manik-Manik -->
+                <a href="./Menyusun_manik-manik/index.html" class="card" id="card-manik-manik">
+                    <div class="card-image-wrapper">
+                        <img src="./assets/menyusun-manik-manik.png" alt="Menyusun Manik-Manik" loading="lazy">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-label">
+                            <span class="card-emoji">📿</span>
+                            <span class="card-title">Menyusun Manik-Manik</span>
+                        </div>
+                        <p class="card-desc">Susun pola manik-manik secara kreatif dengan simulasi interaktif</p>
+                        <div class="card-arrow">
+                            Mulai Belajar
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4: Pemrograman Blok Algoritma -->
+                <a href="./Pemrograman_blok_algoritma/index.html" class="card" id="card-pemrograman-blok">
+                    <div class="card-image-wrapper">
+                        <img src="./assets/pemrogragam-blok.png" alt="Pemrograman Blok Algoritma" loading="lazy">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-label">
+                            <span class="card-emoji">💻</span>
+                            <span class="card-title">Pemrograman Blok Algoritma</span>
+                        </div>
+                        <p class="card-desc">Belajar logika dan algoritma pemrograman menggunakan blok visual</p>
+                        <div class="card-arrow">
+                            Mulai Belajar
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 5: Penggunaan APD -->
+                <a href="./Penggunaan_APD/index.html" class="card" id="card-apd">
+                    <div class="card-image-wrapper">
+                        <img src="./assets/penggunaan-apd.png" alt="Penggunaan APD" loading="lazy">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-label">
+                            <span class="card-emoji">🦺</span>
+                            <span class="card-title">Penggunaan APD</span>
+                        </div>
+                        <p class="card-desc">Simulasi pemilihan dan penggunaan alat pelindung diri yang benar</p>
+                        <div class="card-arrow">
+                            Mulai Belajar
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 6: Proyeksi Bidang -->
+                <a href="./Proyeksi_bidang/index.html" class="card" id="card-proyeksi-bidang">
+                    <div class="card-image-wrapper">
+                        <img src="./assets/proyeksi-bidang.png" alt="Proyeksi Bidang" loading="lazy">
+                        <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-label">
+                            <span class="card-emoji">📐</span>
+                            <span class="card-title">Proyeksi Bidang</span>
+                        </div>
+                        <p class="card-desc">Eksplorasi konsep proyeksi geometri bidang dengan visualisasi 3D</p>
+                        <div class="card-arrow">
+                            Mulai Belajar
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 <span>Simulasi Buku Elektronik</span></p>
+            <p>Dibuat untuk pembelajaran interaktif yang menyenangkan ✨</p>
+        </footer>
+
+    </div>
+
 </body>
+
 </html>
